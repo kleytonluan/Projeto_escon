@@ -1672,6 +1672,8 @@ pre code {
   width: 100%;
   margin-bottom: 1rem;
   color: #212529;
+  margin: auto;
+
 }
 
 .table th,
@@ -4884,6 +4886,12 @@ input[type="button"].btn-block {
 .card > hr {
   margin-right: 0;
   margin-left: 0;
+}
+
+.card {
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
 }
 
 .card > .list-group:first-child .list-group-item:first-child {
