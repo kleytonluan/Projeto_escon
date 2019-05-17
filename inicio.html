@@ -238,7 +238,7 @@
           <div class="card-body">
             <div class="table-responsive">
               <div id="dvData">
-                <table id="tblExport" class="table table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
+                <table id="tblCustomers" class="table table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
                   <thead>
                     <tr>
                       <th>Escala</th>
@@ -329,7 +329,9 @@
             </div>
             <div class"modal-footer">
                   <br>
-                  <button id="btnExport" class="btn btn-secondary" type="button" data-dismiss="modal" >Exportar</button>
+                  <button id="btnExportPdf" class="btn btn-secondary" type="button" data-dismiss="modal" value="Export">Exportar PDF</button>
+                  <button id="btnExportExcel" class="btn btn-secondary" type="button" data-dismiss="modal" value="Export">Exportar Excel</button>
+
                 <!--  <button  class="btn btn-secondary" type="button" data-dismiss="modal" >
                     <a href="#" onClick ="$('#tableID').tableExport({type:'excel',escape:'false'});">Excel</a>
                   </button>
@@ -437,17 +439,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="js/jquery.btechco.excelexport.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/jquery.base64.js"></script>
-  <script type="text/javascript" src="js/tableExport.js"></script> 
-  <script type="text/javascript" src="js/html2canvas.js"></script>
-  <script type="text/javascript" src="js/jspdf/libs/sprintf.js"></script>
-  <script type="text/javascript" src="js/jspdf/jspdf.js"></script>
-  <script type="text/javascript" src="js/jspdf/libs/base64.js"></script>
-
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/tableHTMLExport.js"></script>
+
 
 
   <!-- Demo scripts for this page
