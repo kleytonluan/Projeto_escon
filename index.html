@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
 
@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>EsCon - Sistema de gerenciamento de escalas de serviços diários</title>
+  <title>EscOn - Sistema de gerenciamento de escalas de serviços diários</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,7 +25,7 @@
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand mr-1" href="index.html">EscOn</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -48,7 +48,7 @@
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
+          <span class="badge badge-danger"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
           <a class="dropdown-item" href="#">Action</a>
@@ -60,7 +60,7 @@
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
+          <span class="badge badge-danger"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
           <a class="dropdown-item" href="#">Action</a>
@@ -74,10 +74,9 @@
           <i class="fas fa-user-circle fa-fw"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#">Activity Log</a>
+          <a class="dropdown-item" href="#">Configurações</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
         </div>
       </li>
     </ul>
@@ -91,7 +90,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span>
+          <span>Painel principal</span>
         </a>
       </li>
       <li class="nav-item dropdown">
@@ -100,7 +99,7 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="login.html">Cadastra militar</a>
+          <a class="dropdown-item" href="charts.html">Cadastra militar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -111,7 +110,6 @@
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="login.html">Cadastrar escala</a>
           <a class="dropdown-item" href="tables.html">Consultar escala</a>
-          <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
         </div>
       </li>
      <!--
@@ -150,7 +148,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Dashboard</a>
+            <a href="index.html">Início</a>
           </li>
           <li class="breadcrumb-item active">Overview</li>
         </ol>
@@ -324,18 +322,6 @@
                     <td>3º Sgt Fortaleza</td>
                     <td>3º Sgt Adolfo</td>
                   </tr>
-                  <tr>
-                    <tr>
-                   <!-- <td>Adjunto</td>
-                    <td>1º Sgt Alfonso</td>
-                    <td>2º Sgt Paulo Cesar</td>
-                    <td>1º Sgt Heldon</td>
-                    <td>1º Sgt Heles</td>
-                    <td>2º Sgt Cavalcante</td>
-                    <td>2º Sgt Valmar</td>
-                    <td>2º Sgt Wemberg</td>
-                    <td>1º Sgt Veloso</td>
-                  </tr>-->
                 </tbody>
               </table>
             </div>
@@ -349,7 +335,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © EscOn 2019</span>
           </div>
         </div>
       </footer>
@@ -370,15 +356,15 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Deseja realmente sair?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-body">Clique em sair para encerrar a sessão.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="inicio.html">Sair</a>
         </div>
       </div>
     </div>
