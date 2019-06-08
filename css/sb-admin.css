@@ -1676,6 +1676,11 @@ pre code {
 
 }
 
+.btnTest{
+  background:url('../img/excel.png') no-repeat left center;
+  padding-left:20px;
+}    
+
 .campo1 {
   float:left;
 }
