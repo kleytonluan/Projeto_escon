@@ -57,15 +57,15 @@ $( document ).ready(function() {
 				var html = "";
 				html += "<div id='"+idForm+"' class='box-body'>"
 				html += "<div class='row'>"
-                html += "   <div class='form-group col-md-3'>"
+                html += "   <div class='form-group novoCampo col-md-3'>"
                 html += "      <input type='text' class='form-control' id='name' placeholder='Nome completo'>"
                 html += "    </div>"
-                html += "    <div class='form-group col-md-2'>"
+                html += "    <div class='form-group novoCampo col-md-2'>"
                 html += "      <input type='text' class='form-control' id='name' placeholder='Nome de guerra'>"
                 html += "    </div>"
                 html += "    <div class='form-group col-md-1'>"
                 html += "        <p>"
-                html += "            <select class='form-control diasemana' id='posto-grad'>"
+                html += "            <select class='form-control novoCampo' id='posto-grad'>"
                 html += "              <option value='1º Ten'>1º Ten</option>"
                 html += "              <option value='2º Ten'>2º Ten</option>"
                 html += "              <option value='Asp Of'>Asp Of</option>"
@@ -76,10 +76,13 @@ $( document ).ready(function() {
                 html += "              <option value='Sd'>Sd</option>"
                 html += "            </select>"
                 html += "          </p>"
+				html += "    </div>"
+				html += "	<div class='form-group col-md-2'>"
+                html += "      	<input type='date' class='form-control' id='date' value='2019-06-08'>"
                 html += "    </div>"
                 html += "    <div class='form-group col-md-1'>"
                 html += "        <p>"
-                html += "          <select class='form-control diasemana' id='cia'>"
+                html += "          <select class='form-control novoCampo' id='cia'>"
                 html += "            <option value='EM'>EM</option>"
                 html += "            <option value='CCAP'>CCAP</option>"
                 html += "            <option value='CEEM'>CEEM</option>"
@@ -87,25 +90,13 @@ $( document ).ready(function() {
 				html += "          </select>"
 				html += "        </p>"
 				html += "    </div>"
-				html += "    	<div class='form-group col-md-1'>"
-				html +=	"				<button class='btn''teste' onclick='exclui("+idForm+")' type='button'><span class='fa fa-trash'></span></button>";		
-                html += "  		</div>"
+				
+				html += "    <div class='form-group col-md-1'>"
+				html +=	"			<button class='btn''teste' onclick='exclui("+idForm+")' type='button'><span class='fa fa-trash'></span></button>";		
+                html += "  	</div>"
                 html += "  	</div>"
                 html += "</div>"
-			
-				//html += "<table id='"+idForm+"' class='table table-hover'>";
-
-	
-				/** html += "<td>";
-				html += "<span class='input-group-btn'>";
-				html +=	"<button class='btn''teste' onclick='exclui("+idForm+")' type='button'><span class='fa fa-trash'></span></button>";
-				html += "</span></div>";
-				html += "</td>";
-				html += "</tr>";
-				html += "</table>";
-				html += "</div>";*/
-		
-					
+							
 				$("#imendaHTML"+tipo).append(html);
 			}
 				
