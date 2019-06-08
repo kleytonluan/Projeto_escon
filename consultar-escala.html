@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
 
@@ -34,11 +34,11 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
+     <!-- <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
-          </button>
+          </button>-->
         </div>
       </div>
     </form>
@@ -110,7 +110,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="cadastro-escala.html">Cadastrar escala</a>
-          <a class="dropdown-item" href="tables.html">Consultar escala</a>
+          <a class="dropdown-item" href="consultar-escala.html">Consultar escala</a>
         </div>
       </li>
     </ul>
@@ -118,114 +118,33 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="index.html">Início</a>
           </li>
-          <li class="breadcrumb-item active">Overview</li>
+          <li class="breadcrumb-item active">Consultar escala</li>
         </ol>
 
-        <!-- DataTables Example -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Previsão da escala</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table id="example" class="table table-bordered" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Escala</th>
-                    <th>Segunda</th>
-                    <th>Terça</th>
-                    <th>Quarta</th>
-                    <th>Quinta</th>
-                    <th>Sexta</th>
-                    <th>Sábado</th>
-                    <th>Domingo</th>
-                    <th>Segunda</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Oficial de dia</td>
-                    <td>1º Ten Flávio</td>
-                    <td>2º Ten Lucas</td>
-                    <td>1º Ten Michel</td>
-                    <td>1º Ten Bruno</td>
-                    <td>2º Ten Carlos</td>
-                    <td>1º Ten Wilker</td>
-                    <td>2º Ten Rogério</td>
-                    <td>1º Ten Avelino</td>
-                  </tr>
-                  <tr>
-                    <td>Adjunto</td>
-                    <td>1º Sgt Alfonso</td>
-                    <td>2º Sgt Paulo Cesar</td>
-                    <td>1º Sgt Heldon</td>
-                    <td>1º Sgt Heles</td>
-                    <td>2º Sgt Cavalcante</td>
-                    <td>2º Sgt Valmar</td>
-                    <td>2º Sgt Wemberg</td>
-                    <td>1º Sgt Veloso</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Paiol</td>
-                    <td>2º Sgt Clésio</td>
-                    <td>2º Sgt Soaresr</td>
-                    <td>2º Sgt Celestimar</td>
-                    <td>2º Sgt Jackson</td>
-                    <td>2º Sgt Algusto</td>
-                    <td>2º Sgt Willames</td>
-                    <td>2º Sgt R. Sousa</td>
-                    <td>2º Sgt Jordão</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Ceem</td>
-                    <td>3º Sgt Gaspar</td>
-                    <td>3º Sgt Karlos</td>
-                    <td>3º Sgt Luz</td>
-                    <td>3º Sgt Gladerson</td>
-                    <td>3º Sgt Sousa</td>
-                    <td>3º Sgt James</td>
-                    <td>3º Sgt De Andrade</td>
-                    <td>3º Sgt Victor</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Ccap</td>
-                    <td>3º Sgt Kleyton</td>
-                    <td>3º Sgt Misael</td>
-                    <td>3º Sgt Flávio</td>
-                    <td>3º Sgt Franco</td>
-                    <td>3º Sgt Da Silva</td>
-                    <td>3º Sgt Sena</td>
-                    <td>3º Sgt Pacheco</td>
-                    <td>3º Sgt Batista</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Guarda</td>
-                    <td>3º Sgt Bruno</td>
-                    <td>3º Sgt Leiane</td>
-                    <td>3º Sgt Kelicio</td>
-                    <td>3º Sgt Lima</td>
-                    <td>3º Sgt Silva Ramos</td>
-                    <td>3º Sgt Geciana</td>
-                    <td>3º Sgt Fortaleza</td>
-                    <td>3º Sgt Adolfo</td>
-                  </tr>
-                </tbody>
-              </table>
+      <section class="content">
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <!--<h3 class="box-title">Informe os dados abaixo:</h3>-->
+              </div>
+
+
+              <form role="form">
+                <div class="box-body">
+
+
+                </div>
+              </form>
             </div>
           </div>
         </div>
-
-      </div>
+      </section>
+    </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -248,6 +167,7 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+  <!-- Logout Modal-->
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -276,18 +196,17 @@
 
   <!-- Page level plugin JavaScript-->
   <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-bar-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/script.js"></script>
+
 
 </body>
-
-<script src="js/script.js"></script>
 
 </html>
