@@ -87,120 +87,62 @@
 
 
         <!-- DataTables Example -->
-        <div id="tblCustomers" class="card mb-3">
+        <div class="card mb-10">
           <div  class="card-header">
-            <i class="fas fa-table"></i>
-            Previsão da escala do dia 03 a 10 de junho de 2019
-           <!-- <div class="form-group col-md-2">
-                <label for="name">Escala do dia:</label>
-                  <input type="date" class="form-control " id="date" value="2019-06-08">
-              </div>-->
-            
+            <i class="fas fi-random"></i>
+              Solicitação de troca de serviço     
             </div>
             
-          <div class="card-body">
-            <div class="table-responsive">
-              <div id="dvData">
-                <table  class="table table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
-                  <thead>
-                    <tr>
-                      <th>Escala</th>
-                      <th>Segunda-feira</th>
-                      <th>Terça-feira</th>
-                      <th>Quarta-feira</th>
-                      <th>Quinta-feira</th>
-                      <th>Sexta-feira</th>
-                      <th>Sábado</th>
-                      <th>Domingo</th>
-                      <th>Segunda-feira</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Oficial de dia</td>
-                      <td>1º Ten Flávio</td>
-                      <td>2º Ten Lucas</td>
-                      <td>1º Ten Michel</td>
-                      <td>1º Ten Bruno</td>
-                      <td>2º Ten Carlos</td>
-                      <td>1º Ten Wilker</td>
-                      <td>2º Ten Rogério</td>
-                      <td>1º Ten Avelino</td>
-                    </tr>
-                    <tr>
-                      <td>Adjunto</td>
-                      <td>1º Sgt Alfonso</td>
-                      <td>2º Sgt Paulo Cesar</td>
-                      <td>1º Sgt Heldon</td>
-                      <td>1º Sgt Heles</td>
-                      <td>2º Sgt Cavalcante</td>
-                      <td>2º Sgt Valmar</td>
-                      <td>2º Sgt Wemberg</td>
-                      <td>1º Sgt Veloso</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Paiol</td>
-                      <td>2º Sgt Clésio</td>
-                      <td>2º Sgt Soaresr</td>
-                      <td>2º Sgt Celestimar</td>
-                      <td>2º Sgt Jackson</td>
-                      <td>2º Sgt Algusto</td>
-                      <td>2º Sgt Willames</td>
-                      <td>2º Sgt R. Sousa</td>
-                      <td>2º Sgt Jordão</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Ceem</td>
-                      <td>3º Sgt Gaspar</td>
-                      <td>3º Sgt Karlos</td>
-                      <td>3º Sgt Luz</td>
-                      <td>3º Sgt Gladerson</td>
-                      <td>3º Sgt Sousa</td>
-                      <td>3º Sgt James</td>
-                      <td>3º Sgt De Andrade</td>
-                      <td>3º Sgt Victor</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Ccap</td>
-                      <td>3º Sgt Kleyton</td>
-                      <td>3º Sgt Misael</td>
-                      <td>3º Sgt Flávio</td>
-                      <td>3º Sgt Franco</td>
-                      <td>3º Sgt Da Silva</td>
-                      <td>3º Sgt Sena</td>
-                      <td>3º Sgt Pacheco</td>
-                      <td>3º Sgt Batista</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Guarda</td>
-                      <td>3º Sgt Bruno</td>
-                      <td>3º Sgt Leiane</td>
-                      <td>3º Sgt Kelicio</td>
-                      <td>3º Sgt Lima</td>
-                      <td>3º Sgt Silva Ramos</td>
-                      <td>3º Sgt Geciana</td>
-                      <td>3º Sgt Fortaleza</td>
-                      <td>3º Sgt Adolfo</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class"modal-footer">
-                <br>
-                <button id="btnExportPdf" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export">PDF</button>
-                <button id="btnExportExcel" class="btn btn-secondary btnTest btn-sm" type="button" data-dismiss="modal" value="Export">EXCEL</button>
-                <button href="../troca-servico.html" class="btn btn-info nao-flutuar btn-sm" type="button" data-dismiss="modal" value="Export">Solicitar troca de serviço</button>
+           <form role="form ">
+                <div class="box-body">
 
-            </div>
-          </div>
-        </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="name1">Militar substituido:</label>
+                      <input type="text" class="form-control campoDefault" id="name1" placeholder="Nome de guerra">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="name2">Militar substituto:</label>
+                      <input type="text" class="form-control campoDefault" id="name2" placeholder="Nome de guerra">
+                    </div>                                         
+                  </div>
 
-      </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="posto-grad">Serviço:</label>
+                        <p>
+                            <select class="form-control campoDefault" id="servico">
+                              <option value="1º Ten">Oficial de dia</option>
+                              <option value="2º Ten">Adjunto ao oficial de dia</option>
+                              <option value="Asp Of">Comandante da quarda do paiol</option>
+                              <option value="1º Sgt">Sargento de dia da ceem</option>
+                              <option value="2º Sgt">Sargento de dia da ccap</option>
+                              <option value="3º Sgt">Comandante da guarda do quartel</option>
+                            </select>
+                          </p>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="name">Data do serviço:</label>
+                      <input type="date" class="form-control" id="date" value="2019-06-08">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="exampleFormControlTextarea1">Justificativa:</label>
+                      <textarea class="textarea1" id="exampleFormControlTextarea1" rows="5" ></textarea>
+                    </div>
+                  </div>
+                  
+                  <div class="button">
+                    <a href="inicio.html"> 
+                      <button type="submit" class="btn btn-secondary">Enviar solicitação</button>
+                    </a>
+                  </div>
+
+                </div>
+                </div>
+              </form>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
