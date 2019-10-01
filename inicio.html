@@ -20,6 +20,8 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+
 
 </head>
 
@@ -229,8 +231,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <div class="container">
-           <!-- <img src="img/logo.png" alt="Imagem de página não encontrada" class="img-responsive">-->
-           <img src="img/logo.png" alt="Imagem de página não encontrada" width="500" height="200" />
+           <!-- <img src="img/logo.png" alt="Imagem de página não encontrada" class="img-responsive">
+           <img src="img/logo.png" alt="Imagem de página não encontrada" width="500" height="200" />-->
             <div class="card card-login mx-auto">
               <div class="card-header">Login</div>
               <div class="card-body">
@@ -305,6 +307,14 @@
   <script src="js/script.js"></script>
   <script src="js/tableHTMLExport.js"></script>
   <script src="plugin/iCheck/icheck.min.js"></script>
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function() {
+          console.log('Service Worker Registered');
+          });
+    }
+  </script>
 
 
 
