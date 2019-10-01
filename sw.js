@@ -1,6 +1,7 @@
 var cacheName = 'escon-page';
 var filesToCache = [
   '/',
+  '/inicio.html',
   '/index.html',
   '/vendor/fontawesome-free/css/all.min.css',
   '/css/sb-admin.css',

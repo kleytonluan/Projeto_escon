@@ -9,6 +9,7 @@
   <meta name="description" content="Export HTML table to Excel Format With Jquery- WSnippets.com" />
   <meta name="description" content="">
   <meta name="author" content="">
+  <meta name="theme-color" content="grey">
 
   <title>EscOn - Escalas Online</title>
 
@@ -294,10 +295,11 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="js/jquery.btechco.excelexport.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+ <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--> 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
@@ -307,14 +309,27 @@
   <script src="js/script.js"></script>
   <script src="js/tableHTMLExport.js"></script>
   <script src="plugin/iCheck/icheck.min.js"></script>
-  <script>
+   <script>
     if('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js')
         .then(function() {
-          console.log('Service Worker Registered');
+          console.log('Service Worker Registrado com sucesso!');
           });
     }
   </script>
+  <!--<script>
+      messaging.requestPermission()
+      .then(function() {
+        console.log('Notification permission granted.');
+        return messaging.getToken();
+      })
+      .then(function(token) {
+        console.log(token);
+      })
+      .catch(function(err) {
+        console.log('Unable to get permission to notify.', err);
+      })
+    </script>-->
 
 
 
