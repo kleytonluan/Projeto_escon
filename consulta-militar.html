@@ -118,88 +118,122 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="index.html">Início</a>
           </li>
-          <li class="breadcrumb-item active">Cadastro de militar</li>
+          <li class="breadcrumb-item active">Consulta de militares</li>
         </ol>
 
-      <section class="content">
-        <div class="row ">
-          <div class="col-md-12 ">
-            <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">Informe os dados abaixo:</h3>
-              </div>
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Tabela de militares cadastrados</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Nome completo</th>
+                    <th>Nome de guerra</th>
+                    <th>P/G</th>
+                    <th>Data de praça</th>
+                    <th>Companhia</th>
+                    <th>Salary</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Luan Kleyton Ramos de Brito Carvalho</td>
+                    <td>Kleyton</td>
+                    <td>3º Sgt</td>
+                    <td>01/03/2015</td>
+                    <td>CCAP</td>
+                    <td></td>
+                  </tr>
+                 <!-- <tr>
+                    <td>Garrett Winters</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>63</td>
+                    <td>2011/07/25</td>
+                    <td>$170,750</td>
+                  </tr>
+                  <tr>
+                    <td>Ashton Cox</td>
+                    <td>Junior Technical Author</td>
+                    <td>San Francisco</td>
+                    <td>66</td>
+                    <td>2009/01/12</td>
+                    <td>$86,000</td>
+                  </tr>
+                  <tr>
+                    <td>Cedric Kelly</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>Edinburgh</td>
+                    <td>22</td>
+                    <td>2012/03/29</td>
+                    <td>$433,060</td>
+                  </tr>
+                  <tr>
+                    <td>Airi Satou</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>33</td>
+                    <td>2008/11/28</td>
+                    <td>$162,700</td>
+                  </tr>
+               <tr>
+                    <td>Brielle Williamson</td>
+                    <td>Integration Specialist</td>
+                    <td>New York</td>
+                    <td>61</td>
+                    <td>2012/12/02</td>
+                    <td>$372,000</td>
+                  </tr>
+                  <tr>
+                    <td>Herrod Chandler</td>
+                    <td>Sales Assistant</td>
+                    <td>San Francisco</td>
+                    <td>59</td>
+                    <td>2012/08/06</td>
+                    <td>$137,500</td>
+                  </tr>
+                  <tr>
+                    <td>Rhona Davidson</td>
+                    <td>Integration Specialist</td>
+                    <td>Tokyo</td>
+                    <td>55</td>
+                    <td>2010/10/14</td>
+                    <td>$327,900</td>
+                  </tr>
+                  <tr>
+                    <td>Colleen Hurst</td>
+                    <td>Javascript Developer</td>
+                    <td>San Francisco</td>
+                    <td>39</td>
+                    <td>2009/09/15</td>
+                    <td>$205,500</td>
+                  </tr>-->
 
-
-              <form role="form">
-                <div class="box-body">
-
-                  <div class="row">
-                    <div class="form-group col-md-3">
-                      <label for="name">Nome completo</label>
-                      <input type="text" class="form-control campoDefault" id="name" placeholder="Nome completo">
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="name">Nome de guerra</label>
-                      <input type="text" class="form-control campoDefault" id="name" placeholder="Nome de guerra">
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="posto-grad">P/G</label>
-                        <p>
-                            <select class="form-control campoDefault" id="posto-grad">
-                              <option value="1º Ten">1º Ten</option>
-                              <option value="2º Ten">2º Ten</option>
-                              <option value="Asp Of">Asp Of</option>
-                              <option value="1º Sgt">1º Sgt</option>
-                              <option value="2º Sgt">2º Sgt</option>
-                              <option value="3º Sgt">3º Sgt</option>
-                              <option value="Cb">Cb</option>
-                              <option value="Sd">Sd</option>
-                            </select>
-                          </p>
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="name">Data de praça</label>
-                      <input type="date" class="form-control" id="date" value="2019-06-08">
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label for="cia">Companhia</label>
-                        <p>
-                          <select class="form-control campoDefault" id="cia">
-                            <option value="EM">EM</option>
-                            <option value="CCAP">CCAP</option>
-                            <option value="CEEM">CEEM</option>
-                            <option value="2ª CIA">2ª CIA</option>
-                          </select>
-                        </p>
-                    </div>                    
-                  </div>
-                </div>
-                
-                  <div id="imendaHTMLitem"></div>
-                
-                  <div class="box-footer nao-flutuar">
-                    <button type="submit" id="btnAdicionaItem" class="btn btn-secondary">Adicionar outro</button>
-                    <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Salvar</button>
-                  </div>
-
-                </div>
-              </form>
+                </tbody>
+              </table>
             </div>
           </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
-      </section>
-    </div>
+
+      </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © EscOn 2019</span>
+            <span>Copyright © Your Website 2019</span>
           </div>
         </div>
       </footer>
@@ -215,7 +249,6 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -243,17 +276,14 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-bar-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/script.js"></script>
-
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

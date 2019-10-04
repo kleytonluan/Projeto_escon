@@ -1,9 +1,9 @@
 {
   "name": "EscOn",
-  "short_name": "Escalas Online",
-  "theme_color": "#2196f3",
+  "short_name": "EscOn",
+  "theme_color": "#A2CD5A",
   "meta name =": "theme-color ",
-  "background_color": "#2196f3",
+  "background_color": "#A2CD5A",
   "display": "standalone",
   "Scope": "/",
   "start_url": "/inicio.html",
