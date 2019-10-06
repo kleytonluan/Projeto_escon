@@ -303,33 +303,46 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
   <script src="js/script.js"></script>
   <script src="js/tableHTMLExport.js"></script>
   <script src="plugin/iCheck/icheck.min.js"></script>
-   <script>
-    if('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js')
-        .then(function() {
-          console.log('Service Worker Registrado com sucesso!');
-          });
-    }
-  </script>
-  <!--<script>
-      messaging.requestPermission()
-      .then(function() {
-        console.log('Notification permission granted.');
-        return messaging.getToken();
-      })
-      .then(function(token) {
-        console.log(token);
-      })
-      .catch(function(err) {
-        console.log('Unable to get permission to notify.', err);
-      })
-    </script>-->
+  <script> 
+      // Inicialize o Firebase 
+      var config = {
+        apiKey: "AIzaSyAZsFxnu1KUfNHvXcxxT4k_HoA2Vf_s4xI",
+        authDomain: "escon-9ba26.firebaseapp.com",
+        databaseURL: "https://escon-9ba26.firebaseio.com",
+        projectId: "escon-9ba26",
+        storageBucket: "escon-9ba26.appspot.com",
+        messagingSenderId: "533904781159" 
+      }; 
+      firebase.initializeApp (config); 
+    </script>
+    <script>
+      if('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function() {
+            console.log('Service Worker Registrado com sucesso!');
+            });
+      }
+    </script>
+    <script> 
+        const messaging = firebase.messaging (); 
+        messaging.requestPermission () 
+        .then (function () { 
+            console.log ('Notificação de permissão concedida.'); 
+            return messaging.getToken (); 
+        }) 
+        .then (function (token) { 
+            console.log (token); 
+        }) 
+        .catch (function (err) { 
+            console.log ('Não foi possível obter permissão para notificar.', err); 
+        }) 
+      </script>
 
 
 
