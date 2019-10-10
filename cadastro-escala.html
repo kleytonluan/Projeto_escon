@@ -50,7 +50,7 @@
           <i class="fas fa-bell fa-fw"></i>
           <span class="badge badge-danger"></span>
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+      <!--  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
@@ -68,7 +68,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
+      </li>-->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user-circle fa-fw"></i>
@@ -100,7 +100,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="cadastro-militar.html">Cadastra militar</a>
-          <a class="dropdown-item" href="tables.html">Consultar militar</a>
+          <a class="dropdown-item" href="consulta-militar.html">Consultar militar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -126,47 +126,36 @@
         </ol>
 
       <section class="content">
-        <div class="row ">
           <div class="col-md-12 ">
             <div class="box box-primary">
               <div class="box-header with-border">
                 <!--<h3 class="box-title">Informe os dados abaixo:</h3>-->
               </div>
 
-
               <form role="form">
-                <div class="box-body">
-
+                  <div class="box-body">
                     <div class="row">
-                      <div class="form-group col-md-2">
-                          <label for="name">Escala do dia:</label>
-                          <input type="date" class="form-control " id="date" value="2019-06-08">
-                      </div>
+                        <div class="form-group col-sm-2" id="datetimepicker1">
+                            <label for="name">Escala do dia:</label>
+                            <input type="date" class="form-control">
+                        </div>
+                        <div class="form-group col-sm-2 lado" id="datetimepicker1">
+                          <label for="name">para o dia:</label>
+                          <input type="date" class="form-control lado">
+                        </div> 
                     </div>
-
-                    <div class="row">
-                      <div class="form-group col-md-2">
-                        <label for="name">para o dia:</label>
-                        <input type="date" class="form-control" id="date" value="2019-06-08">
-                      </div>                          
-                    </div>
-                    
-                </div>
-                
-                  <div id="imendaHTMLitem"></div>
-                
-                  <div class="box-footer nao-flutuar">
-                    <button type="submit" id="btnAdicionaItem" class="btn btn-secondary">Adicionar outro</button>
-                    <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Salvar</button>
                   </div>
-
-                </div>
+                   
+                    <div class="box-footer nao-flutuar">
+                      <button type="submit" id="btnAdicionaItem" class="btn btn-secondary">Adicionar outro</button>
+                      <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Salvar</button>
+                    </div>
+                  </div>                    
               </form>
+
             </div>
           </div>
-        </div>
       </section>
-    </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -227,7 +216,11 @@
   <script src="js/demo/chart-bar-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
   <script src="js/script.js"></script>
-
+  <script type="text/javascript">
+    $(function() {
+      $('#datetimepicker1').datetimepicker();
+    });
+  </script>
 
 </body>
 
