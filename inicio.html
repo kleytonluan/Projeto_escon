@@ -75,9 +75,9 @@
       </li>
       <li class="nav-item dropdown no-arrow">
        <!--<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-          <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-info btn-default btn-sm"><span class="fas fa-user-circle fa-fw"></span>Entrar</a>
+          <a href="#" data-toggle="modal" data-target="#Modal01" class="btn btn-info btn-default btn-sm"><span class="fas fa-user-circle fa-fw"></span>Entrar</a>
         </a>
-            <div id="myModal" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
+            <div id="Modal01" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header"><!-- Header do modal -->
@@ -111,7 +111,7 @@
                     </div>
                 </div>
             </div><!-- ##Fim do Modal -->
-               
+                         
         
         <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script><!-- Chama a biblioteca JQuery -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><!-- Chama o arquivo Bootstrap JavaScript -->
@@ -247,8 +247,71 @@
                 <br>
                 <button id="btnExportPdf" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fa fa-download"></i> pdf</button>
                 <button id="btnExportExcel" class="btn btn-secondary btnTest btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fa fa-download"></i> xls</button>
-                <button href="../troca-servico.html" class="btn btn-info nao-flutuar lado btn-sm" type="button" data-dismiss="modal" value="Export">Trocar serviço</button>
+                
+                <a href="#" data-toggle="modal" data-target="#Modal02" class="btn btn-info nao-flutuar lado btn-sm">Trocar serviço</a>
+                </a>
+                    <div id="Modal02" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header"><!-- Header do modal -->
+                                    <h4 class="modal-title">Solicitar troca de serviço</h4><!-- Título -->
+                                    <!--<h5><p>Solicitar com pelo menos 3 dias de antecedencia</p></h5> Título -->
+                                </div>
+                                <div class="modal-body"><!-- Corpo do modal -->
 
+                                    <form action="" method="post"><!-- Início do Formulário -->
+
+                                        <div class="form-group">
+                                            <label for="name">Militar solicitante da troca:</label>
+                                            <input type="text" class="form-control" required="required">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name">Militar voluntário para tirar o serviço:</label>
+                                            <input type="text" class="form-control" required="required">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                          <label>Serviço:</label>
+                                            <p>
+                                              <select class="form-control campoDefault" id="cia">
+                                                <option value="Oficial de dia">Oficial de dia</option>
+                                                <option value="Adjunto ao oficial de dia">Adjunto ao oficial de dia</option>
+                                                <option value="Comandante da guarda do Paiol">Comandante da guarda do Paiol</option>
+                                                <option value="Sargento de dia CEEM">Sargento de dia CEEM</option>
+                                                <option value="Sargento de dia CCAP">Sargento de dia CCAP</option>
+                                                <option value="Comandante da guarda do quartel">Comandante da guarda do quartel</option>
+                                              </select>
+                                            </p>
+                                        </div> 
+                                        
+                                        <div class="form-group" id="datetimepicker1">
+                                          <label for="name">Data do serviço:</label>
+                                          <input type="date" required class="form-control" placeholder="Data do serviço">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="name">Justificativa:</label>
+                                            <textarea class="textarea1" required="required" ></textarea>
+                                        </div>
+
+
+                                        <button class="btn btn-block btn-info btn btn-primary btn-flat">Enviar solicitação</button>
+
+                                    </form>
+
+                                </div>
+                                
+                                <div class="modal-footer"><!-- Footer do Modal -->
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                        Fechar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    </button>                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ##Fim do Modal-->
             </div>
           </div>
         </div>
