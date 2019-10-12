@@ -3,11 +3,10 @@ var filesToCache = [
   '/',
   '/offline/index.html',
   '/inicio.html',
-  '/index.html',
+ // '/index.html',
   '/vendor/fontawesome-free/css/all.min.css',
   '/css/sb-admin.css',
   '/vendor/datatables/dataTables.bootstrap4.css'
-  
 
 ];
 self.addEventListener('install', function(event) {
@@ -19,10 +18,52 @@ self.addEventListener('install', function(event) {
     })
   );
 });
+
 self.addEventListener('activate',  event => {
   event.waitUntil(self.clients.claim());
 });
 
+/**  Serve from Cache
+self.addEventListener("fetch", event => {
+  event.respondWith(
+   caches.match(event.request)
+      .then(response => {
+        return response || fetch(event.request);
+      })
+      .catch(() => {
+        alert("Voce esta Offline. Joge esse joguindo até chegar internet. ;D");
+        return caches.match('offline/index.html');
+      })
+  )
+});*/
+
+
+self.addEventListener('fetch', event => {
+  // request.mode = navigate isn't supported in all browsers
+  // so include a check for Accept: text/html header.
+  if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+        event.respondWith(
+          fetch(event.request.url).catch(error => {
+              // Return the offline page
+              //alert("Voce esta Offline. Joge esse joguindo até chegar internet. ;D", error )
+              return caches.match('offline/index.html');
+
+              //return caches.match(offlineUrl);
+          })
+    );
+  }
+  else{
+        // Respond with everything else if we can
+        event.respondWith(caches.match(event.request)
+                        .then(function (response) {
+                        return response || fetch(event.request);
+                    })
+            );
+      }
+});
+
+
+/** 
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.match(event.request)
@@ -30,7 +71,11 @@ self.addEventListener('fetch', function(event) {
         // Cache hit - return response
         if (response) {
           return response;
+        } else {
+          console.log('Voce esta Offline. Joge esse joguindo até chegar internet. ;D');
+          return caches.match('offline/index.html');
         }
+        
         // IMPORTANT: Clone the request. A request is a stream and
         // can only be consumed once. Since we are consuming this
         // once by cache and once by the browser for fetch, we need
@@ -60,24 +105,7 @@ self.addEventListener('fetch', function(event) {
         );
       })
     );
-});
-
-// Serve from Cache
-self.addEventListener("fetch", event => {
-  event.respondWith(
-     /**caches.match(event.request, {ignoreSearch:true}).then(response => {
-      return response || fetch(event.request);
-    })**/
-   caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
-      .catch(() => {
-        return caches.match('/offline/index.html');
-      })
-  )
-});
-
+});*/
 
 //Push notification 
 
