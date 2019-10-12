@@ -8,25 +8,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <meta name="theme-color" content="grey">
 
   <title>EscOn - Escalas Online</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="../../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="../../css/sb-admin.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="index.html">EscOn</a>
+    <a class="navbar-brand mr-1" href="../../index.html">EscOn</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -35,11 +34,11 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
+     <!-- <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
-          </button>
+          </button>-->
         </div>
       </div>
     </form>
@@ -89,7 +88,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="../../index.html">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Painel principal</span>
         </a>
@@ -100,8 +99,8 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="pages/militar/cadastro-militar.html">Cadastra militar</a>
-          <a class="dropdown-item" href="pages/militar/consulta-militar.html">Consultar militar</a>
+          <a class="dropdown-item" href="../militar/cadastro-militar.html">Cadastra militar</a>
+          <a class="dropdown-item" href="../militar/consulta-militar.html">Consultar militar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -110,8 +109,8 @@
           <span>Escalas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="pages/escala/cadastro-escala.html">Cadastrar escala</a>
-          <a class="dropdown-item" href="pages/escala/consulta-escala.html">Consultar escala</a>
+          <a class="dropdown-item" href="../escala/cadastro-escala.html">Cadastrar escala</a>
+          <a class="dropdown-item" href="../escala/consulta-escala.html">Consultar escala</a>
         </div>
       </li>
     </ul>
@@ -119,125 +118,34 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="index.html">Início</a>
+            <a href="../../index.html">Início</a>
           </li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item active">Consultar escala</li>
         </ol>
-        <!-- Area Chart Example-->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-chart-area"></i>
-            Gráfico de militares escalado</div>
-          <div class="card-body">
-            <canvas id="myAreaChart" width="100%" height="30"></canvas>
-          </div>
-          <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
-        </div>
 
-      <!-- DataTables Example -->
-       <!-- <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Previsão da escala</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table id="example" class="table table-bordered" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Escala</th>
-                    <th>Segunda</th>
-                    <th>Terça</th>
-                    <th>Quarta</th>
-                    <th>Quinta</th>
-                    <th>Sexta</th>
-                    <th>Sábado</th>
-                    <th>Domingo</th>
-                    <th>Segunda</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Oficial de dia</td>
-                    <td>1º Ten Flávio</td>
-                    <td>2º Ten Lucas</td>
-                    <td>1º Ten Michel</td>
-                    <td>1º Ten Bruno</td>
-                    <td>2º Ten Carlos</td>
-                    <td>1º Ten Wilker</td>
-                    <td>2º Ten Rogério</td>
-                    <td>1º Ten Avelino</td>
-                  </tr>
-                  <tr>
-                    <td>Adjunto</td>
-                    <td>1º Sgt Alfonso</td>
-                    <td>2º Sgt Paulo Cesar</td>
-                    <td>1º Sgt Heldon</td>
-                    <td>1º Sgt Heles</td>
-                    <td>2º Sgt Cavalcante</td>
-                    <td>2º Sgt Valmar</td>
-                    <td>2º Sgt Wemberg</td>
-                    <td>1º Sgt Veloso</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Paiol</td>
-                    <td>2º Sgt Clésio</td>
-                    <td>2º Sgt Soaresr</td>
-                    <td>2º Sgt Celestimar</td>
-                    <td>2º Sgt Jackson</td>
-                    <td>2º Sgt Algusto</td>
-                    <td>2º Sgt Willames</td>
-                    <td>2º Sgt R. Sousa</td>
-                    <td>2º Sgt Jordão</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Ceem</td>
-                    <td>3º Sgt Gaspar</td>
-                    <td>3º Sgt Karlos</td>
-                    <td>3º Sgt Luz</td>
-                    <td>3º Sgt Gladerson</td>
-                    <td>3º Sgt Sousa</td>
-                    <td>3º Sgt James</td>
-                    <td>3º Sgt De Andrade</td>
-                    <td>3º Sgt Victor</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Ccap</td>
-                    <td>3º Sgt Kleyton</td>
-                    <td>3º Sgt Misael</td>
-                    <td>3º Sgt Flávio</td>
-                    <td>3º Sgt Franco</td>
-                    <td>3º Sgt Da Silva</td>
-                    <td>3º Sgt Sena</td>
-                    <td>3º Sgt Pacheco</td>
-                    <td>3º Sgt Batista</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Guarda</td>
-                    <td>3º Sgt Bruno</td>
-                    <td>3º Sgt Leiane</td>
-                    <td>3º Sgt Kelicio</td>
-                    <td>3º Sgt Lima</td>
-                    <td>3º Sgt Silva Ramos</td>
-                    <td>3º Sgt Geciana</td>
-                    <td>3º Sgt Fortaleza</td>
-                    <td>3º Sgt Adolfo</td>
-                  </tr>
-                </tbody>
-              </table>
+      <section class="content">
+        <div class="row ">
+          <div class="col-md-12 ">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                <!--<h3 class="box-title">Informe os dados abaixo:</h3>-->
+              </div>
+
+
+              <form role="form">
+                <div class="box-body">
+
+
+                </div>
+              </form>
             </div>
           </div>
         </div>
-
-      </div>
-       /.container-fluid -->
+      </section>
+    </div>
+      <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
       <footer class="sticky-footer">
@@ -260,6 +168,7 @@
   </a>
 
   <!-- Logout Modal-->
+  <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -272,7 +181,7 @@
         <div class="modal-body">Clique em sair para encerrar a sessão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="inicio.html">Sair</a>
+          <a class="btn btn-primary" href="../../inicio.html">Sair</a>
         </div>
       </div>
     </div>
@@ -287,18 +196,17 @@
 
   <!-- Page level plugin JavaScript-->
   <script src="vendor/chart.js/Chart.min.js"></script>
-  <script src="vendor/datatables/jquery.dataTables.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page-->
-  <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-bar-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script src="js/script.js"></script>
+
 
 </body>
-
-<script src="js/script.js"></script>
 
 </html>
