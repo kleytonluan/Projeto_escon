@@ -1717,6 +1717,7 @@ pre code {
 .table-bordered th,
 .table-bordered td {
   border: 1px solid #dee2e6;
+
 }
 
 .table-bordered thead th,
@@ -10962,3 +10963,5 @@ body.sidebar-toggled footer.sticky-footer {
     width: calc(100% - 90px);
   }
 }
+
+

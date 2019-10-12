@@ -58,10 +58,10 @@ $( document ).ready(function() {
 				html += "<div id='"+idForm+"' class='box-body'>"
 				html += "<div class='row'>"
                 html += "   <div class='form-group novoCampo col-md-3'>"
-                html += "      <input type='text' class='form-control' id='name' placeholder='Nome completo'>"
+                html += "      <input type='text' class='form-control'required id='name' placeholder='Nome completo'>"
                 html += "    </div>"
                 html += "    <div class='form-group novoCampo col-md-2'>"
-                html += "      <input type='text' class='form-control' id='name' placeholder='Nome de guerra'>"
+                html += "      <input type='text' class='form-control' required id='name' placeholder='Nome de guerra'>"
                 html += "    </div>"
                 html += "    <div class='form-group col-md-2'>"
                 html += "        <p>"
@@ -77,8 +77,8 @@ $( document ).ready(function() {
                 html += "            </select>"
                 html += "          </p>"
 				html += "    </div>"
-				html += "	<div class='form-group col-md-2'>"
-                html += "      	<input type='date' class='form-control' id='date' value='2019-06-08'>"
+				html += "	<div class='form-group col-md-2' id='datetimepicker1'>"
+                html += "      	<input type='date' required class='form-control'>"
                 html += "    </div>"
                 html += "    <div class='form-group col-md-2'>"
                 html += "        <p>"
@@ -128,8 +128,45 @@ $( document ).ready(function() {
 				if(camposNulos == true){
 					alert("Atenção: existem campos sem preenchimento");
 				}
+				
 					
 				novosCampos = [];
 			})
 				
 		});
+
+/**Funcao de notificacao
+
+var btnPermission = document.getElementById("btn_permission");
+
+if (Notification.permission !== "default") {
+	btnPermission.style.display = "none";
+} else {
+	btnPermission.style.display = "inline-block";
+}
+
+btnPermission.onclick = evt => {
+    Notification.requestPermission();
+}
+
+function spawnNotification(opcoes) {
+	var n = new Notification(opcoes.title, opcoes.opt);
+	if (opcoes.link !== '') {
+        n.addEventListener("click", function() {               
+            n.close();
+            window.focus();
+            window.location.href = opcoes.link;
+        });
+    }
+}
+
+document.getElementById("btn_push").onclick = evt => {
+    spawnNotification({
+        opt: {
+            body: "Criando nova notificação",
+            icon: "notification-flat.png"
+        },
+        title: "Olá mundo!",
+        link: "https://www.google.com.br/"
+    })
+}**/
