@@ -21,9 +21,28 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <link rel="stylesheet" href="lib/themes/offline-theme-chrome-indicator.css" />
+  <link rel="stylesheet" href="lib/themes/offline-language-english-indicator.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="lib/offline.min.js"></script>
+  <script src="js/offline-simulate-ui.min.js"></script>
   <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
   <link rel="icon" href="../../favicon.ico" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
+  <!--<script>
+
+      let refreshing;
+
+      // Esse evento será chamado quando o Service Worker for atualizado
+      // Aqui estamos recarregando a página
+      navigator.serviceWorker.addEventListener('controllerchange', function() {
+        if (refreshing) {
+          return;
+        }
+        window.location.reload();
+        refreshing = true;
+      });
+  </script>-->
 
 
 </head>
@@ -48,6 +67,11 @@
         </div>
       </div>
     </form>
+  
+  <!--  <div id="notification">
+      Uma nova versão está disponível. Clique <a id="reload">aqui</a> para
+      atualizar.
+    </div> -->
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
@@ -145,7 +169,7 @@
         <div id="tblCustomers" class="card mb-3">
           <div  class="card-header">
             <i class="fas fa-table"></i>
-            Previsão da escala do dia <b>03 a 10 de junho de 2019</b>
+            Previsão da escala do dia <b>14 a 21 de outubro de 2019</b>
            <!-- <div class="form-group col-md-2">
                 <label for="name">Escala do dia:</label>
                   <input type="date" class="form-control " id="date" value="2019-06-08">
@@ -366,11 +390,73 @@
   <script src="js/script.js"></script>
   <script src="js/tableHTMLExport.js"></script>
   <script src="plugin/iCheck/icheck.min.js"></script>
- 
+  
   <script>
+      if ("serviceWorker" in navigator) {
+          navigator.serviceWorker
+            .register("./sw.js")
+            .then(function(registration) {
+              // SUCESSO - ServiceWorker Registrado
+              console.log(
+                "ServiceWorker registrado com sucesso no escopo: ",
+                registration.scope
+              );
+            })
+            .catch(function(err) {
+              // ERRO - Falha ao registrar o ServiceWorker
+              console.log("Falha ao registrar o ServiceWorker: ", err);
+            });
+        }
+  </script>
+
+
+
+<!--
+  <script>
+
+      let newWorker;
+
+      document.getElementById('reload').addEventListener('click', function() {
+        newWorker.postMessage({ action: 'skipWaiting'});
+      });
+
       if('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js')
-          .then(function() {
+          .then(function(registration) {
+          registration.addEventListener('updatefound', () => { // [B]
+            // Uma atualização no Service Worker foi encontrada, instalando...
+            newWorker = registration.installing; // [C]
+
+            newWorker.addEventListener('statechange', () => {
+              // O estado do Service Worker mudou?
+              switch (newWorker.state) {
+                case 'installed': {
+                  // Existe um novo Service Worker disponível, mostra a notificação
+                  if (navigator.serviceWorker.controller) {
+                    let notification = document.getElementById('notification');
+                    notification.className = 'show';
+                    break;
+                  }
+                }
+              }
+            });
+          });
+
+          // SUCESSO - ServiceWorker Registrado
+          console.log('ServiceWorker registrado com sucesso no escopo: ',registration.scope);
+        })
+        .catch(function(err) {
+          // ERRO - Falha ao registrar o ServiceWorker
+          console.log('Falha ao registrar o ServiceWorker:', err);
+        });
+      }
+          
+  </script> -->
+
+        
+  <!-- /**         
+          
+          {
             console.log('Service Worker Registrado com sucesso!');
             });
 
@@ -378,15 +464,14 @@
         console.log(event.data.message); // Hello World !
         });
       }
-      /**if (window.webkitNotifications) {
+     if (window.webkitNotifications) {
         console.log('Seu browser suporta Notifications');
       }
       else {
         console.log('Seu browser não suporta Notifications =(');
       }**/
-    </script>
 
-    <!--<script> 
+    <script> 
       // Inicialize o Firebase 
       var config = {
         apiKey: "AIzaSyAZsFxnu1KUfNHvXcxxT4k_HoA2Vf_s4xI",
@@ -419,6 +504,27 @@
   Demo scripts for this page
   <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>-->
+  <script>
+    $(function(){
+
+        var 
+            $online = $('.online'),
+            $offline = $('.offline');
+
+        Offline.on('confirmed-down', function () {
+            $online.fadeOut(function () {
+                $offline.fadeIn();
+            });
+        });
+
+        Offline.on('confirmed-up', function () {
+            $offline.fadeOut(function () {
+                $online.fadeIn();
+            });
+        });
+
+    });
+  </script>
 
 </body>
 

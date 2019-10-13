@@ -1,4 +1,5 @@
-var cacheName = 'escon-cache';
+var cacheName = 'escon-cache-';
+var version = '0.0.1'
 var filesToCache = [
   '/',
   '/offline/index.html',
@@ -12,7 +13,7 @@ var filesToCache = [
 self.addEventListener('install', function(event) {
   console.log('[ServiceWorker] Instalado com sucesso!');
   event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
+    caches.open(cacheName + version + (1)).then(function(cache) {
       console.log('[ServiceWorker] Criando cache da aplicação...');
       return cache.addAll(filesToCache);
     })
@@ -20,7 +21,26 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('activate',  event => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil( //self.clients.claim()
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          // Return true if you want to remove this cache,
+          // but remember that caches are shared across
+          // the whole origin
+        }).map(function(cacheName) {
+          return caches.delete(cacheName + (version - 1));
+        })
+      );
+    })
+  );
+});
+
+/**
+self.addEventListener('message', function(event) {
+  if (event.data.action === 'skipWaiting') {
+    self.skipWaiting();
+  }
 });
 
 /**  Serve from Cache
@@ -37,7 +57,7 @@ self.addEventListener("fetch", event => {
   )
 });*/
 
-
+/**
 self.addEventListener('fetch', event => {
   // request.mode = navigate isn't supported in all browsers
   // so include a check for Accept: text/html header.
@@ -60,7 +80,28 @@ self.addEventListener('fetch', event => {
                     })
             );
       }
+});**/
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    // Try the cache
+    caches.match(event.request).then(function(response) {
+      if (response) {
+        return response;
+      }
+      return fetch(event.request).then(function(response) {
+        if (response.status === 404) {
+          return caches.match('offline/index.html');
+        }
+        return response
+      });
+    }).catch(function() {
+      // If both fail, show a generic fallback:
+      return caches.match('offline/index.html');
+    })
+  );
 });
+
 
 
 /** 
