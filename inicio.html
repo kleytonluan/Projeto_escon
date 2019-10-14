@@ -6,7 +6,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Export HTML table to Excel Format With Jquery- WSnippets.com" />
   <meta name="description" content="">
   <meta name="author" content="">
   <meta name="theme-color" content="grey">
@@ -21,64 +20,36 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-  <link rel="stylesheet" href="lib/themes/offline-theme-chrome-indicator.css" />
-  <link rel="stylesheet" href="lib/themes/offline-language-english-indicator.css" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <script src="lib/offline.min.js"></script>
-  <script src="js/offline-simulate-ui.min.js"></script>
-  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="manifest.json">
-  <!--<script>
-
-      let refreshing;
-
-      // Esse evento será chamado quando o Service Worker for atualizado
-      // Aqui estamos recarregando a página
-      navigator.serviceWorker.addEventListener('controllerchange', function() {
-        if (refreshing) {
-          return;
-        }
-        window.location.reload();
-        refreshing = true;
-      });
-  </script>-->
-
 
 </head>
 
-<body>
+<body id="page-top">
 
-   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="#">EscOn - Escalas Online</a>
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <a class="navbar-brand mr-1" href="inicio.html">EscOn</a>
 
-    <!--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
-    </button>-->
+    </button>
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-     <!-- <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
+       <!-- <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
         <div class="input-group-append">
           <button class="btn btn-primary" type="button">
             <i class="fas fa-search"></i>
-          </button>-->
-        </div>
+          </button>
+        </div>-->
       </div>
     </form>
-  
-  <!--  <div id="notification">
-      Uma nova versão está disponível. Clique <a id="reload">aqui</a> para
-      atualizar.
-    </div> -->
 
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
-       <!-- <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <!--<a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger">9+</span>
+          <span class="badge badge-danger"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
           <a class="dropdown-item" href="#">Action</a>
@@ -90,269 +61,192 @@
       <li class="nav-item dropdown no-arrow mx-1">
         <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger">7</span>
+          <span class="badge badge-danger"></span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
-        </div>-->
-      </li>
+        </div>
+      </li>-->  
       <li class="nav-item dropdown no-arrow">
-       <!--<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-          <a href="#" data-toggle="modal" data-target="#Modal01" class="btn btn-info btn-default btn-sm"><span class="fas fa-user-circle fa-fw"></span>Entrar</a>
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-user-circle fa-fw"></i>
         </a>
-            <div id="Modal01" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header"><!-- Header do modal -->
-                            <h4 class="modal-title">Login</h4><!-- Título -->
-                        </div>
-                        <div class="modal-body"><!-- Corpo do modal -->
-                            <form action="index.html" method="post"><!-- Início do Formulário -->
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Digite seu email" required="required" autofocus="autofocus">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Digite sua senha" required="required">
-                                </div>
-                                <button class="btn btn-block btn-info btn btn-primary btn-flat">Entrar</button>
-                                <div class="form-group">
-                                  <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox" value="remember-me">
-                                      Lembrar senha
-                                    </label>
-                                  </div>
-                                </div>
-                            </form>
-                        </div>
-                        
-                        <div class="modal-footer"><!-- Footer do Modal -->
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                Fechar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                            </button>                
-                        </div>
-                    </div>
-                </div>
-            </div><!-- ##Fim do Modal -->
-                         
-        
-        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script><!-- Chama a biblioteca JQuery -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><!-- Chama o arquivo Bootstrap JavaScript -->
-        <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <!--<a class="dropdown-item" href="#">Configurações</a>-->
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">Entrar</a>
-        </div> -->
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
+        </div>
       </li>
     </ul>
 
   </nav>
-<p>
-  <div id="wrapper">
-      <!-- Sidebar 
-        <ul class="sidebar navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-fw fa-folder"></i>
-              <span>Escalas Anteriores</span>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-              <a class="dropdown-item" href="consulta-militar.html">Consultar escalas</a>
-            </div>
-          </li>
-        </ul>-->
 
-        <!-- DataTables Example -->
-        
-        <div id="tblCustomers" class="card mb-3">
-          <div  class="card-header">
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="sidebar navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="inicio.html">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Painel principal</span>
+        </a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Militares</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="pages/militar/cadastro-militar.html">Cadastra militar</a>
+          <a class="dropdown-item" href="pages/militar/consulta-militar.html">Consultar militar</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Escalas</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="pages/escala/cadastro-escala.html">Cadastrar escala</a>
+          <a class="dropdown-item" href="pages/escala/consulta-escala.html">Consultar escala</a>
+        </div>
+      </li>
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="inicio.html">Início</a>
+          </li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <!-- Area Chart Example-->
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-chart-area"></i>
+            Gráfico de militares escalado</div>
+          <div class="card-body">
+            <canvas id="myAreaChart" width="100%" height="30"></canvas>
+          </div>
+          <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
+        </div>
+
+      <!-- DataTables Example -->
+       <!-- <div class="card mb-3">
+          <div class="card-header">
             <i class="fas fa-table"></i>
-            Previsão da escala do dia <b>14 a 21 de outubro de 2019</b>
-           <!-- <div class="form-group col-md-2">
-                <label for="name">Escala do dia:</label>
-                  <input type="date" class="form-control " id="date" value="2019-06-08">
-              </div>-->
-            
-            </div>
-            
+            Previsão da escala</div>
           <div class="card-body">
             <div class="table-responsive">
-              <div id="dvData">
-                <table  class="table table-hover table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
-                  <thead>
+              <table id="example" class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Escala</th>
+                    <th>Segunda</th>
+                    <th>Terça</th>
+                    <th>Quarta</th>
+                    <th>Quinta</th>
+                    <th>Sexta</th>
+                    <th>Sábado</th>
+                    <th>Domingo</th>
+                    <th>Segunda</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Oficial de dia</td>
+                    <td>1º Ten Flávio</td>
+                    <td>2º Ten Lucas</td>
+                    <td>1º Ten Michel</td>
+                    <td>1º Ten Bruno</td>
+                    <td>2º Ten Carlos</td>
+                    <td>1º Ten Wilker</td>
+                    <td>2º Ten Rogério</td>
+                    <td>1º Ten Avelino</td>
+                  </tr>
+                  <tr>
+                    <td>Adjunto</td>
+                    <td>1º Sgt Alfonso</td>
+                    <td>2º Sgt Paulo Cesar</td>
+                    <td>1º Sgt Heldon</td>
+                    <td>1º Sgt Heles</td>
+                    <td>2º Sgt Cavalcante</td>
+                    <td>2º Sgt Valmar</td>
+                    <td>2º Sgt Wemberg</td>
+                    <td>1º Sgt Veloso</td>
+                  </tr>
+                  <tr>
                     <tr>
-                      <th>Escala</th>
-                      <th>Segunda</th>
-                      <th>Terça</th>
-                      <th>Quarta</th>
-                      <th>Quinta</th>
-                      <th>Sexta</th>
-                      <th class="table-danger">Sábado</th>
-                      <th class="table-danger">Domingo</th>
-                      <th>Segunda</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+                    <td>Sgt Paiol</td>
+                    <td>2º Sgt Clésio</td>
+                    <td>2º Sgt Soaresr</td>
+                    <td>2º Sgt Celestimar</td>
+                    <td>2º Sgt Jackson</td>
+                    <td>2º Sgt Algusto</td>
+                    <td>2º Sgt Willames</td>
+                    <td>2º Sgt R. Sousa</td>
+                    <td>2º Sgt Jordão</td>
+                  </tr>
+                  <tr>
                     <tr>
-                      <td>Oficial de dia</td>
-                      <td>1º Ten Flávio</td>
-                      <td>2º Ten Lucas</td>
-                      <td>1º Ten Michel</td>
-                      <td>1º Ten Bruno</td>
-                      <td>2º Ten Carlos</td>
-                      <td>1º Ten Wilker</td>
-                      <td>2º Ten Rogério</td>
-                      <td>1º Ten Avelino</td>
-                    </tr>
+                    <td>Sgt Ceem</td>
+                    <td>3º Sgt Gaspar</td>
+                    <td>3º Sgt Karlos</td>
+                    <td>3º Sgt Luz</td>
+                    <td>3º Sgt Gladerson</td>
+                    <td>3º Sgt Sousa</td>
+                    <td>3º Sgt James</td>
+                    <td>3º Sgt De Andrade</td>
+                    <td>3º Sgt Victor</td>
+                  </tr>
+                  <tr>
                     <tr>
-                      <td>Adjunto</td>
-                      <td>1º Sgt Alfonso</td>
-                      <td>2º Sgt Paulo Cesar</td>
-                      <td>1º Sgt Heldon</td>
-                      <td>1º Sgt Heles</td>
-                      <td>2º Sgt Cavalcante</td>
-                      <td>2º Sgt Valmar</td>
-                      <td>2º Sgt Wemberg</td>
-                      <td>1º Sgt Veloso</td>
-                    </tr>
+                    <td>Sgt Ccap</td>
+                    <td>3º Sgt Kleyton</td>
+                    <td>3º Sgt Misael</td>
+                    <td>3º Sgt Flávio</td>
+                    <td>3º Sgt Franco</td>
+                    <td>3º Sgt Da Silva</td>
+                    <td>3º Sgt Sena</td>
+                    <td>3º Sgt Pacheco</td>
+                    <td>3º Sgt Batista</td>
+                  </tr>
+                  <tr>
                     <tr>
-                      <tr>
-                      <td>Sgt Paiol</td>
-                      <td>2º Sgt Clésio</td>
-                      <td>2º Sgt Soaresr</td>
-                      <td>2º Sgt Celestimar</td>
-                      <td>2º Sgt Jackson</td>
-                      <td>2º Sgt Algusto</td>
-                      <td>2º Sgt Willames</td>
-                      <td>2º Sgt R. Sousa</td>
-                      <td>2º Sgt Jordão</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Ceem</td>
-                      <td>3º Sgt Gaspar</td>
-                      <td>3º Sgt Karlos</td>
-                      <td>3º Sgt Luz</td>
-                      <td>3º Sgt Gladerson</td>
-                      <td>3º Sgt Sousa</td>
-                      <td>3º Sgt James</td>
-                      <td>3º Sgt De Andrade</td>
-                      <td>3º Sgt Victor</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Ccap</td>
-                      <td>3º Sgt Kleyton</td>
-                      <td>3º Sgt Misael</td>
-                      <td>3º Sgt Flávio</td>
-                      <td>3º Sgt Franco</td>
-                      <td>3º Sgt Da Silva</td>
-                      <td>3º Sgt Sena</td>
-                      <td>3º Sgt Pacheco</td>
-                      <td>3º Sgt Batista</td>
-                    </tr>
-                    <tr>
-                      <tr>
-                      <td>Sgt Guarda</td>
-                      <td>3º Sgt Bruno</td>
-                      <td>3º Sgt Leiane</td>
-                      <td>3º Sgt Kelicio</td>
-                      <td>3º Sgt Lima</td>
-                      <td>3º Sgt Silva Ramos</td>
-                      <td>3º Sgt Geciana</td>
-                      <td>3º Sgt Fortaleza</td>
-                      <td>3º Sgt Adolfo</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class"modal-footer">
-                <br>
-                <button id="btnExportPdf" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fa fa-download"></i> pdf</button>
-                <button id="btnExportExcel" class="btn btn-secondary btnTest btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fa fa-download"></i> xls</button>
-                
-                <a href="#" data-toggle="modal" data-target="#Modal02" class="btn btn-info nao-flutuar lado btn-sm">Trocar serviço</a>
-                </a>
-                    <div id="Modal02" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header"><!-- Header do modal -->
-                                    <h4 class="modal-title">Solicitar troca de serviço</h4><!-- Título -->
-                                    <!--<h5><p>Solicitar com pelo menos 3 dias de antecedencia</p></h5> Título -->
-                                </div>
-                                <div class="modal-body"><!-- Corpo do modal -->
-
-                                    <form action="" method="post"><!-- Início do Formulário -->
-
-                                        <div class="form-group">
-                                            <label for="name">Militar solicitante da troca:</label>
-                                            <input type="text" class="form-control" required="required">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="name">Militar voluntário para tirar o serviço:</label>
-                                            <input type="text" class="form-control" required="required">
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                          <label>Serviço:</label>
-                                            <p>
-                                              <select class="form-control campoDefault" id="cia">
-                                                <option value="Oficial de dia">Oficial de dia</option>
-                                                <option value="Adjunto ao oficial de dia">Adjunto ao oficial de dia</option>
-                                                <option value="Comandante da guarda do Paiol">Comandante da guarda do Paiol</option>
-                                                <option value="Sargento de dia CEEM">Sargento de dia CEEM</option>
-                                                <option value="Sargento de dia CCAP">Sargento de dia CCAP</option>
-                                                <option value="Comandante da guarda do quartel">Comandante da guarda do quartel</option>
-                                              </select>
-                                            </p>
-                                        </div> 
-                                        
-                                        <div class="form-group" id="datetimepicker1">
-                                          <label for="name">Data do serviço:</label>
-                                          <input type="date" required class="form-control" placeholder="Data do serviço">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="name">Justificativa:</label>
-                                            <textarea class="textarea1" required="required" ></textarea>
-                                        </div>
-
-
-                                        <button class="btn btn-block btn-info btn btn-primary btn-flat">Enviar solicitação</button>
-
-                                    </form>
-
-                                </div>
-                                
-                                <div class="modal-footer"><!-- Footer do Modal -->
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                        Fechar <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                                    </button>                
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ##Fim do Modal-->
+                    <td>Sgt Guarda</td>
+                    <td>3º Sgt Bruno</td>
+                    <td>3º Sgt Leiane</td>
+                    <td>3º Sgt Kelicio</td>
+                    <td>3º Sgt Lima</td>
+                    <td>3º Sgt Silva Ramos</td>
+                    <td>3º Sgt Geciana</td>
+                    <td>3º Sgt Fortaleza</td>
+                    <td>3º Sgt Adolfo</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
 
       </div>
-      <!-- /.container-fluid -->
+       /.container-fluid -->
 
       <!-- Sticky Footer -->
-      <!--  <footer class="sticky-footer">
-      <div class="container my-auto">
+      <footer class="sticky-footer">
+        <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © Your Website 2019</span>
+            <span>Copyright © EscOn 2019</span>
           </div>
         </div>
-      </footer>-->
+      </footer>
 
     </div>
     <!-- /.content-wrapper -->
@@ -360,13 +254,31 @@
   </div>
   <!-- /#wrapper -->
 
-  <!-- Scroll to Top Button
+  <!-- Scroll to Top Button-->
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  <button type="button" id="btn_permission">Permission</button>
-  <button type="button" id="btn_push">Push Notification</button>-->
 
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja realmente sair?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Clique em sair para encerrar a sessão.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="inicio.html">Sair</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -377,157 +289,16 @@
   <script src="vendor/chart.js/Chart.min.js"></script>
   <script src="vendor/datatables/jquery.dataTables.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="js/jquery.btechco.excelexport.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
- <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>--> 
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin.min.js"></script>
-  <script src="js/script.js"></script>
-  <script src="js/tableHTMLExport.js"></script>
-  <script src="plugin/iCheck/icheck.min.js"></script>
-  
-  <script>
-      if ("serviceWorker" in navigator) {
-          navigator.serviceWorker
-            .register("./sw.js")
-            .then(function(registration) {
-              // SUCESSO - ServiceWorker Registrado
-              console.log(
-                "ServiceWorker registrado com sucesso no escopo: ",
-                registration.scope
-              );
-            })
-            .catch(function(err) {
-              // ERRO - Falha ao registrar o ServiceWorker
-              console.log("Falha ao registrar o ServiceWorker: ", err);
-            });
-        }
-  </script>
 
-
-
-<!--
-  <script>
-
-      let newWorker;
-
-      document.getElementById('reload').addEventListener('click', function() {
-        newWorker.postMessage({ action: 'skipWaiting'});
-      });
-
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function(registration) {
-          registration.addEventListener('updatefound', () => { // [B]
-            // Uma atualização no Service Worker foi encontrada, instalando...
-            newWorker = registration.installing; // [C]
-
-            newWorker.addEventListener('statechange', () => {
-              // O estado do Service Worker mudou?
-              switch (newWorker.state) {
-                case 'installed': {
-                  // Existe um novo Service Worker disponível, mostra a notificação
-                  if (navigator.serviceWorker.controller) {
-                    let notification = document.getElementById('notification');
-                    notification.className = 'show';
-                    break;
-                  }
-                }
-              }
-            });
-          });
-
-          // SUCESSO - ServiceWorker Registrado
-          console.log('ServiceWorker registrado com sucesso no escopo: ',registration.scope);
-        })
-        .catch(function(err) {
-          // ERRO - Falha ao registrar o ServiceWorker
-          console.log('Falha ao registrar o ServiceWorker:', err);
-        });
-      }
-          
-  </script> -->
-
-        
-  <!-- /**         
-          
-          {
-            console.log('Service Worker Registrado com sucesso!');
-            });
-
-        navigator.serviceWorker.addEventListener('message', function(event) {
-        console.log(event.data.message); // Hello World !
-        });
-      }
-     if (window.webkitNotifications) {
-        console.log('Seu browser suporta Notifications');
-      }
-      else {
-        console.log('Seu browser não suporta Notifications =(');
-      }**/
-
-    <script> 
-      // Inicialize o Firebase 
-      var config = {
-        apiKey: "AIzaSyAZsFxnu1KUfNHvXcxxT4k_HoA2Vf_s4xI",
-        authDomain: "escon-9ba26.firebaseapp.com",
-        databaseURL: "https://escon-9ba26.firebaseio.com",
-        projectId: "escon-9ba26",
-        storageBucket: "escon-9ba26.appspot.com",
-        messagingSenderId: "533904781159" 
-      }; 
-      firebase.initializeApp (config); 
-    </script>
-    
-     <script> 
-        const messaging = firebase.messaging (); 
-        messaging.requestPermission () 
-        .then (function () { 
-            console.log ('Notificação de permissão concedida.'); 
-            return messaging.getToken (); 
-        }) 
-        .then (function (token) { 
-            console.log (token); 
-        }) 
-        .catch (function (err) { 
-            console.log ('Não foi possível obter permissão para notificar.', err); 
-        }) 
-      </script>
-
-
-
-  Demo scripts for this page
+  <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>-->
-  <script>
-    $(function(){
-
-        var 
-            $online = $('.online'),
-            $offline = $('.offline');
-
-        Offline.on('confirmed-down', function () {
-            $online.fadeOut(function () {
-                $offline.fadeIn();
-            });
-        });
-
-        Offline.on('confirmed-up', function () {
-            $offline.fadeOut(function () {
-                $online.fadeIn();
-            });
-        });
-
-    });
-  </script>
+  <script src="js/demo/chart-area-demo.js"></script>
 
 </body>
 
-<!--<script src="js/script.js"></script>-->
+<script src="js/script.js"></script>
 
 </html>
