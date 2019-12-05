@@ -10587,6 +10587,11 @@ a.text-dark:hover, a.text-dark:focus {
   .table {
     border-collapse: collapse !important;
   }
+
+  .table1 {
+    border-collapse: collapse !important;
+  }
+
   .table td,
   .table th {
     background-color: #fff !important;

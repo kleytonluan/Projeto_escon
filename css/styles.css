@@ -1,5 +1,7 @@
 body {
     font-family: 'Varela Round', sans-serif;
+    background: url(teste.jpg) repeat fixed;
+
 }
 .modal-login {		
     color: #636363;
@@ -31,7 +33,17 @@ body {
     position: absolute;
     top: -5px;
     right: -5px;
-}	
+}
+
+#footer
+{ width: 1020px;
+  font: normal 90% 'trebuchet ms',  arial, sans-serif;
+  height: 65px;
+  padding: 20px 0 5px 0;
+  text-align: center; 
+  color: #FFF;
+  background: transparent url(tab.png) repeat;}
+  
 .modal-login .modal-footer {
     background: #ecf0f1;
     border-color: #dee4e7;
