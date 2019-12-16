@@ -30,8 +30,8 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/icons/touch-icon-iphone-retina.png">
   <script src="lib/offline.min.js"></script>
   <script src="js/offline-simulate-ui.min.js"></script>
-  <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
-  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+  <!--<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon">-->
   <link rel="manifest" href="manifest.json">
   <!--<script>
 
@@ -172,13 +172,13 @@
         
         <div id="tblCustomers" class="card mb-3">
           <div  class="card-header">
-            <!-- <i class="fas fa-table"></i>
-            Previsão da escala do dia <b>14 a 21 de outubro de 2019</b>
+           <i class="fas fa-table"></i>
+            PREVISÃO DA ESCALA DE SERVIÇO
            <div class="form-group col-md-2">
-                <label for="name">Escala do dia:</label>
+                 <!-- <label for="name">Escala do dia:</label>
                   <input type="date" class="form-control " id="date" value="2019-06-08">
-              </div>
-                  -->
+              </div> -->
+                 
             
             </div>
                    
@@ -281,7 +281,8 @@
             <div class"modal-footer">
                 <br>
              <!--id="btnExportPdf"-->
-                <button  href="arquivos/escala.pdf" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fa fa-download"></i> pdf</button>
+             
+                <button  onclick="share()" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fas fa-share-alt"></i> Compartilhar</button>
                 <!--<button id="btnExportExcel" class="btn btn-secondary btnTest btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fa fa-download"></i> xls</button>-->
                 
                 <a href="#" data-toggle="modal" data-target="#Modal02" class="btn btn-info nao-flutuar lado btn-sm">Trocar serviço</a>
@@ -290,27 +291,27 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header"><!-- Header do modal -->
-                                    <h4 class="modal-title">Solicitar troca de serviço - <b>Em testes</b></h4><!-- Título -->
+                                    <h4 class="modal-title">Solicitar troca de serviço</h4><!-- Título -->
                                     <!--<h5><p>Solicitar com pelo menos 3 dias de antecedencia</p></h5> Título -->
                                 </div>
                                 <div class="modal-body"><!-- Corpo do modal -->
 
-                                    <form action="" method="post"><!-- Início do Formulário -->
+                                    <form action="https://formspree.io/mdokwnod" class="formulario" method="POST" name="form"><!-- Início do Formulário -->
 
                                         <div class="form-group">
                                             <label for="name">Militar solicitante da troca:</label>
-                                            <input type="text" class="form-control" required="required">
+                                            <input name="solicitante" type="text" id="solicitante" class="form-control" required="required">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="name">Militar voluntário para tirar o serviço:</label>
-                                            <input type="text" class="form-control" required="required">
+                                            <input name="voluntario" type="text" id="voluntario" class="form-control" required="required">
                                         </div>
                                         
                                         <div class="form-group">
                                           <label>Serviço:</label>
                                             <p>
-                                              <select class="form-control campoDefault" id="cia">
+                                              <select name="servico" id="servico" class="form-control campoDefault" id="cia">
                                                 <option value="Oficial de dia">Oficial de dia</option>
                                                 <option value="Adjunto ao oficial de dia">Adjunto ao oficial de dia</option>
                                                 <option value="Comandante da guarda do Paiol">Comandante da guarda do Paiol</option>
@@ -323,16 +324,19 @@
                                         
                                         <div class="form-group" id="datetimepicker1">
                                           <label for="name">Data do serviço:</label>
-                                          <input type="date" required class="form-control" placeholder="Data do serviço">
+                                          <input name="dataservico" id="dataservico" type="date" required class="form-control" placeholder="Data do serviço">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="name">Justificativa:</label>
-                                            <textarea class="textarea1" required="required" ></textarea>
+                                            <textarea name="justificativa" id="justificativa" class="textarea1" required="required" ></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="name">E-mail para resposta:</label>
+                                            <input name="email" id="email" type="text" class="form-control" required="required">
                                         </div>
 
-
-                                        <button class="btn btn-block btn-info btn btn-primary btn-flat">Enviar solicitação</button>
+                                        <input type="submit" onclick="Enviar();" value="Enviar solicitação" class="btn btn-block btn-info btn btn-primary btn-flat">
 
                                     </form>
 

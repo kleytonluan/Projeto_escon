@@ -1,15 +1,12 @@
 var cacheName = 'escon-cache-';
 var version = '0.0.1'
 var filesToCache = [
-  '/',
+  //'/',
   '/offline/index.html',
-  '/index.html',
+  //'/index.html',
   '/vendor/fontawesome-free/css/all.min.css',
   '/css/sb-admin.css',
-  '/vendor/datatables/dataTables.bootstrap4.css',
-  '/lib/offline.min.js',
-  '/js/offline.js',
-  '/js/offline-simulate-ui.min.js'
+  '/vendor/datatables/dataTables.bootstrap4.css'
 
 ];
 self.addEventListener('install', function(event) {

@@ -171,3 +171,23 @@ document.getElementById("btn_push").onclick = evt => {
     })
 }**/
 
+function Enviar() {
+ 
+    var solicitante = document.getElementById("solicitante");
+ 
+    if (solicitante.value != "") {
+        alert('Obrigado sr(a) ' + solicitante.value + ',os seus dados foram enviados com sucesso');
+    }
+ 
+}
+
+function share(){
+	if (navigator.share !== undefined) {
+		navigator.share({
+			title: 'EscOn - Escalas Online',
+			url:'https://api.whatsapp.com/send?text=/arquivos/atual.png',
+		})
+		.then(() => console.log('Successful share'))
+		.catch((error) => console.log('Error sharing', error));
+	}
+}
