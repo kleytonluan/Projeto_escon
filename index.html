@@ -53,7 +53,7 @@
 
 <body>
 
-   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+   <nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
     <a class="navbar-brand mr-1" href="index.html">EscOn - Escalas Online</a>
 
     <!--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
@@ -107,7 +107,20 @@
        <!--<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
           <a href="#" data-toggle="modal" data-target="#Modal01" class="btn btn-info btn-default btn-sm"><span class="fas fa-user-circle fa-fw"></span>Entrar</a>
         </a>
-            <div id="Modal01" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
+            
+                         
+        
+        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script><!-- Chama a biblioteca JQuery -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><!-- Chama o arquivo Bootstrap JavaScript -->
+        <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">Entrar</a>
+        </div> -->
+      </li>
+    </ul>
+
+  </nav>
+    <div id="Modal01" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header"><!-- Header do modal -->
@@ -141,18 +154,6 @@
                     </div>
                 </div>
             </div><!-- ##Fim do Modal -->
-                         
-        
-        <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script><!-- Chama a biblioteca JQuery -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><!-- Chama o arquivo Bootstrap JavaScript -->
-        <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="login.html" data-toggle="modal" data-target="#logoutModal">Entrar</a>
-        </div> -->
-      </li>
-    </ul>
-
-  </nav>
 <p>
   <div id="wrapper">
       <!-- Sidebar 
@@ -183,13 +184,13 @@
             </div>
                    
         
-          <div class="card-body">
+          <div class="container">
             <div class="table-responsive">
               <div id="dvData">
               
                 <table id="dtHorizontal" class="table table-hover table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
-                 <embed src="arquivos/atual.png" width="760" height="500">  
-                 <!--  <thead>  <embed src="/var/www/html/escalas/testes/editada.png" width="760" height="500">  
+                <!-- <embed src="arquivos/atual.png" width="760" height="500"> 
+                   <thead>  <embed src="/var/www/html/escalas/testes/editada.png" width="760" height="500">  --> 
 
                     <tr>
                       <th>Escala</th>
@@ -274,12 +275,16 @@
                       <td>3º Sgt Fortaleza</td>
                       <td>3º Sgt Adolfo</td>
                     </tr>
-                  </tbody>-->
+                  </tbody>
                 </table>
               </div>
             </div>
+
+            <br>
+    
             <div class"modal-footer">
                 <br>
+             
              <!--id="btnExportPdf"-->
              
                 <button  onclick="share()" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fas fa-share-alt"></i> Compartilhar</button>
