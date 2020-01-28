@@ -20,11 +20,6 @@ $row = mysqli_num_rows($result);
 
 if ($row == 1){
   $_SESSION['login'] = $login;
-  echo"
-        <script language='javascript' type='text/javascript'>
-            alert('Seja bem vindo, $login!');
-        </script>
-      ";
   header('Location: inicio.php');
   exit();
 }else{
