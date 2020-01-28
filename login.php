@@ -20,8 +20,22 @@ $row = mysqli_num_rows($result);
 
 if ($row == 1){
   $_SESSION['login'] = $login;
+  echo"
+        <script language='javascript' type='text/javascript'>
+            alert('Seja bem vindo, $login!');
+        </script>
+      ";
   header('Location: inicio.php');
   exit();
 }else{
+  $_SESSION['nao_autenticado'] = true;
+  echo"
+        <script language='javascript' type='text/javascript'>
+            alert('Login e/ou senha incorretos');window.location
+            .href='index.html';
+        </script>
+      ";
+        die();
   header('Location: index.html');
+  exit();
 }

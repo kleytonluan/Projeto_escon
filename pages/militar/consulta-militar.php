@@ -110,8 +110,8 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../militar/cadastro-militar.html">Cadastra militar</a>
-          <a class="dropdown-item" href="../militar/consulta-militar.html">Consultar militar</a>
+          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastra militar</a>
+          <a class="dropdown-item" href="../militar/consulta-militar.php">Consultar militar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -120,8 +120,8 @@
           <span>Escalas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../escala/cadastro-escala.html">Cadastrar escala</a>
-          <a class="dropdown-item" href="../escala/consulta-escala.html">Consultar escala</a>
+          <a class="dropdown-item" href="../escala/cadastro-escala.php">Cadastrar escala</a>
+          <a class="dropdown-item" href="../escala/consulta-escala.php">Consultar escala</a>
         </div>
       </li>
     </ul>
