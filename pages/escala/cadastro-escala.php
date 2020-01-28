@@ -1,3 +1,8 @@
+<?php
+  include('../../validar.php');
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,7 +30,7 @@
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="../../inicio.html">EscOn</a>
+    <a class="navbar-brand mr-1" href="../../inicio.php">EscOn</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -71,7 +76,13 @@
       </li>-->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <h6>
+          <?php
+            echo $_SESSION['login'];
+          ?>
           <i class="fas fa-user-circle fa-fw"></i>
+        </h6>
+
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <!--<a class="dropdown-item" href="#">Configurações</a>-->
@@ -88,7 +99,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="../../inicio.html">
+        <a class="nav-link" href="../../inicio.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Painel principal</span>
         </a>
@@ -99,8 +110,8 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../militar/cadastro-militar.html">Cadastra militar</a>
-          <a class="dropdown-item" href="../militar/consulta-militar.html">Consultar militar</a>
+          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastra militar</a>
+          <a class="dropdown-item" href="../militar/consulta-militar.php">Consultar militar</a>
         </div>
       </li>
       <li class="nav-item dropdown">
@@ -109,8 +120,8 @@
           <span>Escalas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../escala/cadastro-escala.html">Cadastrar escala</a>
-          <a class="dropdown-item" href="../escala/consulta-escala.html">Consultar escala</a>
+          <a class="dropdown-item" href="../escala/cadastro-escala.php">Cadastrar escala</a>
+          <a class="dropdown-item" href="../escala/consulta-escala.php">Consultar escala</a>
         </div>
       </li>
     </ul>
@@ -120,7 +131,7 @@
       <div class="container-fluid">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="../../inicio.html">Início</a>
+            <a href="../../inicio.php">Início</a>
           </li>
           <li class="breadcrumb-item active">Cadastro de previsões</li>
         </ol>
@@ -133,24 +144,36 @@
               </div>
 
               <form role="form">
+
+
                   <div class="box-body">
+
+
                     <div class="row">
+
                         <div class="form-group col-sm-2" id="datetimepicker1">
-                            <label for="name">Escala do dia:</label>
+                            <label for="name">Previsão do dia:</label>
                             <input type="date" class="form-control">
                         </div>
+
                         <div class="form-group col-sm-2 lado" id="datetimepicker1">
                           <label for="name">para o dia:</label>
                           <input type="date" class="form-control lado">
-                        </div> 
+                        </div>
+
+                    
+
                     </div>
-                  </div>
                    
                     <div class="box-footer nao-flutuar">
                       <button type="submit" id="btnAdicionaItem" class="btn btn-secondary">Adicionar outro</button>
                       <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Salvar</button>
                     </div>
-                  </div>                    
+
+
+                  </div>  
+
+
               </form>
 
             </div>
@@ -192,7 +215,7 @@
         <div class="modal-body">Clique em sair para encerrar a sessão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../index.html">Sair</a>
+          <a class="btn btn-primary" href="../../logout.php">Sair</a>
         </div>
       </div>
     </div>

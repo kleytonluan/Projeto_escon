@@ -54,7 +54,7 @@
 <body>
   <p></p>
    <nav class="navbar fixed-top navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand mr-1" href="index.html">EscOn - Escalas Online</a>
+    <a class="navbar-brand mr-1" href="index.php">EscOn - Escalas Online</a>
 
     <!--<button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -124,17 +124,25 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header"><!-- Header do modal -->
-                            <h4 class="modal-title">Login</h4><!-- Título -->
+                            <h4 class="modal-title">Autenticação ao sistema</h4><!-- Título -->
                         </div>
+                        
                         <div class="modal-body"><!-- Corpo do modal -->
-                            <form action="inicio.html" method="post"><!-- Início do Formulário -->
+
+                            <form method="POST" action="login.php"><!-- Início do Formulário -->
+
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Digite seu email" required="required" autofocus="autofocus">
+                                  <label> Login:</label>
+                                    <input type="text" name="login" id="login" class="form-control" placeholder="Digite seu email" required="required" autofocus="autofocus">
                                 </div>
+                                
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Digite sua senha" required="required">
+                                    <label> Senha:</label>
+                                    <input type="password" name="senha" id="senha" class="form-control" placeholder="Digite sua senha" required="required">
                                 </div>
-                                <button class="btn btn-block btn-info btn btn-primary btn-flat">Entrar</button>
+
+                                <button class="btn btn-block btn-info btn btn-primary btn-flat" value="entrar" id="entrar" name="entrar">Entrar</button>
+
                                 <div class="form-group">
                                   <div class="checkbox">
                                     <label>

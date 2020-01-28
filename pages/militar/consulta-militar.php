@@ -1,3 +1,8 @@
+<?php
+  include('../../validar.php');
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,7 +30,7 @@
 <body id="page-top">
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-    <a class="navbar-brand mr-1" href="../../inicio.html">EscOn</a>
+    <a class="navbar-brand mr-1" href="../../inicio.php">EscOn</a>
 
     <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
       <i class="fas fa-bars"></i>
@@ -71,7 +76,13 @@
       </li>-->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <h6>
+          <?php
+            echo $_SESSION['login'];
+          ?>
           <i class="fas fa-user-circle fa-fw"></i>
+        </h6>
+
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
           <!--<a class="dropdown-item" href="#">Configurações</a>-->
@@ -88,7 +99,7 @@
     <!-- Sidebar -->
     <ul class="sidebar navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="../../inicio.html">
+        <a class="nav-link" href="../../inicio.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Painel principal</span>
         </a>
@@ -110,7 +121,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="../escala/cadastro-escala.html">Cadastrar escala</a>
-          <a class="dropdown-item" href="../escala/consultar-escala.html">Consultar escala</a>
+          <a class="dropdown-item" href="../escala/consulta-escala.html">Consultar escala</a>
         </div>
       </li>
     </ul>
@@ -122,19 +133,19 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="../../inicio.html">Início</a>
+            <a href="../../inicio.php">Início</a>
           </li>
-          <li class="breadcrumb-item active">Consulta Escalas</li>
+          <li class="breadcrumb-item active">Consulta de militares</li>
         </ol>
 
-        <!-- DataTables Example 
-        <div class="card mb-3">
+        <!-- DataTables Example -->
+        <div class="card mb-5">
           <div class="card-header">
             <i class="fas fa-table"></i>
             Tabela de militares cadastrados</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>Nome completo</th>
@@ -328,7 +339,7 @@
           </div>
         </div>
 
-      </div>-->
+      </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -364,7 +375,7 @@
         <div class="modal-body">Clique em sair para encerrar a sessão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../index.html">Sair</a>
+          <a class="btn btn-primary" href="../../logout.php">Sair</a>
         </div>
       </div>
     </div>
