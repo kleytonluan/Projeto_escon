@@ -1,6 +1,9 @@
 <?php
-  include('../../validar.php');
+ 
+  include("../../validar.php");
+  include("../../conexao.php");
   session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +31,7 @@
 </head>
 
 <body id="page-top">
-
+  
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
     <a class="navbar-brand mr-1" href="../../inicio.php">EscOn</a>
 
@@ -39,11 +42,6 @@
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
       <div class="input-group">
-     <!-- <input type="text" class="form-control" placeholder="Procurar" aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search"></i>
-          </button>-->
         </div>
       </div>
     </form>
@@ -51,29 +49,7 @@
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
-        <!--    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger"></span>
-        </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
+ 
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <h6>Logado como, <?php echo $_SESSION['login'];?>
@@ -82,7 +58,6 @@
 
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <!--<a class="dropdown-item" href="#">Configurações</a>-->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Sair</a>
         </div>
@@ -134,7 +109,7 @@
           </li>
           <li class="breadcrumb-item active">Consulta de militares</li>
         </ol>
-
+   
         <!-- DataTables Example -->
         <div class="card mb-5">
           <div class="card-header">
@@ -142,26 +117,49 @@
             Tabela de militares cadastrados</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-hover table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
+              <table class="table table-hover table-fixed" id="dataTable" width="100%" cellspacing="0">
+               <thead>
                   <tr>
+                    <th>Código</th>
                     <th>Nome completo</th>
                     <th>Nome de guerra</th>
-                    <th>P/G</th>
+                    <th>Posto/Grad</th>
                     <th>Data de praça</th>
                     <th>Companhia</th>
                     <th>Status</th>
+
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
+             
+                <?php 
+
+                  $consulta = "select * from militar";
+                
+                  $resultado = mysqli_query($conexao,$consulta);
+                 
+                  while ($linha = mysqli_fetch_assoc($resultado)) {
+
+                      echo '<tr>';
+                        echo '<td>'. $linha['idmilitar'] .'</td>';
+                        echo '<td>'. $linha['nome_completo'] .'</td>';
+                        echo '<td>'. $linha['nome_guerra'] .'</td>';
+                        echo '<td>'. $linha['posto_grad_idposto_grad'] .'</td>';
+                        echo '<td>'. $linha['data_praca'] .'</td>';
+                        echo '<td>'. $linha['companhia_idcompanhia'] .'</td>';
+                        echo '<td>'. $linha['situacao_militar_idsituacao_militar'] .'</td>';
+
+                      echo '</tr>';
+                  }
+                 ?>
+   <!--            <tbody>
+                <tr>
                     <td>Luan Kleyton Ramos de Brito Carvalho</td>
                     <td>Kleyton</td>
                     <td>3º Sgt</td>
                     <td>01/03/2015</td>
                     <td>CCAP</td>
                     <td>Pronto para o serviço</td>
-                  </tr>
+                </tr>
                   <tr>
                     <td>Fabiano Freire de Albuquerque</td>
                     <td>Albuquerque</td>
@@ -170,7 +168,8 @@
                     <td>CCAP</td>
                     <td>Pronto para o serviço</td>
                   </tr>
-                  <tr>
+ 
+                <tr>
                     <td>Samila Cristiany de Jesus Beserra</td>
                     <td>Samila</td>
                     <td>2º Ten</td>
@@ -330,7 +329,7 @@
                     <td>EM</td>
                     <td>Pronto para o serviço</td>
                   </tr>  
-                </tbody>
+                </tbody>-->
               </table>
             </div>
           </div>
@@ -343,7 +342,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © EscOn 2019</span>
+            <span>Copyright © EscOn 2020</span>
           </div>
         </div>
       </footer>
@@ -386,8 +385,8 @@
   <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <script src="../../vendor/datatables/jquery.dataTables.js"></script>
-  <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
+  <!--  <script src="../../vendor/datatables/jquery.dataTables.js"></script>-->
+<script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="../../js/sb-admin.min.js"></script>
