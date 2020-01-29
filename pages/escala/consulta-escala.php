@@ -343,7 +343,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © EscOn 2019</span>
+            <span>Copyright © EscOn 2020</span>
           </div>
         </div>
       </footer>
@@ -372,7 +372,7 @@
         <div class="modal-body">Clique em sair para encerrar a sessão.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-          <a class="btn btn-primary" href="../../index.html">Sair</a>
+          <a class="btn btn-primary" href="../../logout.php">Sair</a>
         </div>
       </div>
     </div>

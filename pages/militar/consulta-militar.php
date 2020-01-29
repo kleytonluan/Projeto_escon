@@ -13,6 +13,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
@@ -127,6 +128,7 @@
                     <th>Data de praça</th>
                     <th>Companhia</th>
                     <th>Status</th>
+                    <th> Ação</th>
 
                   </tr>
                 </thead>
@@ -136,21 +138,40 @@
                   $consulta = "select * from militar";
                 
                   $resultado = mysqli_query($conexao,$consulta);
+                
+                ?>
                  
-                  while ($linha = mysqli_fetch_assoc($resultado)) {
+                <?php
+                 while ($linha = mysqli_fetch_assoc($resultado)) { ?>
 
-                      echo '<tr>';
-                        echo '<td>'. $linha['idmilitar'] .'</td>';
-                        echo '<td>'. $linha['nome_completo'] .'</td>';
-                        echo '<td>'. $linha['nome_guerra'] .'</td>';
-                        echo '<td>'. $linha['posto_grad_idposto_grad'] .'</td>';
-                        echo '<td>'. $linha['data_praca'] .'</td>';
-                        echo '<td>'. $linha['companhia_idcompanhia'] .'</td>';
-                        echo '<td>'. $linha['situacao_militar_idsituacao_militar'] .'</td>';
+                      <tr>
+                        <td><?php echo $linha['idmilitar']; ?></td>
+                        <td><?php echo $linha['nome_completo']; ?></td>
+                        <td><?php echo $linha['nome_guerra']; ?></td>
+                        <td><?php echo $linha['posto_grad']; ?></td>
+                        <td><?php echo $linha['data_praca']; ?></td>
+                        <td><?php echo $linha['companhia']; ?></td>
+                        <td><?php echo $linha['situacao']; ?></td>
+                        <td>
+                            <a class="btn btn-success pull-right" href="editar_militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
+                            <a class="btn btn-danger pull-right" href="deletar_militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>
 
-                      echo '</tr>';
-                  }
-                 ?>
+                      </tr>
+                <?php } ?>
+                
+<!--
+
+        echo '<tr>';
+          echo '<td>'. $linha['idmilitar'] .'</td>';
+          echo '<td>'. $linha['nome_completo'] .'</td>';
+          echo '<td>'. $linha['nome_guerra'] .'</td>';
+          echo '<td>'. $linha['posto_grad'] .'</td>';
+          echo '<td>'. $linha['data_praca'] .'</td>';
+          echo '<td>'. $linha['companhia'] .'</td>';
+          echo '<td>'. $linha['situacao'] .'</td>';
+
+        echo '</tr>';
+                -->
    <!--            <tbody>
                 <tr>
                     <td>Luan Kleyton Ramos de Brito Carvalho</td>

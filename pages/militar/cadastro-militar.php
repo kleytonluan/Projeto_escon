@@ -1,5 +1,6 @@
 <?php
   include('../../validar.php');
+  include("../../conexao.php");
   session_start();
 ?>
 
@@ -51,29 +52,7 @@
     <!-- Navbar -->
     <ul class="navbar-nav ml-auto ml-md-0">
       <li class="nav-item dropdown no-arrow mx-1">
-        <!--    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-          <span class="badge badge-danger"></span>
-        </a>
-    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <span class="badge badge-danger"></span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>-->
+
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           
@@ -137,26 +116,28 @@
           <div class="col-md-12 ">
             <div class="box box-primary">
               <div class="box-header with-border">
-                <h3 class="box-title">Informe os dados abaixo:</h3>
+           <!--     <h4 class="box-title">Informe os dados abaixo:</h4> -->
               </div>
 
 
-              <form role="form">
+              <form method="POST" action="cadastro.php" >
                 <div class="box-body">
-
                   <div class="row">
-                    <div class="form-group col-md-3">
-                      <label for="name">Nome completo</label>
-                      <input type="text" required class="form-control campoDefault" id="name" placeholder="Nome completo">
-                    </div>
+                    
                     <div class="form-group col-md-2">
-                      <label for="name">Nome de guerra</label>
-                      <input type="text" required class="form-control campoDefault" id="name" placeholder="Nome de guerra">
+                      <label>Nome completo</label>
+                      <input name="nome_completo" type="text" required class="form-control campoDefault" placeholder="Nome completo">
                     </div>
+                    
                     <div class="form-group col-md-2">
-                      <label for="posto-grad">P/G</label>
+                      <label>Nome de guerra</label>
+                      <input name="nome_guerra" type="text" required class="form-control campoDefault" placeholder="Nome de guerra">
+                    </div>
+                   
+                    <div class="form-group col-md-1">
+                      <label>P/G</label>
                         <p>
-                            <select class="form-control campoDefault"  id="posto-grad">
+                            <select name="posto_grad" class="form-control campoDefault">
                               <option value="1º Ten">1º Ten</option>
                               <option value="2º Ten">2º Ten</option>
                               <option value="Asp Of">Asp Of</option>
@@ -168,31 +149,53 @@
                             </select>
                           </p>
                     </div>
-                    <div class="form-group col-md-2" id="datetimepicker1">
-                      <label for="name">Data de praça</label>
-                      <input type="date" required class="form-control">
-                    </div>
+                    
                     <div class="form-group col-md-2">
-                      <label for="cia" >Companhia</label>
+                      <label>Data de praça</label>
+                        <input name="data_praca" type="date" required class="form-control">
+                    </div>
+
+                                     
+                    <div class="form-group col-md-2">
+                      <label >Companhia</label>
                         <p>
-                          <select class="form-control campoDefault" id="cia">
+                          <select name="companhia" class="form-control campoDefault" >
                             <option value="EM">EM</option>
                             <option value="CCAP">CCAP</option>
                             <option value="CEEM">CEEM</option>
                             <option value="2ª CIA">2ª CIA</option>
                           </select>
                         </p>
-                    </div>                    
+                    </div> 
+
+
+                    <div class="form-group col-md-2">
+                      <label >Status</label>
+                        <p>
+                          <select name="situacao" class="form-control campoDefault">
+                            <option value="PRONTO">PRONTO</option>
+                            <option value="FÉRIAS">FÉRIAS</option>
+                            <option value="DESTACADO">DESTACADO</option>
+                            <option value="NÚPCIAS">NÚPCIAS</option>
+                            <option value="MISSÃO EXTERNA">MISSÃO EXTERNA</option>
+                            <option value="RECESSO">RECESSO</option>
+                            <option value="LICENÇA ESPECIAL">LICENÇA ESPECIAL</option>
+
+                          </select>
+                        </p>
+                    </div> 
+                                      
+
                   </div>
+                  <div id="imendaHTMLitem"></div> 
                 </div>
                 
-                  <div id="imendaHTMLitem"></div>
+                  
                 
                   <div class="box-footer nao-flutuar">
                     <button type="submit" id="btnAdicionaItem" class="btn btn-secondary">Novo</button>
-                    <button onclick="#" type="submit" class="btn btn-success pull-right " id="btnSalvar">Salvar</button>
+                    <button onclick="#" type="submit" class="btn btn-success pull-right ">Salvar</button>
                   </div>
-
                 </div>
               </form>
             </div>
@@ -206,7 +209,7 @@
       <footer class="sticky-footer">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright © EscOn 2019</span>
+            <span>Copyright © EscOn 2020</span>
           </div>
         </div>
       </footer>
