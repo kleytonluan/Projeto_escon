@@ -128,7 +128,7 @@
                     <th>Data de praça</th>
                     <th>Companhia</th>
                     <th>Status</th>
-                    <th> Ação</th>
+                    <th>Ação</th>
 
                   </tr>
                 </thead>
@@ -153,8 +153,8 @@
                         <td><?php echo $linha['companhia']; ?></td>
                         <td><?php echo $linha['situacao']; ?></td>
                         <td>
-                            <a class="btn btn-success pull-right" href="editar_militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
-                            <a class="btn btn-danger pull-right" href="deletar_militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>
+                            <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
+                            <a class="btn btn-danger pull-right" href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>
 
                       </tr>
                 <?php } ?>

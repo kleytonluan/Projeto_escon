@@ -1,6 +1,6 @@
 <?php
   include('../../validar.php');
-  include("../../conexao.php");
+  include_once("../../conexao.php");
   session_start();
 ?>
 
@@ -109,8 +109,20 @@
           <li class="breadcrumb-item">
             <a href="../../inicio.php">Início</a>
           </li>
-          <li class="breadcrumb-item active">Cadastrar militar</li>
+          <li class="breadcrumb-item active">Editar militar</li>
         </ol>
+        <?php
+          
+          $id = intval($_GET['id']);
+
+          $result_busca = "SELECT * FROM militar WHERE idmilitar = '$id'";
+
+          $result_comando = mysqli_query($conexao, $result_busca);
+
+          $linha = mysqli_fetch_assoc($result_comando);
+
+
+        ?>
 
       <section class="content">
           <div class="col-md-12 ">
@@ -120,81 +132,90 @@
               </div>
 
 
-              <form method="POST" action="cadastrar.php" >
+              <form method="POST" action="editar.php" >
                 <div class="box-body">
                   <div class="row">
                     
+
                     <div class="form-group col-md-2">
+                    <input name="idmilitar" type="hidden"  value="<?php echo $linha['idmilitar']; ?>
+" >
+
                       <label>Nome completo</label>
-                      <input name="nome_completo" type="text" required class="form-control campoDefault" placeholder="Nome completo">
+                      <input name="nome_completo" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_completo']; ?>" >
                     </div>
                     
                     <div class="form-group col-md-2">
                       <label>Nome de guerra</label>
-                      <input name="nome_guerra" type="text" required class="form-control campoDefault" placeholder="Nome de guerra">
+                      <input name="nome_guerra" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_guerra']; ?>">
                     </div>
                    
                     <div class="form-group col-md-1">
                       <label>P/G</label>
+                      <input name="posto_grad" type="text" required class="form-control campoDefault"  value="<?php echo $linha['posto_grad']; ?>">
+
                         <p>
-                            <select name="posto_grad" class="form-control campoDefault">
-                              <option value="1º Ten">1º Ten</option>
-                              <option value="2º Ten">2º Ten</option>
-                              <option value="Asp Of">Asp Of</option>
-                              <option value="1º Sgt">1º Sgt</option>
-                              <option value="2º Sgt">2º Sgt</option>
-                              <option value="3º Sgt">3º Sgt</option>
-                              <option value="Cb">Cb</option>
-                              <option value="Sd">Sd</option>
-                            </select>
+<!--
+                            <select name="posto_grad" class="form-control campoDefault" value="<?php echo $linha['posto_grad']; ?>">
+                              <option value="1">1º Ten</option>
+                              <option value="2">2º Ten</option>
+                              <option value="3">Asp Of</option>
+                              <option value="4">1º Sgt</option>
+                              <option value="5">2º Sgt</option>
+                              <option value="6">3º Sgt</option>
+                              <option value="7">Cb</option>
+                              <option value="8">Sd</option>
+                            </select> -->
                           </p>
                     </div>
                     
                     <div class="form-group col-md-2">
                       <label>Data de praça</label>
-                        <input name="data_praca" type="date" required class="form-control">
+                        <input name="data_praca" type="date" required class="form-control" value="<?php echo $linha['data_praca']; ?>">
                     </div>
 
                                      
                     <div class="form-group col-md-2">
                       <label >Companhia</label>
-                        <p>
-                          <select name="companhia" class="form-control campoDefault" >
-                            <option value="EM">EM</option>
-                            <option value="CCAP">CCAP</option>
-                            <option value="CEEM">CEEM</option>
-                            <option value="2ª CIA">2ª CIA</option>
+                      <input name="companhia" type="text" required class="form-control campoDefault" value="<?php echo $linha['companhia']; ?>">
+
+                      <!--  <p>
+                          <select name="companhia" class="form-control campoDefault"  >
+                            <option value="1">EM</option>
+                            <option value="2">CCAP</option>
+                            <option value="3">CEEM</option>
+                            <option value="4">2ª CIA</option>
                           </select>
-                        </p>
+                        </p> -->
                     </div> 
 
 
                     <div class="form-group col-md-2">
                       <label >Status</label>
-                        <p>
-                          <select name="situacao" class="form-control campoDefault">
-                            <option value="PRONTO">PRONTO</option>
-                            <option value="FÉRIAS">FÉRIAS</option>
-                            <option value="DESTACADO">DESTACADO</option>
-                            <option value="NÚPCIAS">NÚPCIAS</option>
-                            <option value="MISSÃO EXTERNA">MISSÃO EXTERNA</option>
-                            <option value="RECESSO">RECESSO</option>
-                            <option value="LICENÇA ESPECIAL">LICENÇA ESPECIAL</option>
+                      <input name="situacao" type="text" required class="form-control campoDefault"  value="<?php echo $linha['situacao']; ?>">
+
+                       <!-- <p>
+                          <select name="situacao" class="form-control campoDefault" value="<?php echo $linha['situacao']; ?>">
+                            <option value="1">PRONTO</option>
+                            <option value="2">FÉRIAS</option>
+                            <option value="3">DESTACADO</option>
+                            <option value="4">NÚPCIAS</option>
+                            <option value="5">MISSÃO EXTERNA</option>
+                            <option value="6">RECESSO</option>
+                            <option value="7">LICENÇA ESPECIAL</option>
 
                           </select>
-                        </p>
-                    </div>          
+                        </p> -->
+                    </div> 
+                                      
 
                   </div>
-                  <div id="imendaHTMLitem"></div> 
-
                 </div>
                 
                   
                 
                   <div class="box-footer nao-flutuar">
-                    <button type="submit" id="btnAdicionaItem" class="btn btn-secondary"><span class='fa fa-user-plus'></span> Novo</button>
-                    <button onclick="#" type="submit" class="btn btn-success "><span class='fas fa-save'></span> Salvar</button>
+                    <button onclick="#" value="editar" type="submit" class="btn btn-success pull-right "><span class='fas fa-save'></span> Salvar</button>
                   </div>
                 </div>
               </form>

@@ -55,10 +55,14 @@ $( document ).ready(function() {
 				var idForm = "formExtra"+idContador;
 				
 				var html = "";
+				
 				html += "<div id='"+idForm+"' class='box-body'>"
+				//html += " <form method='POST' action='../cadastrar.php' >"
+                //html += "<div class='box-body>"
+                html += "  <div class='row'></div>"
 				html += "<div class='row'>"
                 html += "   <div class='form-group novoCampo col-md-2'>"
-                html += "      <input  name='nome_completo' type='text' class='form-control'required placeholder='Nome completo'>"
+                html += "      <input  name='nome_completo' type='text' class='form-control' required placeholder='Nome completo'>"
                 html += "    </div>"
                 html += "    <div class='form-group novoCampo col-md-2'>"
                 html += "      <input name='nome_guerra' type='text' class='form-control' required  placeholder='Nome de guerra'>"
@@ -108,7 +112,10 @@ $( document ).ready(function() {
 				html +=	"			<button class='btn''teste' onclick='exclui("+idForm+")' type='button'><span class='fa fa-trash'></span></button>";		
                 html += "  	</div>"
                 html += "  	</div>"
-                html += "</div>"
+				html += "</div>"
+				html += "</div>"
+                //html += "</div>"
+				//html += "</form>"
 							
 				$("#imendaHTML"+tipo).append(html);
 			}
@@ -182,23 +189,23 @@ document.getElementById("btn_push").onclick = evt => {
         title: "Olá mundo!",
         link: "https://www.google.com.br/"
     })
-}**/
+}
 
 function Enviar() {
  
-    var solicitante = document.getElementById("solicitante");
+    var email = document.getElementById("email");
  
-    if (solicitante.value != "") {
+    if (email.value != "") {
         alert('Obrigado sr(a) ' + solicitante.value + ',os seus dados foram enviados com sucesso');
     }
  
 }
-
+*/
 function share(){
 	if (navigator.share !== undefined) {
 		navigator.share({
 			title: 'EscOn - Escalas Online',
-			url:'https://api.whatsapp.com/send?text=/arquivos/atual.png',
+			url:'https://sistemaescon.firebaseapp.com/',
 		})
 		.then(() => console.log('Successful share'))
 		.catch((error) => console.log('Error sharing', error));

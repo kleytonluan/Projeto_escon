@@ -16,10 +16,16 @@ $result = mysqli_query($conexao, $sql);
 $row = mysqli_fetch_assoc($result);
 
 if($row['total'] == 1) {
-	$_SESSION['usuario_existe'] = true;
-	header('Location: cadastro-militar.php');
-	exit;
+  $_SESSION['usuario_existe'] = true;
+  echo "
+  <script language='javascript' type='text/javascript'>
+        alert('Militar já existe da base de dados!');
+        window.location.href='cadastro-militar.php';
+    </script>";
+    header('Location: cadastro-militar.php');
+    exit;
 }
+
 
 $insert = "INSERT INTO militar (nome_completo, nome_guerra, posto_grad, data_praca, companhia, situacao) VALUES ('$nome_completo', '$nome_guerra', '$posto_grad', '$data_praca', '$companhia', '$situacao')";
 
@@ -39,17 +45,3 @@ header('Location: consulta-militar.php');
 exit;
 
 ?>
-
-
-
-
-/*
-if($conexao->query($cadastro) === TRUE) {
-	$_SESSION['status_cadastro'] = true;
-}
-
-$conexao->close();
-
-header('Location: cadastro-militar.php');
-exit;
-?>*/
