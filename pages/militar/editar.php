@@ -45,7 +45,7 @@ if(mysqli_affected_rows($conexao)){
     <script>
         alert('Militar não editado.');
     </script>";
-    header ("Location: editar-militar.php");
+    header ("Location: consulta-militar.php");
 }
 
 

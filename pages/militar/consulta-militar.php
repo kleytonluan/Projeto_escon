@@ -29,6 +29,13 @@
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin.css" rel="stylesheet">
 
+ <!--   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+-->
+
 </head>
 
 <body id="page-top">
@@ -118,10 +125,10 @@
             Tabela de militares cadastrados</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-hover table-fixed" id="dataTable" width="100%" cellspacing="0">
+              <table class="table table-hover table-fixed table-bordered nowrap" id="example" cellspacing="0">
                <thead>
                   <tr>
-                    <th>Código</th>
+                    <th>ID</th>
                     <th>Nome completo</th>
                     <th>Nome de guerra</th>
                     <th>Posto/Grad</th>
@@ -402,18 +409,33 @@
   <script src="../../vendor/jquery/jquery.min.js"></script>
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  <script src="../../js/jquery-3.3.1.js"></script>
+  <script src="../../js/jquery.dataTables.min.js"></script>
+  <script src="../../js/dataTables.bootstrap.min.js"></script>
+  <script src="../../js/dataTables.fixedHeader.min.js"></script>
+  <script src="../../js/dataTables.responsive.min.js"></script>
+  <script src="../../js/responsive.bootstrap.min.js"></script>
+
+
   <!-- Core plugin JavaScript-->
   <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Page level plugin JavaScript-->
-  <!--  <script src="../../vendor/datatables/jquery.dataTables.js"></script>-->
-<script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
+  <!--  <script src="../../vendor/datatables/jquery.dataTables.js"></script
+<script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>>-->
 
   <!-- Custom scripts for all pages-->
   <script src="../../js/sb-admin.min.js"></script>
 
-  <!-- Demo scripts for this page-->
-  <script src="../../js/demo/datatables-demo.js"></script>
+  <!-- Demo scripts for this page
+  <script src="../../js/demo/datatables-demo.js"></script>-->
+  <script>
+      $(document).ready(function() {
+        var table = $('#example').DataTable( {
+            
+        } );
+      } );
+  </script>
 
 </body>
 

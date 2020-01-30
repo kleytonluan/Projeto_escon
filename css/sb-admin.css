@@ -6327,6 +6327,7 @@ a.close.disabled {
   border-top: 1px solid #dee2e6;
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
+  
 }
 
 .modal-footer > :not(:first-child) {
@@ -10687,7 +10688,7 @@ body {
 }
 
 .navbar-nav .nav-item.dropdown .dropdown-toggle::after {
-  width: 1rem;
+  width: 6rem;
   text-align: center;
   float: right;
   vertical-align: 0;
@@ -10777,7 +10778,7 @@ body {
 
 @media (min-width: 768px) {
   .sidebar {
-    width: 225px !important;
+    width: 180px !important;
   }
   .sidebar .nav-item .nav-link {
     display: block;
@@ -10943,9 +10944,11 @@ footer.sticky-footer {
   position: absolute;
   right: 0;
   bottom: 0;
-  width: calc(100% - 90px);
+  width: calc(90% - 90px);
   height: 80px;
   background-color: #e9ecef;
+  padding: 0.75rem 1rem;
+  
 }
 
 footer.sticky-footer .copyright {
@@ -10955,7 +10958,8 @@ footer.sticky-footer .copyright {
 
 @media (min-width: 768px) {
   footer.sticky-footer {
-    width: calc(100% - 225px);
+    width: calc(100% - 195px);
+   
   }
 }
 
@@ -10991,7 +10995,33 @@ body.sidebar-toggled footer.sticky-footer {
   bottom: .5em;
   }
 
-  div.dataTables_wrapper {
+  /*div.dataTables_wrapper {
     width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; */
+    .pagination>li>a, .pagination>li>span {
+      position: relative;
+      float: left;
+      padding: 8px 12px;
+      margin-left: -1px;
+      line-height: 1.42857143;
+      color: #337ab7;
+      text-decoration: none;
+      background-color: #fff;
+      border: 1px solid #ddd;
+
+    }
+    .pagination>li:first-child>a, .pagination>li:first-child>span {
+      margin-left: 0;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+  }
+  .pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
 }
+.pagination {
+  justify-content: flex-end !important;
+}
+
