@@ -159,13 +159,24 @@
                         <div class="form-group col-sm-3 lado" >
                           <label for="name">Tipo de serviço:</label>
                           <p>
-                            <select name="servico"  class="form-control campoDefault">
-                              <option value="Oficial de dia">Oficial de dia</option>
-                              <option value="Adjunto ao oficial de dia">Adjunto ao oficial de dia</option>
-                              <option value="Comandante da guarda do Paiol">Comandante da guarda do Paiol</option>
-                              <option value="Sargento de dia CEEM">Sargento de dia CEEM</option>
-                              <option value="Sargento de dia CCAP">Sargento de dia CCAP</option>
-                              <option value="Comandante da guarda do quartel">Comandante da guarda do quartel</option>
+                                <select class="form-control campoDefault">
+                                  
+                          <?php
+
+                            $consulta2 = "select * from tipo_servico";
+
+                            $resultado2 = mysqli_query($conexao,$consulta2);
+
+
+                            while ($linha2 = mysqli_fetch_assoc($resultado2)) { ?>
+
+                            <option><?php echo $linha2['desc_tipo_servico']; ?>
+                            
+                            </option>
+                                
+
+                          <?php } ?>
+
                             </select>
                           </p>
                         </div>
