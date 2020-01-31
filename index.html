@@ -295,10 +295,7 @@
             <div class"modal-footer">
                <p>
                    <br>  
-                </p>
-                <p>
-                    <br> 
-                </p>     
+                </p>    
              <!--id="btnExportPdf"-->
              
                 <button  onclick="share()" class="btn btn-secondary btn-sm" type="button" data-dismiss="modal" value="Export"><i class="fas fa-share-alt"></i> Compartilhar</button>
@@ -440,7 +437,7 @@
             .register("./sw.js")
             .then(function(registration) {
               // SUCESSO - ServiceWorker Registrado
-              console.log("ServiceWorker registrado com sucesso no escopo: ",registration.scope);
+              console.log("ServiceWorker registrado com sucesso",registration.scope);
             })
             .catch(function(err) {
               // ERRO - Falha ao registrar o ServiceWorker

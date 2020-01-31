@@ -1,5 +1,7 @@
 <?php
   include('../../validar.php');
+  include("../../conexao.php");
+
   session_start();
 ?>
 
@@ -76,7 +78,7 @@
       </li>-->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <h6>Logado como, <?php echo $_SESSION['login'];?>
+        <h6>Olá, <?php echo $_SESSION['login'];?>
           <i class="fas fa-user-circle fa-fw"></i>
         </h6>
 
@@ -142,37 +144,122 @@
 
               <form role="form">
 
-
-                  <div class="box-body">
-
-
-                    <div class="row">
-
-                        <div class="form-group col-sm-2" id="datetimepicker1">
+                  <div class="row">
+  
+                        <div class="form-group col-sm-3" id="datetimepicker1">
                             <label for="name">Previsão do dia:</label>
                             <input type="date" class="form-control">
                         </div>
 
-                        <div class="form-group col-sm-2 lado" id="datetimepicker1">
+                        <div class="form-group col-sm-3 lado" id="datetimepicker1">
                           <label for="name">para o dia:</label>
                           <input type="date" class="form-control lado">
                         </div>
+                        
+                        <div class="form-group col-sm-3 lado" >
+                          <label for="name">Tipo de serviço:</label>
+                          <p>
+                            <select name="servico"  class="form-control campoDefault">
+                              <option value="Oficial de dia">Oficial de dia</option>
+                              <option value="Adjunto ao oficial de dia">Adjunto ao oficial de dia</option>
+                              <option value="Comandante da guarda do Paiol">Comandante da guarda do Paiol</option>
+                              <option value="Sargento de dia CEEM">Sargento de dia CEEM</option>
+                              <option value="Sargento de dia CCAP">Sargento de dia CCAP</option>
+                              <option value="Comandante da guarda do quartel">Comandante da guarda do quartel</option>
+                            </select>
+                          </p>
+                        </div>
 
-                    
+                  </div>
 
-                    </div>
+                  <div class="row">
+                      <div class="form-group col-sm-2">
+                        <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Gerar previsão</button>
+                      </div>
+                  </div>
+
                    
-                    <div class="box-footer nao-flutuar">
-                      <button type="submit" id="btnAdicionaItem" class="btn btn-secondary">Adicionar outro</button>
-                      <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Salvar</button>
+              <!--     <div class="box-footer nao-flutuar">
+                     <button onclick="#" type="submit" class="btn btn-success pull-right lado" id="btnSalvar">Salvar</button>
+
+                   </div> -->
+
+             </form>
+                   <div class="card mb-5">
+                    <div class="card-header">
+                      <i class="fas fa-table"></i>
+                      Tabela de militares disponíveis para escalar</div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-hover table-fixed table-bordered nowrap" id="example" cellspacing="0">
+                        <thead>
+                          
+                            <tr>
+                              <th>ID</th>
+                              <th>Posto/Grad</th>
+                              <th>Nome de guerra</th>
+                              <th>Data de praça</th>
+                              <th>Companhia</th>
+                              <th>Status</th>
+                              <th>Folga</th>
+
+                              <!-- <th>Ação</th> -->
+                            </tr>
+
+                          </thead>
+                      
+                          <?php 
+
+                            $consulta = "select * from militar where situacao in ('PRONTO')";
+                          
+                            $resultado = mysqli_query($conexao,$consulta);
+                          
+                          ?>
+                          
+                          <?php
+                          while ($linha = mysqli_fetch_assoc($resultado)) { ?>
+
+                                <tr>
+              
+                                  <td><?php echo $linha['idmilitar']; ?></td>
+                                 <!-- <td><?php echo $linha['nome_completo']; ?></td> -->
+                                  <td><?php echo $linha['posto_grad']; ?></td>
+                                  <td><?php echo $linha['nome_guerra']; ?></td>
+                                  <td><?php echo $linha['data_praca']; ?></td>
+                                  <td><?php echo $linha['companhia']; ?></td>
+                                  <td><?php echo $linha['situacao']; ?></td>
+                                  <td><?php echo $linha['situacao']; ?></td>
+
+                   
+                             <!--     <td>
+                                      <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
+                                      <a class="btn btn-danger pull-right" href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a> -->
+
+                                </tr>
+                          <?php } ?>
+                          
+          <!--
+
+                  echo '<tr>';
+                    echo '<td>'. $linha['idmilitar'] .'</td>';
+                    echo '<td>'. $linha['nome_completo'] .'</td>';
+                    echo '<td>'. $linha['nome_guerra'] .'</td>';
+                    echo '<td>'. $linha['posto_grad'] .'</td>';
+                    echo '<td>'. $linha['data_praca'] .'</td>';
+                    echo '<td>'. $linha['companhia'] .'</td>';
+                    echo '<td>'. $linha['situacao'] .'</td>';
+
+                  echo '</tr>';
+                          -->
+
+                        </table>
+                      </div>
                     </div>
+                  </div>
 
-
-                  </div>  
-
-
-              </form>
-
+                </div>
+      <!-- /.container-fluid -->
+                    
             </div>
           </div>
       </section>

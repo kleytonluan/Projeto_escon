@@ -90,12 +90,14 @@ self.addEventListener('fetch', function(event) {
       }
       return fetch(event.request).then(function(response) {
         if (response.status === 404) {
+          console.log('Você está offline, jogue um joginho enquanto sua conexão é reestabelecida');
           return caches.match('offline/index.html');
         }
         return response
       });
     }).catch(function() {
       // If both fail, show a generic fallback:
+      alert('Você está offline, jogue um joginho enquanto sua conexão é reestabelecida');
       return caches.match('offline/index.html');
     })
   );

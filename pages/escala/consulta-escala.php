@@ -76,7 +76,7 @@
       </li>-->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <h6>Logado como, <?php echo $_SESSION['login'];?>
+        <h6>Olá, <?php echo $_SESSION['login'];?>
           <i class="fas fa-user-circle fa-fw"></i>
         </h6>
 
