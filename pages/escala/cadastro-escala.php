@@ -226,7 +226,8 @@
                       
                           <?php 
 
-                            $consulta = "select * from militar where situacao in ('PRONTO')";
+                            $consulta = "SELECT militar.idmilitar, militar.nome_completo, militar.folga, militar.nome_guerra, militar.data_praca, militar.situacao_idsituacao1, militar.posto_grad_idposto_grad, posto_grad.desc_posto_grad, situacao.desc_situacao,  companhia.desc_companhia FROM militar, posto_grad, situacao, companhia WHERE idsituacao = situacao_idsituacao1 AND idposto_grad = posto_grad_idposto_grad and idcompanhia = companhia_idcompanhia AND desc_situacao = ('pronto');
+                            ";
                           
                             $resultado = mysqli_query($conexao,$consulta);
                           
@@ -239,12 +240,12 @@
               
                                   <td><?php echo $linha['idmilitar']; ?></td>
                                  <!-- <td><?php echo $linha['nome_completo']; ?></td> -->
-                                  <td><?php echo $linha['posto_grad']; ?></td>
+                                  <td><?php echo utf8_encode($linha['desc_posto_grad']); ?></td>
                                   <td><?php echo $linha['nome_guerra']; ?></td>
                                   <td><?php echo $linha['data_praca']; ?></td>
-                                  <td><?php echo $linha['companhia']; ?></td>
-                                  <td><?php echo $linha['situacao']; ?></td>
-                                  <td><?php echo $linha['folga']; ?></td>
+                                  <td><?php echo utf8_encode($linha['desc_companhia']); ?></td>
+                                  <td><?php echo utf8_encode($linha['desc_situacao']); ?></td>
+                                  <td><?php echo $linha['folga']; ?> dias</td>
 
                    
                              <!--     <td>
