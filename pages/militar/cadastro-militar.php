@@ -118,71 +118,90 @@
               <div class="box-header with-border">
            <!--     <h4 class="box-title">Informe os dados abaixo:</h4> -->
               </div>
+                                  
+                  <?php
+                   
+                    $consulta_posto = "select idposto_grad, desc_posto_grad from posto_grad";
+                    $consulta_cia = "select idcompanhia, desc_companhia from companhia";
+                    $consulta_situacao = "select idsituacao, desc_situacao from situacao";
 
+                    $resultado1 = mysqli_query($conexao,$consulta_posto);
+                    $resultado2 = mysqli_query($conexao,$consulta_cia);
+                    $resultado3 = mysqli_query($conexao,$consulta_situacao);
+              ?>
 
               <form method="POST" action="cadastrar.php" >
                 <div class="box-body">
                   <div class="row">
                     
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-4">
                       <label>Nome completo</label>
                       <input name="nome_completo" type="text" required class="form-control campoDefault" placeholder="Nome completo">
                     </div>
                     
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-4">
                       <label>Nome de guerra</label>
                       <input name="nome_guerra" type="text" required class="form-control campoDefault" placeholder="Nome de guerra">
-                    </div>
-                   
-                    <div class="form-group col-md-1">
+                    </div>            
+
+                    <div class="form-group col-md-2">
                       <label>P/G</label>
                         <p>
-                            <select name="posto_grad" class="form-control campoDefault">
-                              <option value="1º Ten">1º Ten</option>
-                              <option value="2º Ten">2º Ten</option>
-                              <option value="Asp Of">Asp Of</option>
-                              <option value="1º Sgt">1º Sgt</option>
-                              <option value="2º Sgt">2º Sgt</option>
-                              <option value="3º Sgt">3º Sgt</option>
-                              <option value="Cb">Cb</option>
-                              <option value="Sd">Sd</option>
-                            </select>
-                          </p>
-                    </div>
+                          <select name="posto_grad" class="form-control campoDefault">
+                            <?php 
+
+                              while ($linha1 = mysqli_fetch_array($resultado1)) { ?>
+                              
+                                <option value="<?php echo $linha1['idposto_grad'] ?>"><?php echo utf8_encode($linha1['desc_posto_grad']); ?></option>
                     
-                    <div class="form-group col-md-2">
+                            <?php } ?>
+
+                          </select>
+                      </p>
+                    </div>        
+                  </div>
+                  
+                  <div class="row">
+
+                    <div class="form-group col-md-3">
                       <label>Data de praça</label>
                         <input name="data_praca" type="date" required class="form-control">
                     </div>
-
-                                     
-                    <div class="form-group col-md-2">
+                                  
+                    <div class="form-group col-md-3">
                       <label >Companhia</label>
                         <p>
                           <select name="companhia" class="form-control campoDefault" >
-                            <option value="EM">EM</option>
-                            <option value="CCAP">CCAP</option>
-                            <option value="CEEM">CEEM</option>
-                            <option value="2ª CIA">2ª CIA</option>
+                          <?php 
+
+                              while ($linha2 = mysqli_fetch_array($resultado2)) { ?>
+                                
+                                <option value="<?php echo $linha2['idcompanhia'] ?>"><?php echo utf8_encode($linha2['desc_companhia']); ?></option>
+                             
+                              <?php } ?>
+
                           </select>
                         </p>
                     </div> 
-
 
                     <div class="form-group col-md-2">
                       <label >Status</label>
                         <p>
                           <select name="situacao" class="form-control campoDefault">
-                            <option value="PRONTO">PRONTO</option>
-                            <option value="FÉRIAS">FÉRIAS</option>
-                            <option value="DESTACADO">DESTACADO</option>
-                            <option value="NÚPCIAS">NÚPCIAS</option>
-                            <option value="MISSÃO EXTERNA">MISSÃO EXTERNA</option>
-                            <option value="RECESSO">RECESSO</option>
-                            <option value="LICENÇA ESPECIAL">LICENÇA ESPECIAL</option>
+                          <?php 
+
+                              while ($linha3 = mysqli_fetch_array($resultado3)) { ?>
+                               
+                                <option value="<?php echo $linha3['idsituacao'] ?>"><?php echo utf8_encode($linha3['desc_situacao']); ?></option>
+                              
+                              <?php } ?>
 
                           </select>
                         </p>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label>Folga</label>
+                      <input name="folga" type="text" required class="form-control campoDefault" value="0">
                     </div>          
 
                   </div>

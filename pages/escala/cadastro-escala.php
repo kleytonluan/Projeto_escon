@@ -3,6 +3,10 @@
   include("../../conexao.php");
 
   session_start();
+  
+  ini_set('default_charset','UTF-8');
+
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +15,7 @@
 <head>
 
   <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -170,7 +175,7 @@
 
                             while ($linha2 = mysqli_fetch_assoc($resultado2)) { ?>
 
-                            <option><?php echo $linha2['desc_tipo_servico']; ?>
+                            <option><?php echo utf8_encode($linha2['desc_tipo_servico']); ?>
                             
                             </option>
                                 
@@ -199,10 +204,10 @@
                    <div class="card mb-5">
                     <div class="card-header">
                       <i class="fas fa-table"></i>
-                      Tabela de militares disponíveis para escalar</div>
+                      Tabela de militares disponíveis para escala</div>
                     <div class="card-body">
                       <div class="table-responsive">
-                        <table class="table table-hover table-fixed table-bordered nowrap" id="example" cellspacing="0">
+                        <table class="table table-hover table-fixed table-bordered nowrap" id="dataTable" cellspacing="0">
                         <thead>
                           
                             <tr>
@@ -239,7 +244,7 @@
                                   <td><?php echo $linha['data_praca']; ?></td>
                                   <td><?php echo $linha['companhia']; ?></td>
                                   <td><?php echo $linha['situacao']; ?></td>
-                                  <td><?php echo $linha['situacao']; ?></td>
+                                  <td><?php echo $linha['folga']; ?></td>
 
                    
                              <!--     <td>
@@ -328,6 +333,13 @@
 
   <!-- Custom scripts for all pages-->
   <script src="../../js/sb-admin.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="../../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="../../js/demo/datatables-demo.js"></script>
 
   <!-- Demo scripts for this page-->
   <script src="../../js/demo/chart-area-demo.js"></script>

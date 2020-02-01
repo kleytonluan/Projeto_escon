@@ -122,6 +122,17 @@
         </div>
       </li>
     </ul>
+    <?php
+          
+          $id = intval($_GET['id']);
+
+          $result_busca = "SELECT * FROM militar WHERE idmilitar = '$id'";
+
+          $result_comando = mysqli_query($conexao, $result_busca);
+
+          $linha = mysqli_fetch_assoc($result_comando);
+
+        ?>
 
     <div id="content-wrapper">
 
@@ -135,208 +146,105 @@
           <li class="breadcrumb-item active">Consulta Escalas</li>
         </ol>
 
-        <!-- DataTables Example 
+        <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Tabela de militares cadastrados</div>
+            Previsão das escalas</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Nome completo</th>
-                    <th>Nome de guerra</th>
-                    <th>P/G</th>
-                    <th>Data de praça</th>
-                    <th>Companhia</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Luan Kleyton Ramos de Brito Carvalho</td>
-                    <td>Kleyton</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Fabiano Freire de Albuquerque</td>
-                    <td>Albuquerque</td>
-                    <td>1º Sgt</td>
-                    <td>01/10/2007</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Samila Cristiany de Jesus Beserra</td>
-                    <td>Samila</td>
-                    <td>2º Ten</td>
-                    <td>01/03/2017</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Anderson de Gomes Resende</td>
-                    <td>Resende</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2010</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Alexandre Soares Cunha</td>
-                    <td>Soares</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2009</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Taciso Leal Silva</td>
-                    <td>Taciso</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2013</td>
-                    <td>2ª Cia</td>
-                    <td>Férias</td>
-                  </tr>
-                  <tr>
-                    <td>Raimundo Nonato de Sousa</td>
-                    <td>Sousa</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Rafael Cabral Franco</td>
-                    <td>Cabral</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2017</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Naíce Vanessa de Sousa Bezerra</td>
-                    <td>Vanessa</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>João Lennon de Moura Gomes</td>
-                    <td>Lennon</td>
-                    <td>Cb</td>
-                    <td>01/08/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Rubens de Moura Leal</td>
-                    <td>Rubens</td>
-                    <td>Cb</td>
-                    <td>01/03/2014</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Marcus Delano Pinheiro Maia</td>
-                    <td>Delano</td>
-                    <td>2º Ten</td>
-                    <td>01/03/2015</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Roberto Pereira da Silva</td>
-                    <td>Roberto</td>
-                    <td>1º Ten</td>
-                    <td>01/03/2015</td>
-                    <td>2ª Cia</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Eduardo Gomes dos Santos</td>
-                    <td>Santos</td>
-                    <td>1º Ten</td>
-                    <td>01/03/2016</td>
-                    <td>CEEM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Francisco Heles do Nascimento</td>
-                    <td>Heles</td>
-                    <td>1º Sgt</td>
-                    <td>01/03/2006</td>
-                    <td>CCAP</td>
-                    <td>Férias</td>
-                  </tr>
-                  <tr>
-                    <td>Eduardo Chaves Alfonso</td>
-                    <td>Alfonso</td>
-                    <td>1º Sgt</td>
-                    <td>01/09/2005</td>
-                    <td>CCAP</td>
-                    <td>Férias</td>
-                  </tr>
-                  <tr>
-                    <td>Edilson Ferreira Miranda</td>
-                    <td>Miranda</td>
-                    <td>2º Sgt</td>
-                    <td>01/08/1992</td>
-                    <td>2º Cia</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Jordão Bezerra de Araújo</td>
-                    <td>Jordão</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2008</td>
-                    <td>CEEM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Celestimar Ribeiro de Araújo</td>
-                    <td>Celestimar</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2009</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Gabriel Fernandes Cabral</td>
-                    <td>Gabriel Fernandes</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2004</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Bruno Richelle de Brito Batista</td>
-                    <td>Bruno</td>
-                    <td>1º Ten</td>
-                    <td>01/03/2016</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Fernando Lucas Borges Rufino</td>
-                    <td>Lucas</td>
-                    <td>2º Ten</td>
-                    <td>01/03/2017</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>  
-                </tbody>
+              <table class="table table-bordered"  width="100%" cellspacing="0">
+              <thead>  
+                    <tr>
+                      <th>Escala</th>
+                      <th>Segunda</th>
+                      <th>Terça</th>
+                      <th>Quarta</th>
+                      <th>Quinta</th>
+                      <th>Sexta</th>
+                      <th class="table-danger">Sábado</th>
+                      <th class="table-danger">Domingo</th>
+                      <th>Segunda</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   <!-- <tr>
+                      <td>Oficial de dia</td>
+                      <td>1º Ten Flávio</td>
+                      <td>2º Ten Lucas</td>
+                      <td>1º Ten Michel</td>
+                      <td>1º Ten Bruno</td>
+                      <td>2º Ten Carlos</td>
+                      <td>1º Ten Wilker</td>
+                      <td>2º Ten Rogério</td>
+                      <td>1º Ten Avelino</td>
+                    </tr>
+                    <tr>
+                      <td>Adjunto</td>
+                      <td>1º Sgt Alfonso</td>
+                      <td>2º Sgt Paulo Cesar</td>
+                      <td>1º Sgt Heldon</td>
+                      <td>1º Sgt Heles</td>
+                      <td>2º Sgt Cavalcante</td>
+                      <td>2º Sgt Valmar</td>
+                      <td>2º Sgt Wemberg</td>
+                      <td>1º Sgt Veloso</td>
+                    </tr>
+                    <tr>
+                      <tr>
+                      <td>Sgt Paiol</td>
+                      <td>2º Sgt Clésio</td>
+                      <td>2º Sgt Soaresr</td>
+                      <td>2º Sgt Celestimar</td>
+                      <td>2º Sgt Jackson</td>
+                      <td>2º Sgt Algusto</td>
+                      <td>2º Sgt Willames</td>
+                      <td>2º Sgt R. Sousa</td>
+                      <td>2º Sgt Jordão</td>
+                    </tr>
+                    <tr>
+                      <tr>
+                      <td>Sgt Ceem</td>
+                      <td>3º Sgt Gaspar</td>
+                      <td>3º Sgt Karlos</td>
+                      <td>3º Sgt Luz</td>
+                      <td>3º Sgt Gladerson</td>
+                      <td>3º Sgt Sousa</td>
+                      <td>3º Sgt James</td>
+                      <td>3º Sgt De Andrade</td>
+                      <td>3º Sgt Victor</td>
+                    </tr>
+                    <tr>
+                      <tr>
+                      <td>Sgt Ccap</td>
+                      <td>3º Sgt Kleyton</td>
+                      <td>3º Sgt Misael</td>
+                      <td>3º Sgt Flávio</td>
+                      <td>3º Sgt Franco</td>
+                      <td>3º Sgt Da Silva</td>
+                      <td>3º Sgt Sena</td>
+                      <td>3º Sgt Pacheco</td>
+                      <td>3º Sgt Batista</td>
+                    </tr>
+                    <tr>
+                      <tr>
+                      <td>Sgt Guarda</td>
+                      <td>3º Sgt Bruno</td>
+                      <td>3º Sgt Leiane</td>
+                      <td>3º Sgt Kelicio</td>
+                      <td>3º Sgt Lima</td>
+                      <td>3º Sgt Silva Ramos</td>
+                      <td>3º Sgt Geciana</td>
+                      <td>3º Sgt Fortaleza</td>
+                      <td>3º Sgt Adolfo</td>
+                    </tr> -->
+                    </tbody>
               </table>
             </div>
           </div>
         </div>
 
-      </div>-->
+      </div>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->

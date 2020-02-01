@@ -125,7 +125,7 @@
             Tabela de militares cadastrados</div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-hover table-fixed table-bordered nowrap" id="example" cellspacing="0">
+              <table class="table table-hover table-fixed table-bordered nowrap" id="dataTable" cellspacing="0">
                <thead>
                   <tr>
                     <th>ID</th>
@@ -142,23 +142,36 @@
              
                 <?php 
 
-                  $consulta = "select * from militar";
-                
-                  $resultado = mysqli_query($conexao,$consulta);
+                  $consulta = "select militar.idmilitar, militar.nome_completo, militar.nome_guerra, militar.data_praca, posto_grad.desc_posto_grad, situacao.desc_situacao, companhia.desc_companhia from militar, posto_grad, situacao, companhia where idsituacao = situacao_idsituacao1 and idposto_grad = posto_grad_idposto_grad and idcompanhia = companhia_idcompanhia; ";
+
+                 /* $consulta_posto = "select desc_posto_grad from posto_grad where exists (select  posto_grad_idposto_grad from militar where posto_grad_idposto_grad = idposto_grad)";
+                  $consulta_cia = "select desc_companhia from companhia where exists (select companhia_idcompanhia from militar where companhia_idcompanhia = idcompanhia)";
+                  $consulta_situacao = "select desc_situacao from situacao where exists (select situacao_idsituacao1 from militar where situacao_idsituacao1 = idsituacao)"; */
+
+                  $resultado1 = mysqli_query($conexao,$consulta);
+                  
+           /*       $resultado2 = mysqli_query($conexao,$consulta_posto);
+                  $resultado3 = mysqli_query($conexao,$consulta_cia);
+                  $resultado4 = mysqli_query($conexao,$consulta_situacao); */
                 
                 ?>
                  
                 <?php
-                 while ($linha = mysqli_fetch_assoc($resultado)) { ?>
+                  
+                 // while ($linha2 = mysqli_fetch_assoc($resultado2))
+                 while ($linha = mysqli_fetch_assoc($resultado1))
+             /*    while ($linha2 = mysqli_fetch_assoc($resultado2))
+                 while ($linha3 = mysqli_fetch_assoc($resultado3))
+                 while ($linha4 = mysqli_fetch_assoc($resultado4))*/ { ?>
 
                       <tr>
                         <td><?php echo $linha['idmilitar']; ?></td>
                         <td><?php echo $linha['nome_completo']; ?></td>
                         <td><?php echo $linha['nome_guerra']; ?></td>
-                        <td><?php echo $linha['posto_grad']; ?></td>
+                        <td><?php echo utf8_encode($linha['desc_posto_grad']); ?></td>
                         <td><?php echo $linha['data_praca']; ?></td>
-                        <td><?php echo $linha['companhia']; ?></td>
-                        <td><?php echo $linha['situacao']; ?></td>
+                        <td><?php echo utf8_encode($linha['desc_companhia']); ?></td>
+                        <td><?php echo utf8_encode($linha['desc_situacao']); ?></td>
                         <td>
                             <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
                             <a class="btn btn-danger pull-right" href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>
@@ -179,185 +192,7 @@
 
         echo '</tr>';
                 -->
-   <!--            <tbody>
-                <tr>
-                    <td>Luan Kleyton Ramos de Brito Carvalho</td>
-                    <td>Kleyton</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                </tr>
-                  <tr>
-                    <td>Fabiano Freire de Albuquerque</td>
-                    <td>Albuquerque</td>
-                    <td>1º Sgt</td>
-                    <td>01/10/2007</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
- 
-                <tr>
-                    <td>Samila Cristiany de Jesus Beserra</td>
-                    <td>Samila</td>
-                    <td>2º Ten</td>
-                    <td>01/03/2017</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Anderson de Gomes Resende</td>
-                    <td>Resende</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2010</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Alexandre Soares Cunha</td>
-                    <td>Soares</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2009</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Taciso Leal Silva</td>
-                    <td>Taciso</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2013</td>
-                    <td>2ª Cia</td>
-                    <td>Férias</td>
-                  </tr>
-                  <tr>
-                    <td>Raimundo Nonato de Sousa</td>
-                    <td>Sousa</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Rafael Cabral Franco</td>
-                    <td>Cabral</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2017</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Naíce Vanessa de Sousa Bezerra</td>
-                    <td>Vanessa</td>
-                    <td>3º Sgt</td>
-                    <td>01/03/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>João Lennon de Moura Gomes</td>
-                    <td>Lennon</td>
-                    <td>Cb</td>
-                    <td>01/08/2015</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Rubens de Moura Leal</td>
-                    <td>Rubens</td>
-                    <td>Cb</td>
-                    <td>01/03/2014</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Marcus Delano Pinheiro Maia</td>
-                    <td>Delano</td>
-                    <td>2º Ten</td>
-                    <td>01/03/2015</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Roberto Pereira da Silva</td>
-                    <td>Roberto</td>
-                    <td>1º Ten</td>
-                    <td>01/03/2015</td>
-                    <td>2ª Cia</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Eduardo Gomes dos Santos</td>
-                    <td>Santos</td>
-                    <td>1º Ten</td>
-                    <td>01/03/2016</td>
-                    <td>CEEM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Francisco Heles do Nascimento</td>
-                    <td>Heles</td>
-                    <td>1º Sgt</td>
-                    <td>01/03/2006</td>
-                    <td>CCAP</td>
-                    <td>Férias</td>
-                  </tr>
-                  <tr>
-                    <td>Eduardo Chaves Alfonso</td>
-                    <td>Alfonso</td>
-                    <td>1º Sgt</td>
-                    <td>01/09/2005</td>
-                    <td>CCAP</td>
-                    <td>Férias</td>
-                  </tr>
-                  <tr>
-                    <td>Edilson Ferreira Miranda</td>
-                    <td>Miranda</td>
-                    <td>2º Sgt</td>
-                    <td>01/08/1992</td>
-                    <td>2º Cia</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Jordão Bezerra de Araújo</td>
-                    <td>Jordão</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2008</td>
-                    <td>CEEM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Celestimar Ribeiro de Araújo</td>
-                    <td>Celestimar</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2009</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Gabriel Fernandes Cabral</td>
-                    <td>Gabriel Fernandes</td>
-                    <td>2º Sgt</td>
-                    <td>01/03/2004</td>
-                    <td>CCAP</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Bruno Richelle de Brito Batista</td>
-                    <td>Bruno</td>
-                    <td>1º Ten</td>
-                    <td>01/03/2016</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>
-                  <tr>
-                    <td>Fernando Lucas Borges Rufino</td>
-                    <td>Lucas</td>
-                    <td>2º Ten</td>
-                    <td>01/03/2017</td>
-                    <td>EM</td>
-                    <td>Pronto para o serviço</td>
-                  </tr>  
-                </tbody>-->
+
               </table>
             </div>
           </div>
@@ -405,7 +240,7 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
+  <!-- Bootstrap core JavaScript
   <script src="../../vendor/jquery/jquery.min.js"></script>
   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -414,8 +249,24 @@
   <script src="../../js/dataTables.bootstrap.min.js"></script>
   <script src="../../js/dataTables.fixedHeader.min.js"></script>
   <script src="../../js/dataTables.responsive.min.js"></script>
-  <script src="../../js/responsive.bootstrap.min.js"></script>
+  <script src="../../js/responsive.bootstrap.min.js"></script>-->
 
+<!-- Bootstrap core JavaScript-->
+  <script src="../../vendor/jquery/jquery.min.js"></script>
+  <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Page level plugin JavaScript-->
+  <script src="../../vendor/datatables/jquery.dataTables.js"></script>
+  <script src="../../vendor/datatables/dataTables.bootstrap4.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../../js/sb-admin.min.js"></script>
+
+  <!-- Demo scripts for this page-->
+  <script src="../../js/demo/datatables-demo.js"></script>
 
   <!-- Core plugin JavaScript-->
   <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -428,14 +279,14 @@
   <script src="../../js/sb-admin.min.js"></script>
 
   <!-- Demo scripts for this page
-  <script src="../../js/demo/datatables-demo.js"></script>-->
+  <script src="../../js/demo/datatables-demo.js"></script>
   <script>
       $(document).ready(function() {
         var table = $('#example').DataTable( {
             
         } );
       } );
-  </script>
+  </script>-->
 
 </body>
 
