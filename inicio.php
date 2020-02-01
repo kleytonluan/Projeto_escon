@@ -1,5 +1,7 @@
 <?php
   include('validar.php');
+  include('conexao.php');
+
   session_start();
 ?>
 
@@ -140,8 +142,8 @@
     <div id="content-wrapper">
 
       <div class="container-fluid">
-
-        <!-- Breadcrumbs-->
+       
+      <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="inicio.php">Início</a>
@@ -154,10 +156,28 @@
             <i class="fas fa-chart-area"></i>
             Gráfico de militares escalados</div>
           <div class="card-body">
+          
             <canvas id="myAreaChart" width="100%" height="30"></canvas>
           </div>
           <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
         </div>
+<!--
+        <div class="col-lg-5">
+            <div class="card mb-5">
+              <div class="card-header">
+                <i class="fas fa-chart-pie"></i>
+                Gráfico por posto/Graduação</div>
+              <div class="card-body">
+              
+              <div id="piechart" style="width: 470px; height: 350px;"></div>
+              </div>
+              <div class="card-footer small text-muted">
+                <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
+            </div>
+          </div>
+        </div>    -->
+  
+     
 
       <!-- DataTables Example -->
        <!-- <div class="card mb-3">
@@ -317,6 +337,34 @@
   <!-- Demo scripts for this page-->
   <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>
+
+ <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Posto/Graduação', 'Quantidade'],
+          ['1º Ten', 11], /*<?php echo $cont_1ten; ?>],*/
+          ['2º Ten', 23], //<?php echo $cont_2ten; ?>],
+         // ['Asp Of', <?php echo $cont_asp;  ?>],
+         // ['1º Sgt', <?php echo $cont_1sgt; ?>],
+         // ['2º Sgt', <?php echo $cont_2sgt; ?>],
+         // ['3º Sgt', <?php echo $cont_3sgt; ?>],
+
+        ]);
+
+        var options = {
+          title: 'Quantidade de militares por posto/Graduação'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script> -->
 
 </body>
 

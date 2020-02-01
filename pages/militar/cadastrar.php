@@ -9,6 +9,8 @@ $posto_grad =  mysqli_real_escape_string($conexao, $_POST['posto_grad']);
 $companhia =  mysqli_real_escape_string($conexao, $_POST['companhia']);
 $situacao =  mysqli_real_escape_string($conexao, $_POST['situacao']);
 $folga =  mysqli_real_escape_string($conexao, $_POST['folga']);
+$tipo_servico =  mysqli_real_escape_string($conexao, $_POST['tipo_servico']);
+
 
 
 /*$nome_completo = filter_input(INPUT_POST,'nome_completo', FILTER_SENITIZE_STRING);
@@ -31,7 +33,7 @@ if($row['total'] == 1) {
   $_SESSION['usuario_existe'] = true;
   echo"
   <script language='javascript' type='text/javascript'>
-        alert('Militar já existe da base de dados!');
+        alert('Militar já existe na base de dados!');
         window.location.href='cadastro-militar.php';
     </script>"
     ;
@@ -40,7 +42,26 @@ if($row['total'] == 1) {
   exit;
 }
 
-$insert = "INSERT INTO militar (nome_completo, nome_guerra, data_praca, posto_grad_idposto_grad, companhia_idcompanhia, situacao_idsituacao1, folga) VALUES ('$nome_completo','$nome_guerra','$data_praca', $posto_grad,$companhia,$situacao,$folga)";
+$insert = "INSERT INTO militar (
+                        nome_completo, 
+                        nome_guerra, 
+                        data_praca, 
+                        posto_grad_idposto_grad, 
+                        companhia_idcompanhia, 
+                        situacao_idsituacao1, 
+                        folga,
+                        tipo_servico_idtipo_servico) 
+                  VALUES (
+                        '$nome_completo',
+                        '$nome_guerra',
+                        '$data_praca', 
+                        $posto_grad,
+                        $companhia,
+                        $situacao,
+                        $folga, 
+                        $tipo_servico)";
+
+//echo ($insert);                     
 
 
 if($conexao->query($insert) === TRUE) {

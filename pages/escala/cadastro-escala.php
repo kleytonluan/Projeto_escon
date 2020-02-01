@@ -166,40 +166,37 @@
                         <div class="form-group col-sm-3 lado" id="datetimepicker1">
                           <label for="name">para o dia:</label>
                           <input type="date" class="form-control lado">
-                        </div>
+                        </div>            
                         
-                        
-                  </div>
-             </form>
-                              
-                <form method="POST" action="tipo_escala.php" role="form"> 
-
-                <div class="row">
-
                         <div class="form-group col-sm-3 lado" >
                           <label for="name">Tipo de serviço:</label>
                           <p>
                             <select name="tipo_servico" id="tipo_servico" class="form-control campoDefault">  
-                            <option value="">Escolha o tipo de serviço</option>
+                              <option value="">Escolha o tipo de serviço</option>
                              
-                              <?php
-                                
-                                $consulta2 = "select * from tipo_servico ";
-      
-                                $resultado2 = mysqli_query($conexao,$consulta2);
+                                <?php
+                                  
+                                  $consulta2 = "select * from tipo_servico ";
+        
+                                  $resultado2 = mysqli_query($conexao,$consulta2);
 
-                                while ($linha2 = mysqli_fetch_assoc($resultado2)) { ?>                              
+                                  while ($linha2 = mysqli_fetch_assoc($resultado2)) { ?>                              
+                                   
                                   <option  value="<?php echo $linha2['idtipo_servico'] ?>"><?php echo utf8_encode($linha2['desc_tipo_servico']); ?> </option >                        
-                      
-                            <?php } ?>
-
+                        
+                              <?php } ?>
                             </select>
                           </p>
-                        </div>
-                        </div>
+                      </div>
                   </div>
+                      
+             </form>
+                              
+              <form method="POST" action="tipo_escala.php" role="form"> 
 
-                  </form>
+                
+
+                </form>
 
                   <div class="row">
 

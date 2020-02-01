@@ -133,22 +133,26 @@
                                 $consulta_posto = "select idposto_grad, desc_posto_grad from posto_grad";
                                 $consulta_cia = "select idcompanhia, desc_companhia from companhia";
                                 $consulta_situacao = "select idsituacao, desc_situacao from situacao";
+                                $consulta_tipo_sv = "select idtipo_servico, desc_tipo_servico from tipo_servico";
+
 
                                 $resultado1 = mysqli_query($conexao,$consulta_posto);
                                 $resultado2 = mysqli_query($conexao,$consulta_cia);
                                 $resultado3 = mysqli_query($conexao,$consulta_situacao);
+                                $resultado4 = mysqli_query($conexao,$consulta_tipo_sv);
+
                           ?>
 
                           <form method="POST" action="cadastrar.php" >
                             <div class="box-body">
                               <div class="row">
-                                
-                                <div class="form-group col-md-4">
+                              
+                                <div class="form-group col-md-3">
                                   <label>Nome completo</label>
                                   <input name="nome_completo" type="text" required class="form-control campoDefault" placeholder="Nome completo">
                                 </div>
                                 
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                   <label>Nome de guerra</label>
                                   <input name="nome_guerra" type="text" required class="form-control campoDefault" placeholder="Nome de guerra">
                                 </div>            
@@ -167,8 +171,27 @@
 
                                       </select>
                                   </p>
+                                </div> 
+
+                                
+                              <div class="form-group col-md-2">
+                                  <label>Tipo de serviço</label>
+                                    <p>
+                                      <select name="tipo_servico" class="form-control campoDefault">
+                                        <?php 
+
+                                          while ($linha4 = mysqli_fetch_array($resultado4)) { ?>
+                                          
+                                            <option value="<?php echo $linha4['idtipo_servico'] ?>"><?php echo utf8_encode($linha4['desc_tipo_servico']); ?></option>
+                                
+                                        <?php } ?>
+
+                                      </select>
+                                  </p>
                                 </div>        
+                              </div>       
                               </div>
+
                               
                               <div class="row">
 
@@ -192,6 +215,7 @@
                                       </select>
                                     </p>
                                 </div> 
+
 
                                 <div class="form-group col-md-2">
                                   <label >Status</label>

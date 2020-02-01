@@ -9,7 +9,9 @@ $id = intval($_GET['id']);
 
 $comando = "DELETE FROM militar where idmilitar = '$id'";
 
-$resultado = mysqli_query ($conexao, $comando); 
+$resultado = mysqli_query($conexao, $comando); 
+
+//echo ($comando);
 
 if(mysqli_affected_rows($conexao)){
     $_SESSION ['msg'] = true;
@@ -30,7 +32,7 @@ if(mysqli_affected_rows($conexao)){
     ;
   die();
   header('Location: consulta-militar.php');
-}
+} 
 
 /*
 $id = intval($_GET['id']);

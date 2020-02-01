@@ -18,18 +18,15 @@ include_once("../../conexao.php");
                     companhia.desc_companhia 
                 FROM 
                     militar, 
-                    tipo_servico, 
                     situacao, 
                     companhia, 
-                    tipo_servico_has_militar, 
-                    posto_grad 
+                    posto_grad,
+                    tipo_servico
                 WHERE 
                     idsituacao = situacao_idsituacao1 
                 AND 
-                    tipo_servico_idtipo_servico = idtipo_servico 
-                AND 
-                    militar_idmilitar = idmilitar 
-                AND 
+                    idtipo_servico = tipo_servico_idtipo_servico
+                AND
                     idcompanhia = companhia_idcompanhia 
                 AND 
                     posto_grad_idposto_grad = idposto_grad 

@@ -12,7 +12,7 @@ if (empty($_POST['login']) || empty($_POST['senha'])) {
 $login = mysqli_real_escape_string($conexao, $_POST['login']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 
-$consulta = "SELECT login, senha FROM admin where login = '$login' and senha = '$senha'";
+$consulta = "SELECT login, senha FROM admin where login = '$login' and senha = md5('$senha')";
 
 $result = mysqli_query($conexao, $consulta);
 

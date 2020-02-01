@@ -174,10 +174,36 @@
                         <td><?php echo utf8_encode($linha['desc_situacao']); ?></td>
                         <td>
                             <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
-                            <a class="btn btn-danger pull-right" href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>
+                            <a class="btn btn-danger pull-right"  href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>
+                      
 
                       </tr>
+                    
+
                 <?php } ?>
+
+                
+              <!--  <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div class="modal-body">
+                                  Deseja realmente excluir este item?
+                                </div>
+                                <div class="modal-footer">
+
+                                <a type="submit" class="btn btn-primary" data-dismiss="modal" href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>">Sim</a>
+
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">N&atilde;o</button>
+
+                              </div>
+                            </div>
+                          </div>
+                        </div> -->
+                        
+                
                 
 <!--
 
@@ -233,12 +259,14 @@
         </div>
         <div class="modal-body">Clique em sair para encerrar a sessão.</div>
         <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">N&atilde;o</button>
           <a class="btn btn-primary" href="../../logout.php">Sair</a>
         </div>
       </div>
     </div>
   </div>
+
+  
 
   <!-- Bootstrap core JavaScript
   <script src="../../vendor/jquery/jquery.min.js"></script>
