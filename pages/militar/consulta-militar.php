@@ -90,7 +90,7 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastra militar</a>
+          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastrar militar</a>
           <a class="dropdown-item" href="../militar/consulta-militar.php">Consultar militar</a>
         </div>
       </li>

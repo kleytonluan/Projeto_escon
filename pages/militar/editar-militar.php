@@ -86,7 +86,7 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastra militar</a>
+          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastrar militar</a>
           <a class="dropdown-item" href="../militar/consulta-militar.php">Consultar militar</a>
         </div>
       </li>
@@ -117,94 +117,160 @@
 
           //$result_busca = "SELECT * FROM militar WHERE idmilitar = '$id'";
 
-          $result_busca = "SELECT militar.idmilitar, militar.nome_completo, militar.nome_guerra, militar.data_praca, militar.situacao_idsituacao1, militar.companhia_idcompanhia, militar.posto_grad_idposto_grad, posto_grad.desc_posto_grad, situacao.desc_situacao,  companhia.desc_companhia FROM militar, posto_grad, situacao, companhia WHERE idsituacao = situacao_idsituacao1 AND idposto_grad = posto_grad_idposto_grad and idcompanhia = companhia_idcompanhia AND idmilitar = '$id'";
+          $result_busca = "SELECT 
+                                  militar.idmilitar, 
+                                  militar.nome_completo, 
+                                  militar.nome_guerra, 
+                                  militar.data_praca, 
+                                  militar.situacao_idsituacao1, 
+                                  militar.companhia_idcompanhia, 
+                                  militar.posto_grad_idposto_grad, 
+                                  posto_grad.desc_posto_grad, 
+                                  situacao.desc_situacao,  
+                                  companhia.desc_companhia 
+                            FROM 
+                                  militar, 
+                                  posto_grad, 
+                                  situacao, 
+                                  companhia 
+                            WHERE 
+                                  idsituacao = situacao_idsituacao1 
+                            AND 
+                                  idposto_grad = posto_grad_idposto_grad 
+                            AND
+                                  idcompanhia = companhia_idcompanhia 
+                            AND 
+                                  idmilitar = '$id'";
 
           $result_comando = mysqli_query($conexao, $result_busca);
 
           $linha = mysqli_fetch_assoc($result_comando);
 
-
         ?>
 
-      <section class="content">
-          <div class="col-md-12 ">
-            <div class="box box-primary">
-              <div class="box-header with-border">
-           <!--     <h4 class="box-title">Informe os dados abaixo:</h4> -->
-              </div>
+        <?php
+          $posto = "select * from posto_grad;";
+          $result_posto = mysqli_query($conexao, $posto);
+        ?>
+
+        <?php
+          $cia = "select * from companhia;";
+          $result_cia = mysqli_query($conexao, $cia);        
+        ?>
+
+        <?php
+          $situacao = "select * from situacao;";
+          $result_situacao = mysqli_query($conexao, $situacao);    
+        ?>
+        
+        <div class="card mb-5">
+          <div class="card-header">
+            <i class="fas fa-file"></i>
+            Edite os dados abaixo:</div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-hover table-fixed table-bordered nowrap" id="dataTable" cellspacing="0">
+     
+                    <section class="content">
+                        <div class="col-md-12 ">
+                          <div class="box box-primary">
+                            <div class="box-header with-border">
+                        <!--     <h4 class="box-title">Informe os dados abaixo:</h4> -->
+                            </div>
 
 
-              <form method="POST" action="editar.php" >
-                <div class="box-body">
-                  <div class="row">
+                            <form method="POST" action="editar.php" >
+                              <div class="box-body">
+                                
+                                <div class="row">
+                                  
+                                  <div class="form-group col-md-4">
+                                  <input name="idmilitar" type="hidden"  value="<?php echo $linha['idmilitar']; ?>
+              " > 
+                                    <label>Nome completo</label>
+                                    <input name="nome_completo" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_completo']; ?>" >
+                                  </div>
+                                  
+                                  <div class="form-group col-md-4">
+                                    <label>Nome de guerra</label>
+                                    <input name="nome_guerra" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_guerra']; ?>">
+                                  </div>
+                                
+                                  <div class="form-group col-md-2">
+                                    <label>P/G</label>
+                                    <p>
+                                      <select name="posto_grad" class="form-control campoDefault">
                     
+                                        <?php 
+                                            while ($linha1 = mysqli_fetch_array($result_posto)) { ?>
 
-                    <div class="form-group col-md-2">
-                    <input name="idmilitar" type="hidden"  value="<?php echo $linha['idmilitar']; ?>
-" >
+                                                <option value="<?php echo $linha1['idposto_grad'] ?>"><?php echo utf8_encode($linha1['desc_posto_grad']); ?></option>
 
-                      <label>Nome completo</label>
-                      <input name="nome_completo" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_completo']; ?>" >
-                    </div>
-                    
-                    <div class="form-group col-md-2">
-                      <label>Nome de guerra</label>
-                      <input name="nome_guerra" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_guerra']; ?>">
-                    </div>
-                   
-                    <div class="form-group col-md-1">
-                      <label>P/G</label>
-                      <p>
-                        <select name="posto_grad" class="form-control campoDefault">
-      
-                          <option value="<?php echo $linha['posto_grad_idposto_grad'] ?>"><?php echo utf8_encode($linha['desc_posto_grad']); ?></option>
-                              
-                        </select>
-                      </p>
-                    </div>
-                          
-                    <div class="form-group col-md-2">
-                      <label>Data de praça</label>
-                        <input name="data_praca" type="date" required class="form-control" value="<?php echo $linha['data_praca']; ?>">
-                    </div>
+                                            <?php } ?>
 
-                                     
-                    <div class="form-group col-md-2">
-                      <label >Companhia</label>
-                      <p>
-                        <select name="companhia"class="form-control campoDefault">
-  
-                            <option value="<?php echo $linha['companhia_idcompanhia'] ?>"><?php echo utf8_encode($linha['desc_companhia']); ?></option>
+                                      </select>
+                                    </p>
+                                  </div>
+                                </div>
 
-                        </select>
-                      </p>
-                    </div> 
-
-
-                    <div class="form-group col-md-2">
-                      <label >Status</label>
-                      <p>
-                        <select name="situacao" class="form-control campoDefault">
-       
-                          <option value="<?php echo $linha['situacao_idsituacao1'] ?>"><?php echo utf8_encode($linha['desc_situacao']); ?></option>
-                          </select>
-                        </p>
-                    </div> 
+                                <div class="row">
                                       
-                  </div>
-                </div>
-                
-                  
-                
-                  <div class="box-footer nao-flutuar">
-                    <button onclick="#" value="editar" type="submit" class="btn btn-success pull-right "><span class='fas fa-save'></span> Salvar</button>
-                  </div>
-                </div>
-              </form>
+                                  <div class="form-group col-md-3">
+                                    <label>Data de praça</label>
+                                      <input name="data_praca" type="date" required class="form-control" value="<?php echo $linha['data_praca']; ?>">
+                                  </div>
+
+                                                  
+                                  <div class="form-group col-md-3">
+                                    <label >Companhia</label>
+                                    <p>
+                                      <select name="companhia"class="form-control campoDefault">
+                                                         
+                                          <?php 
+                                            while ($linha2 = mysqli_fetch_array($result_cia)) { ?>
+
+                                                <option value="<?php echo $linha2['idcompanhia'] ?>"><?php echo utf8_encode($linha2['desc_companhia']); ?></option>
+
+                                            <?php } ?>
+
+                                      </select>
+                                    </p>
+                                  </div> 
+
+                                  <div class="form-group col-md-3">
+                                    <label >Status</label>
+                                    <p>
+                                      <select name="situacao" class="form-control campoDefault">
+
+                                      <?php 
+                                            while ($linha3 = mysqli_fetch_array($result_situacao)) { ?>
+
+                                                <option value="<?php echo $linha3['idsituacao'] ?>"><?php echo utf8_encode($linha3['desc_situacao']); ?></option>
+
+                                            <?php } ?>
+                    
+                                        </select>
+                                      </p>
+                                  </div> 
+                                                    
+                                </div>
+                              </div>
+                              
+                                
+                              
+                                <div class="box-footer nao-flutuar">
+                                  <button onclick="#" value="editar" type="submit" class="btn btn-success pull-right "><span class='fas fa-save'></span> Salvar</button>
+                                </div>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+              </table>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
     </div>
       <!-- /.container-fluid -->
 

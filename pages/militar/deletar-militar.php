@@ -12,11 +12,24 @@ $comando = "DELETE FROM militar where idmilitar = '$id'";
 $resultado = mysqli_query ($conexao, $comando); 
 
 if(mysqli_affected_rows($conexao)){
-    $_SESSION ['msg'] = "
-    <script>
-        alert('Militar deletado com sucesso.');
-    </script>";
-    header ("Location: consulta-militar.php ");
+    $_SESSION ['msg'] = true;
+    echo"
+    <script language='javascript' type='text/javascript'>
+        alert('Militar excluido com sucesso!');
+        window.location.href='consulta-militar.php';
+    </script>"
+    ;
+  die();
+  header('Location: consulta-militar.php');
+} else {
+    echo"
+    <script language='javascript' type='text/javascript'>
+        alert('Erro ao excluir o militar.');
+        window.location.href='consulta-militar.php';
+    </script>"
+    ;
+  die();
+  header('Location: consulta-militar.php');
 }
 
 /*

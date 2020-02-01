@@ -32,12 +32,15 @@ $comando = "UPDATE militar SET
               WHERE 
                     idmilitar = '$id'";
 
+//echo ($comando);
 
 $resultado = mysqli_query ($conexao, $comando); 
 
+
+
 if(mysqli_affected_rows($conexao)){
     $_SESSION ['alteracao_realizada'] = true;
-   echo"
+  echo"
     <script language='javascript' type='text/javascript'>
         alert('Alteração realizada com sucesso!');
         window.location.href='consulta-militar.php';

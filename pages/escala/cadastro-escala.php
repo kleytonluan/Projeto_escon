@@ -153,12 +153,12 @@
                 <!--<h3 class="box-title">Informe os dados abaixo:</h3>-->
               </div>
 
-          <form method="POST" action="tipo_escala.php" role="form"> 
+          <form role="form"> 
              
         <!--      <form role="form">-->
                   <div class="row">
   
-                   <!--     <div class="form-group col-sm-3" id="datetimepicker1">
+                       <div class="form-group col-sm-3" id="datetimepicker1">
                             <label for="name">Previsão do dia:</label>
                             <input type="date" class="form-control">
                         </div>
@@ -166,8 +166,16 @@
                         <div class="form-group col-sm-3 lado" id="datetimepicker1">
                           <label for="name">para o dia:</label>
                           <input type="date" class="form-control lado">
-                        </div> -->
+                        </div>
                         
+                        
+                  </div>
+             </form>
+                              
+                <form method="POST" action="tipo_escala.php" role="form"> 
+
+                <div class="row">
+
                         <div class="form-group col-sm-3 lado" >
                           <label for="name">Tipo de serviço:</label>
                           <p>
@@ -188,22 +196,26 @@
                             </select>
                           </p>
                         </div>
-
+                        </div>
                   </div>
+
+                  </form>
 
                   <div class="row">
-                      <div class="form-group col-sm-2">
-                        <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Gerar previsão</button>
-                      </div>
-                  </div>
 
-                   
+                          <div class="form-group col-sm-2">
+                            <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Gerar previsão</button>
+                          </div>
+
+                      </div>
+
+                      
               <!--     <div class="box-footer nao-flutuar">
                      <button onclick="#" type="submit" class="btn btn-success pull-right lado" id="btnSalvar">Salvar</button>
 
                    </div> -->
 
-             </form>
+        
 
                   
 
@@ -212,9 +224,9 @@
                       <i class="fas fa-table"></i>
                       Tabela de militares disponíveis para escala</div>
                     <div class="card-body">
-                      <div class="table-responsive">
+                      <div class="table-responsive ">
                         <table name="militar_tipo_servico" id="militar_tipo_servico" class="table table-hover table-fixed table-bordered nowrap" cellspacing="0">
-                        <thead>
+                        <thead >
                           
                             <tr>
                               <th>ID</th>
@@ -247,11 +259,22 @@
                           $(function(){
                             $('#tipo_servico').change(function(){
                               if( $(this).val() ) {
-                                //$('#militar_tipo_servico').hide();
+                                $('#militar_tipo_servico').hide();
                                 $('.carregando').show();
                                 $.getJSON('tipo_escala.php?search=',{tipo_servico: $(this).val(), ajax: 'true'}, function(j){
                                   var options = '<tr>';	
-                                  for (var i = 0; i < j.length; i++) {
+                                    options += "'<tr>'";
+                                    options += "'<th>ID</th>'";
+                                    options += "'<th>Posto/Grad</th>'";
+                                    options += "'<th>Nome de guerra</th>'";
+                                    options += "'<th>Data de praça</th>'";
+                                    options += "'<th>Companhia</th>'";
+                                    options += "'<th>Status</th>'";
+                                    options += "'<th>Folga</th>'";
+                                    options += "'</tr>'";
+                                  
+                                    for (var i = 0; i < j.length; i++) {
+                                    options += '<tr>'
                                     options += '<td value="' + j[i].id + '">' + j[i].idmilitar + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].posto_grad + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].nome_guerra + '</td>';
@@ -264,8 +287,9 @@
                                   $('#militar_tipo_servico').html(options).show();
                                   $('.carregando').hide();
                                 });
-                              //} else {
-                                //$('#militar_tipo_servico').html('<option value="">– Escolha Subcategoria –</option>');
+                              } else {
+                                //$('.carregando').hide();
+                                $('#militar_tipo_servico').html('<td value=""> Não existe registros</td>');
                               }
                             });
                           });
