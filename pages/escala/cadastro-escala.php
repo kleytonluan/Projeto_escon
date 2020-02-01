@@ -31,6 +31,12 @@
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin.css" rel="stylesheet">
+  <style type="text/css">
+			.carregando{
+				color:#ff0000;
+				display:none;
+			}
+		</style>
 
 </head>
 
@@ -114,7 +120,7 @@
           <span>Militares</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastra militar</a>
+          <a class="dropdown-item" href="../militar/cadastro-militar.php">Cadastrar militar</a>
           <a class="dropdown-item" href="../militar/consulta-militar.php">Consultar militar</a>
         </div>
       </li>
@@ -147,11 +153,12 @@
                 <!--<h3 class="box-title">Informe os dados abaixo:</h3>-->
               </div>
 
-              <form role="form">
-
+          <form method="POST" action="tipo_escala.php" role="form"> 
+             
+        <!--      <form role="form">-->
                   <div class="row">
   
-                        <div class="form-group col-sm-3" id="datetimepicker1">
+                   <!--     <div class="form-group col-sm-3" id="datetimepicker1">
                             <label for="name">Previsão do dia:</label>
                             <input type="date" class="form-control">
                         </div>
@@ -159,28 +166,24 @@
                         <div class="form-group col-sm-3 lado" id="datetimepicker1">
                           <label for="name">para o dia:</label>
                           <input type="date" class="form-control lado">
-                        </div>
+                        </div> -->
                         
                         <div class="form-group col-sm-3 lado" >
                           <label for="name">Tipo de serviço:</label>
                           <p>
-                                <select class="form-control campoDefault">
-                                  
-                          <?php
-
-                            $consulta2 = "select * from tipo_servico";
-
-                            $resultado2 = mysqli_query($conexao,$consulta2);
-
-
-                            while ($linha2 = mysqli_fetch_assoc($resultado2)) { ?>
-
-                            <option><?php echo utf8_encode($linha2['desc_tipo_servico']); ?>
-                            
-                            </option>
+                            <select name="tipo_servico" id="tipo_servico" class="form-control campoDefault">  
+                            <option value="">Escolha o tipo de serviço</option>
+                             
+                              <?php
                                 
+                                $consulta2 = "select * from tipo_servico ";
+      
+                                $resultado2 = mysqli_query($conexao,$consulta2);
 
-                          <?php } ?>
+                                while ($linha2 = mysqli_fetch_assoc($resultado2)) { ?>                              
+                                  <option  value="<?php echo $linha2['idtipo_servico'] ?>"><?php echo utf8_encode($linha2['desc_tipo_servico']); ?> </option >                        
+                      
+                            <?php } ?>
 
                             </select>
                           </p>
@@ -201,13 +204,16 @@
                    </div> -->
 
              </form>
+
+                  
+
                    <div class="card mb-5">
                     <div class="card-header">
                       <i class="fas fa-table"></i>
                       Tabela de militares disponíveis para escala</div>
                     <div class="card-body">
                       <div class="table-responsive">
-                        <table class="table table-hover table-fixed table-bordered nowrap" id="dataTable" cellspacing="0">
+                        <table name="militar_tipo_servico" id="militar_tipo_servico" class="table table-hover table-fixed table-bordered nowrap" cellspacing="0">
                         <thead>
                           
                             <tr>
@@ -218,61 +224,52 @@
                               <th>Companhia</th>
                               <th>Status</th>
                               <th>Folga</th>
-
-                              <!-- <th>Ação</th> -->
                             </tr>
+
+                            <span class="carregando">Aguarde, carregando...</span>
 
                           </thead>
                       
-                          <?php 
-
-                            $consulta = "SELECT militar.idmilitar, militar.nome_completo, militar.folga, militar.nome_guerra, militar.data_praca, militar.situacao_idsituacao1, militar.posto_grad_idposto_grad, posto_grad.desc_posto_grad, situacao.desc_situacao,  companhia.desc_companhia FROM militar, posto_grad, situacao, companhia WHERE idsituacao = situacao_idsituacao1 AND idposto_grad = posto_grad_idposto_grad and idcompanhia = companhia_idcompanhia AND desc_situacao = ('pronto');
-                            ";
-                          
-                            $resultado = mysqli_query($conexao,$consulta);
-                          
-                          ?>
-                          
-                          <?php
-                          while ($linha = mysqli_fetch_assoc($resultado)) { ?>
-
-                                <tr>
-              
-                                  <td><?php echo $linha['idmilitar']; ?></td>
-                                 <!-- <td><?php echo $linha['nome_completo']; ?></td> -->
-                                  <td><?php echo utf8_encode($linha['desc_posto_grad']); ?></td>
-                                  <td><?php echo $linha['nome_guerra']; ?></td>
-                                  <td><?php echo $linha['data_praca']; ?></td>
-                                  <td><?php echo utf8_encode($linha['desc_companhia']); ?></td>
-                                  <td><?php echo utf8_encode($linha['desc_situacao']); ?></td>
-                                  <td><?php echo $linha['folga']; ?> dias</td>
-
-                   
-                             <!--     <td>
-                                      <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
-                                      <a class="btn btn-danger pull-right" href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a> -->
-
-                                </tr>
-                          <?php } ?>
-                          
-          <!--
-
-                  echo '<tr>';
-                    echo '<td>'. $linha['idmilitar'] .'</td>';
-                    echo '<td>'. $linha['nome_completo'] .'</td>';
-                    echo '<td>'. $linha['nome_guerra'] .'</td>';
-                    echo '<td>'. $linha['posto_grad'] .'</td>';
-                    echo '<td>'. $linha['data_praca'] .'</td>';
-                    echo '<td>'. $linha['companhia'] .'</td>';
-                    echo '<td>'. $linha['situacao'] .'</td>';
-
-                  echo '</tr>';
-                          -->
+                      <!-- Codigo salvo no arquivo parte_do_codigo_cadastrar_escala.txt na pasta de ADSVI -->
 
                         </table>
                       </div>
                     </div>
                   </div>
+
+                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+              
+                    <script type="text/javascript">
+                      google.load("jquery", "1.4.2");
+                    </script> 
+
+                      <script type="text/javascript">
+                          $(function(){
+                            $('#tipo_servico').change(function(){
+                              if( $(this).val() ) {
+                                //$('#militar_tipo_servico').hide();
+                                $('.carregando').show();
+                                $.getJSON('tipo_escala.php?search=',{tipo_servico: $(this).val(), ajax: 'true'}, function(j){
+                                  var options = '<tr>';	
+                                  for (var i = 0; i < j.length; i++) {
+                                    options += '<td value="' + j[i].id + '">' + j[i].idmilitar + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].posto_grad + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].nome_guerra + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].data_praca + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].desc_companhia + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].desc_situacao + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].folga + '</td>';
+                                    options += '</tr>'
+                                  }	
+                                  $('#militar_tipo_servico').html(options).show();
+                                  $('.carregando').hide();
+                                });
+                              //} else {
+                                //$('#militar_tipo_servico').html('<option value="">– Escolha Subcategoria –</option>');
+                              }
+                            });
+                          });
+                      </script>
 
                 </div>
       <!-- /.container-fluid -->
