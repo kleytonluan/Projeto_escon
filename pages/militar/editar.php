@@ -25,27 +25,36 @@ $situacao =  mysqli_real_escape_string($conexao, $_POST['situacao']);
 $comando = "UPDATE militar SET 
                     nome_completo ='$nome_completo', 
                     nome_guerra='$nome_guerra', 
-                    posto_grad='$posto_grad', 
+                    posto_grad_idposto_grad=$posto_grad, 
                     data_praca='$data_praca', 
-                    companhia='$companhia', 
-                    situacao='$situacao' 
+                    companhia_idcompanhia=$companhia, 
+                    situacao_idsituacao1=$situacao
               WHERE 
                     idmilitar = '$id'";
+
 
 $resultado = mysqli_query ($conexao, $comando); 
 
 if(mysqli_affected_rows($conexao)){
-    $_SESSION ['msg'] = "
-    <script>
-        alert('Militar editado com sucesso.');
-    </script>";
-    header ("Location: consulta-militar.php");
+    $_SESSION ['alteracao_realizada'] = true;
+   echo"
+    <script language='javascript' type='text/javascript'>
+        alert('Alteração realizada com sucesso!');
+        window.location.href='consulta-militar.php';
+    </script>"
+    ;
+  die();
+  header('Location: consulta-militar.php');
+
 }else{
-  $_SESSION ['msg'] = "
-    <script>
-        alert('Militar não editado.');
-    </script>";
-    header ("Location: consulta-militar.php");
+  echo"
+    <script language='javascript' type='text/javascript'>
+        alert('Erro ao editar!');
+        window.location.href='consulta-militar.php';
+    </script>"
+    ;
+  die();
+  header('Location: editar-militar.php');
 }
 
 

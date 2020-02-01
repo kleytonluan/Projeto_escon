@@ -115,7 +115,9 @@
           
           $id = intval($_GET['id']);
 
-          $result_busca = "SELECT * FROM militar WHERE idmilitar = '$id'";
+          //$result_busca = "SELECT * FROM militar WHERE idmilitar = '$id'";
+
+          $result_busca = "SELECT militar.idmilitar, militar.nome_completo, militar.nome_guerra, militar.data_praca, militar.situacao_idsituacao1, militar.companhia_idcompanhia, militar.posto_grad_idposto_grad, posto_grad.desc_posto_grad, situacao.desc_situacao,  companhia.desc_companhia FROM militar, posto_grad, situacao, companhia WHERE idsituacao = situacao_idsituacao1 AND idposto_grad = posto_grad_idposto_grad and idcompanhia = companhia_idcompanhia AND idmilitar = '$id'";
 
           $result_comando = mysqli_query($conexao, $result_busca);
 
@@ -152,23 +154,15 @@
                    
                     <div class="form-group col-md-1">
                       <label>P/G</label>
-                      <input name="posto_grad" type="text" required class="form-control campoDefault"  value="<?php echo $linha['posto_grad']; ?>">
-
-                        <p>
-<!--
-                            <select name="posto_grad" class="form-control campoDefault" value="<?php echo $linha['posto_grad']; ?>">
-                              <option value="1">1º Ten</option>
-                              <option value="2">2º Ten</option>
-                              <option value="3">Asp Of</option>
-                              <option value="4">1º Sgt</option>
-                              <option value="5">2º Sgt</option>
-                              <option value="6">3º Sgt</option>
-                              <option value="7">Cb</option>
-                              <option value="8">Sd</option>
-                            </select> -->
-                          </p>
+                      <p>
+                        <select name="posto_grad" class="form-control campoDefault">
+      
+                          <option value="<?php echo $linha['posto_grad_idposto_grad'] ?>"><?php echo utf8_encode($linha['desc_posto_grad']); ?></option>
+                              
+                        </select>
+                      </p>
                     </div>
-                    
+                          
                     <div class="form-group col-md-2">
                       <label>Data de praça</label>
                         <input name="data_praca" type="date" required class="form-control" value="<?php echo $linha['data_praca']; ?>">
@@ -177,38 +171,26 @@
                                      
                     <div class="form-group col-md-2">
                       <label >Companhia</label>
-                      <input name="companhia" type="text" required class="form-control campoDefault" value="<?php echo $linha['companhia']; ?>">
+                      <p>
+                        <select name="companhia"class="form-control campoDefault">
+  
+                            <option value="<?php echo $linha['companhia_idcompanhia'] ?>"><?php echo utf8_encode($linha['desc_companhia']); ?></option>
 
-                      <!--  <p>
-                          <select name="companhia" class="form-control campoDefault"  >
-                            <option value="1">EM</option>
-                            <option value="2">CCAP</option>
-                            <option value="3">CEEM</option>
-                            <option value="4">2ª CIA</option>
-                          </select>
-                        </p> -->
+                        </select>
+                      </p>
                     </div> 
 
 
                     <div class="form-group col-md-2">
                       <label >Status</label>
-                      <input name="situacao" type="text" required class="form-control campoDefault"  value="<?php echo $linha['situacao']; ?>">
-
-                       <!-- <p>
-                          <select name="situacao" class="form-control campoDefault" value="<?php echo $linha['situacao']; ?>">
-                            <option value="1">PRONTO</option>
-                            <option value="2">FÉRIAS</option>
-                            <option value="3">DESTACADO</option>
-                            <option value="4">NÚPCIAS</option>
-                            <option value="5">MISSÃO EXTERNA</option>
-                            <option value="6">RECESSO</option>
-                            <option value="7">LICENÇA ESPECIAL</option>
-
+                      <p>
+                        <select name="situacao" class="form-control campoDefault">
+       
+                          <option value="<?php echo $linha['situacao_idsituacao1'] ?>"><?php echo utf8_encode($linha['desc_situacao']); ?></option>
                           </select>
-                        </p> -->
+                        </p>
                     </div> 
                                       
-
                   </div>
                 </div>
                 
