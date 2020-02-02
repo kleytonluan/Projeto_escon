@@ -153,19 +153,19 @@
                 <!--<h3 class="box-title">Informe os dados abaixo:</h3>-->
               </div>
 
-          <form role="form"> 
+          <form method="POST" action="gerar_previsao.php"  role="form"> 
              
         <!--      <form role="form">-->
                   <div class="row">
   
-                       <div class="form-group col-sm-3" id="datetimepicker1">
+                       <div class="form-group col-sm-2" id="datetimepicker1">
                             <label for="name">Previsão do dia:</label>
-                            <input type="date" class="form-control">
+                            <input name="data_inicio" type="date" class="form-control">
                         </div>
 
-                        <div class="form-group col-sm-3 lado" id="datetimepicker1">
+                        <div class="form-group col-sm-2 lado" id="datetimepicker1">
                           <label for="name">para o dia:</label>
-                          <input type="date" class="form-control lado">
+                          <input name="data_fim" type="date" class="form-control lado">
                         </div>            
                         
                         <div class="form-group col-sm-3 lado" >
@@ -189,15 +189,6 @@
                           </p>
                       </div>
                   </div>
-                      
-             </form>
-                              
-              <form method="POST" action="tipo_escala.php" role="form"> 
-
-                
-
-                </form>
-
                   <div class="row">
 
                           <div class="form-group col-sm-2">
@@ -205,6 +196,14 @@
                           </div>
 
                       </div>
+                      
+             </form>
+                              
+              <form method="POST" action="tipo_escala.php" role="form"> 
+
+                </form>
+
+                  
 
                       
               <!--     <div class="box-footer nao-flutuar">
@@ -278,7 +277,7 @@
                                     options += '<td value="' + j[i].id + '">' + j[i].data_praca + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].desc_companhia + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].desc_situacao + '</td>';
-                                    options += '<td value="' + j[i].id + '">' + j[i].folga + '</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].folga + ' dias</td>';
                                     options += '</tr>'
                                   }	
                                   $('#militar_tipo_servico').html(options).show();
@@ -364,7 +363,7 @@
   <script src="../../js/demo/chart-area-demo.js"></script>
   <script src="../../js/demo/chart-bar-demo.js"></script>
   <script src="../../js/demo/chart-pie-demo.js"></script>
-  <script src="../../js/script.js"></script>
+  <!-- <script src="../../js/script.js"></script> -->
   <script type="text/javascript">
     $(function() {
       $('#datetimepicker1').datetimepicker();

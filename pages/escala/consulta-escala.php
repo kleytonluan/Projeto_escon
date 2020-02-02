@@ -118,7 +118,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <a class="dropdown-item" href="../escala/cadastro-escala.php">Cadastrar escala</a>
-          <a class="dropdown-item" href="../escala/consultar-escala.php">Consultar escala</a>
+          <a class="dropdown-item" href="../escala/consulta-escala.php">Consultar escala</a>
         </div>
       </li>
     </ul>

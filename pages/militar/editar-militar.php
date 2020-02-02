@@ -162,6 +162,11 @@
           $situacao = "select * from situacao;";
           $result_situacao = mysqli_query($conexao, $situacao);    
         ?>
+        <?php
+          $tipo_servico = "select * from tipo_servico;";
+          $result_sv = mysqli_query($conexao, $tipo_servico);    
+        ?>
+        
         
         <div class="card mb-5">
           <div class="card-header">
@@ -184,14 +189,13 @@
                                 
                                 <div class="row">
                                   
-                                  <div class="form-group col-md-4">
-                                  <input name="idmilitar" type="hidden"  value="<?php echo $linha['idmilitar']; ?>
-              " > 
+                                  <div class="form-group col-md-3">
+                                  <input name="idmilitar" type="hidden"  value="<?php echo $linha['idmilitar']; ?>" > 
                                     <label>Nome completo</label>
                                     <input name="nome_completo" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_completo']; ?>" >
                                   </div>
                                   
-                                  <div class="form-group col-md-4">
+                                  <div class="form-group col-md-3">
                                     <label>Nome de guerra</label>
                                     <input name="nome_guerra" type="text" required class="form-control campoDefault"  value="<?php echo $linha['nome_guerra']; ?>">
                                   </div>
@@ -211,6 +215,22 @@
                                       </select>
                                     </p>
                                   </div>
+                                    
+                                <div class="form-group col-md-2">
+                                    <label>Tipo de serviço</label>
+                                      <p>
+                                        <select name="tipo_servico" class="form-control campoDefault">
+                                          <?php 
+
+                                            while ($linha4 = mysqli_fetch_array($result_sv)) { ?>
+                                            
+                                              <option value="<?php echo $linha4['idtipo_servico'] ?>"><?php echo utf8_encode($linha4['desc_tipo_servico']); ?></option>
+                                  
+                                          <?php } ?>
+
+                                        </select>
+                                    </p>
+                                  </div> 
                                 </div>
 
                                 <div class="row">
@@ -237,7 +257,7 @@
                                     </p>
                                   </div> 
 
-                                  <div class="form-group col-md-3">
+                                  <div class="form-group col-md-2">
                                     <label >Status</label>
                                     <p>
                                       <select name="situacao" class="form-control campoDefault">
