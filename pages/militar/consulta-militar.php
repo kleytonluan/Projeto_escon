@@ -104,6 +104,15 @@
           <a class="dropdown-item" href="../escala/consulta-escala.php">Consultar escala</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Trocas</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+          <a class="dropdown-item" href="pages/escala/cadastro-escala.php">Solicitações</a>
+        </div>
+      </li>
     </ul>
 
     <div id="content-wrapper">
