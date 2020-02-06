@@ -165,62 +165,97 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered"  width="100%" cellspacing="0">
+
+              <?php 
+
+                    $consulta1 = "select 
+                                    tipo_servico.desc_tipo_servico, 
+                                    posto_grad.desc_posto_grad, 
+                                    militar.nome_guerra, 
+                                    data_escala 
+                                from 
+                                    escala, 
+                                    militar, 
+                                    tipo_servico, 
+                                    posto_grad 
+                                where 
+                                    militar_idmilitar = idmilitar 
+                                and 
+                                    tipo_servico_idtipo_servico1 = idtipo_servico 
+                                and 
+                                    idposto_grad = posto_grad_idposto_grad 
+                                and
+                                    data_escala = ('2020-02-10');";
+
+                    $consulta2 = "select 
+                                    tipo_servico.desc_tipo_servico, 
+                                    posto_grad.desc_posto_grad, 
+                                    militar.nome_guerra, 
+                                    data_escala 
+                                from 
+                                    escala, 
+                                    militar, 
+                                    tipo_servico, 
+                                    posto_grad 
+                                where 
+                                    militar_idmilitar = idmilitar 
+                                and 
+                                    tipo_servico_idtipo_servico1 = idtipo_servico 
+                                and 
+                                    idposto_grad = posto_grad_idposto_grad 
+                                and
+                                    data_escala = ('2020-02-11');";
+
+                    $resultado1 = mysqli_query($conexao,$consulta1);
+
+                    $resultado2 = mysqli_query($conexao,$consulta2); ?>
+
+        
               <thead>  
                     <tr>
                       <th>Escala</th>
-                     <th>Segunda</th>
-                     <th>Terça</th>
-                      <th>Quarta</th>
-                      <th>Quinta</th>
-                      <th>Sexta</th>
-                      <th class="table-danger">Sábado</th>
-                      <th class="table-danger">Domingo</th>
-                      <th>Segunda</th>  <!---->
+                      <th>Segunda<br>10/02/2020</th>
+                      <th>Terça<br>11/02/2020</th>
+                      <th>Quarta<br>12/02/2020</th>
+                      <th>Quinta<br>13/02/2020</th>
+                      <th>Sexta<br>14/02/2020</th>
+                      <th class="table-danger">Sábado<br>15/02/2020</th>
+                      <th class="table-danger">Domingo<br>16/02/2020</th>
+                      <th>Segunda<br>17/02/2020</th> 
                     </tr>
                     </thead>
 
-                    <?php 
-
-                  $consulta = "select tipo_servico.desc_tipo_servico, posto_grad.desc_posto_grad, militar.nome_guerra, data_escala from escala, militar, tipo_servico, posto_grad where militar_idmilitar = idmilitar and tipo_servico_idtipo_servico1 = idtipo_servico and idposto_grad = posto_grad_idposto_grad;";
-
-                   $resultado1 = mysqli_query($conexao,$consulta);
-
-                ?>
-                 
-                <?php
-                  
-                 while ($linha = mysqli_fetch_assoc($resultado1)) { ?>
-                  
-                  <tbody>
+              <tbody>
+      
+              <?php  
+                 while ($linha1 = mysqli_fetch_assoc($resultado1)) { ?>
+                                 
                       <tr>
-                     <!-- <td><?php echo $linha['data_escala']; ?></td> -->
+                          <td><?php echo $linha1['desc_tipo_servico']; ?></td>
+                          <td><?php echo utf8_encode($linha1['desc_posto_grad']); ?>  <?php echo $linha1['nome_guerra']; ?></td>
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td>
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td> 
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td> 
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td> 
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td> 
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td> 
+                          <td><?php echo utf8_encode($linha2['desc_posto_grad']); ?>  <?php echo $linha2['nome_guerra']; ?></td> 
 
-                        <td><?php echo $linha['desc_tipo_servico']; ?></td>
-                        <td><?php echo utf8_encode($linha['desc_posto_grad']); ?>  <?php echo $linha['nome_guerra']; ?></td>
-
-
-                         <!--  <td><?php echo $linha['nome_guerra']; ?></td>
-                        <td><?php echo utf8_encode($linha['desc_posto_grad']); ?></td>
-                        <td><?php echo $linha['data_praca']; ?></td>
-                        <td><?php echo utf8_encode($linha['desc_companhia']); ?></td>
-                        <td><?php echo utf8_encode($linha['desc_situacao']); ?></td>
-                        <td>
-                            <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
-                            <a class="btn btn-danger pull-right"  href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>         
--->
+ 
                       </tr>
-                  </tbody>
+                     
+              <?php } ?>
 
-                    
-
-                <?php } ?>
-
-
-
-  
+                </tbody>                
               </table>
             </div>
+            
           </div>
+
+          <div class="form-group col-sm-2">
+            <button type="submit" class="btn btn-success pull-right">Publicar</button>
+          </div>
+        
         </div>
 
       </div>

@@ -25,31 +25,41 @@ $cadastro = "INSERT into escala (data_escala, tipo_escala, militar_idmilitar, ti
                      $tipo_servico);";
 //echo ($cadastro);
 
-$alterar_militar = "UPDATE 
-                        militar 
-                    SET 
-                        situacao_idsituacao1=2,
-                        folga_preta = 0
-                    WHERE
-                        idmilitar = $militar;";
+$alterar_militar_preta = "UPDATE 
+                                militar 
+                            SET 
+                                situacao_idsituacao1=2,
+                                folga_preta = 0
+                            WHERE
+                                idmilitar = $militar;";
+                            
+$alterar_militar_vermelha = "UPDATE 
+                                militar 
+                            SET 
+                                situacao_idsituacao1=2,
+                                folga_vermelha = 0
+                            WHERE
+                                idmilitar = $militar;";
 
 
 if($conexao->query($cadastro) === TRUE) {
+
     $_SESSION['status_escala'] = true;
 
-        $alteracao = mysqli_query ($conexao, $alterar_militar);
+            $alteracao = mysqli_query ($conexao, $alterar_militar_preta);
 
-        if(mysqli_affected_rows($conexao)){
-            $_SESSION ['alteracao_realizada'] = true;
-          echo"
-            <script language='javascript' type='text/javascript'>
-                alert('Escala gerada com sucesso. Situação do militar foi alterada!');
-                window.location.href='consulta-escala.php';
-            </script>"
-            ;
-          die();
-          header('Location: consulta-escala.php');
-        }else{
+            if(mysqli_affected_rows($conexao)) {
+                $_SESSION ['alteracao_realizada'] = true;
+                echo"
+                    <script language='javascript' type='text/javascript'>
+                        alert('Escala preta gerada com sucesso. Situação do militar foi alterada!');
+                        window.location.href='consulta-escala.php';
+                    </script>"
+                    ;
+                die();
+                header('Location: consulta-escala.php');
+            
+        } else {
             echo"
               <script language='javascript' type='text/javascript'>
                   alert('Erro ao alterar a situação do militar!');
@@ -60,7 +70,7 @@ if($conexao->query($cadastro) === TRUE) {
             header('Location: cadastro-escala.php');
           }
 
-    }else{
+} else {
     echo"
         <script language='javascript' type='text/javascript'>
             alert('Erro ao gerar a escala');window.location
@@ -70,12 +80,6 @@ if($conexao->query($cadastro) === TRUE) {
     die();
     header('Location: cadastro-escala.php');
     exit;
-    }
-
-
-
-
-
-
+ }
 
 ?>

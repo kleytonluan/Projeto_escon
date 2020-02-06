@@ -176,7 +176,7 @@
                               <p>
                                 <select name="tipo_escala" class="form-control campoDefault">
                                   <option value="preta">Preta</option>
-                                  <option value="vermelha">vermelha</option>
+                                  <option class="table-danger" value="vermelha">vermelha</option>
                                 </select>
                               </p>
                           </div>            
