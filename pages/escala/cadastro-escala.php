@@ -140,7 +140,7 @@
           <span>Trocas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="pages/escala/cadastro-escala.php">Solicitações</a>
+          <a class="dropdown-item" href="../troca/trocas-servico.php">Solicitações</a>
         </div>
       </li>
     </ul>
@@ -164,18 +164,22 @@
 
           <form method="POST" action="gerar_previsao.php"  role="form"> 
              
-        <!--      <form role="form">-->
                   <div class="row">
   
                        <div class="form-group col-sm-2" id="datetimepicker1">
-                            <label for="name">Previsão do dia:</label>
-                            <input name="data_inicio" type="date" class="form-control">
+                            <label for="name">Escala do dia:</label>
+                            <input name="data" type="date" class="form-control">
                         </div>
 
-                        <div class="form-group col-sm-2 lado" id="datetimepicker1">
-                          <label for="name">para o dia:</label>
-                          <input name="data_fim" type="date" class="form-control lado">
-                        </div>            
+                        <div class="form-group">
+                            <label>Tipo de escala</label>
+                              <p>
+                                <select name="tipo_escala" class="form-control campoDefault">
+                                  <option value="preta">Preta</option>
+                                  <option value="vermelha">vermelha</option>
+                                </select>
+                              </p>
+                          </div>            
                         
                         <div class="form-group col-sm-3 lado" >
                           <label for="name">Tipo de serviço:</label>
@@ -198,32 +202,14 @@
                           </p>
                       </div>
                   </div>
-                  <div class="row">
+                    <div class="row">
 
-                          <div class="form-group col-sm-2">
-                            <button onclick="#" type="submit" class="btn btn-success pull-right" id="btnSalvar">Gerar previsão</button>
-                          </div>
-
+                      <div class="form-group col-sm-2">
+                        <button type="submit" class="btn btn-success pull-right">Gerar previsão</button>
                       </div>
-                      
-             </form>
-                              
-              <form method="POST" action="tipo_escala.php" role="form"> 
 
-                </form>
-
-                  
-
-                      
-              <!--     <div class="box-footer nao-flutuar">
-                     <button onclick="#" type="submit" class="btn btn-success pull-right lado" id="btnSalvar">Salvar</button>
-
-                   </div> -->
-
+                  </div>
         
-
-                  
-
                    <div class="card mb-5">
                     <div class="card-header">
                       <i class="fas fa-table"></i>
@@ -231,30 +217,24 @@
                     <div class="card-body">
                       <div class="table-responsive ">
                         <table name="militar_tipo_servico" id="militar_tipo_servico" class="table table-hover table-fixed table-bordered nowrap" cellspacing="0">
-                        <thead >
+                        <thead>
                           
                             <tr>
+                              <th>Selecionar</th>
                               <th>ID</th>
                               <th>Posto/Grad</th>
                               <th>Nome de guerra</th>
                               <th>Data de praça</th>
-                              <th>Companhia</th>
                               <th>Status</th>
-                              <th>Folga</th>
+                              <th>Folga preta</th>
+                              <th class="table-danger">Folga vermelha</th>
+
                             </tr>
 
                             <span class="carregando">Aguarde, carregando...</span>
 
                           </thead>
-                      
-                      <!-- Codigo salvo no arquivo parte_do_codigo_cadastrar_escala.txt na pasta de ADSVI -->
-
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-
-                  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+                          <script type="text/javascript" src="../../js/jsapi.js"></script>
               
                     <script type="text/javascript">
                       google.load("jquery", "1.4.2");
@@ -269,24 +249,27 @@
                                 $.getJSON('tipo_escala.php?search=',{tipo_servico: $(this).val(), ajax: 'true'}, function(j){
                                   var options = '<tr>';	
                                     options += "'<tr>'";
+                                    options += "'<th>Selecionar</th>'";
                                     options += "'<th>ID</th>'";
                                     options += "'<th>Posto/Grad</th>'";
                                     options += "'<th>Nome de guerra</th>'";
                                     options += "'<th>Data de praça</th>'";
-                                    options += "'<th>Companhia</th>'";
                                     options += "'<th>Status</th>'";
-                                    options += "'<th>Folga</th>'";
+                                    options += "'<th>Folga preta</th>'";
+                                    options += "'<th class='table-danger'>Folga vermelha</th>'";
                                     options += "'</tr>'";
                                   
                                     for (var i = 0; i < j.length; i++) {
                                     options += '<tr>'
+
+                                    options += '<td><input name="idmilitar" type="checkbox" value="' + j[i].idmilitar +'"></td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].idmilitar + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].posto_grad + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].nome_guerra + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].data_praca + '</td>';
-                                    options += '<td value="' + j[i].id + '">' + j[i].desc_companhia + '</td>';
                                     options += '<td value="' + j[i].id + '">' + j[i].desc_situacao + '</td>';
-                                    options += '<td value="' + j[i].id + '">' + j[i].folga + ' dias</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].folga_preta + ' dias</td>';
+                                    options += '<td value="' + j[i].id + '">' + j[i].folga_vermelha + ' dias</td>';
                                     options += '</tr>'
                                   }	
                                   $('#militar_tipo_servico').html(options).show();
@@ -299,6 +282,14 @@
                             });
                           });
                       </script>
+                      
+
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  
 
                 </div>
       <!-- /.container-fluid -->
@@ -306,6 +297,8 @@
             </div>
           </div>
       </section>
+                    
+      </form>
       <!-- /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -377,6 +370,21 @@
     $(function() {
       $('#datetimepicker1').datetimepicker();
     });
+
+          $(document).ready(function() {
+          $('#check').DataTable( {
+              columnDefs: [ {
+                  orderable: false,
+                  className: 'select-checkbox',
+                  targets:   0
+              } ],
+              select: {
+                  style:    'os',
+                  selector: 'td:first-child'
+              },
+              order: [[ 1, 'asc' ]]
+          } );
+      } );
   </script>
 
 </body>

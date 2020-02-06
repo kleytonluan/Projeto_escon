@@ -1,7 +1,5 @@
 <?php
   include('../../validar.php');
-  include("../../conexao.php");
-
   session_start();
 ?>
 
@@ -154,70 +152,42 @@
           <li class="breadcrumb-item">
             <a href="../../inicio.php">Início</a>
           </li>
-          <li class="breadcrumb-item active">Consulta Escalas</li>
+          <li class="breadcrumb-item active">Solicitações de trocas de serviço</li>
         </ol>
 
         <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-            Previsão das escalas</div>
+            Solicitações recentes</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered"  width="100%" cellspacing="0">
               <thead>  
                     <tr>
-                      <th>Escala</th>
-                     <th>Segunda</th>
-                     <th>Terça</th>
-                      <th>Quarta</th>
-                      <th>Quinta</th>
-                      <th>Sexta</th>
-                      <th class="table-danger">Sábado</th>
-                      <th class="table-danger">Domingo</th>
-                      <th>Segunda</th>  <!---->
+                      <th>Militar solicitante</th>
+                      <th>Militar subistituto</th>
+                      <th>Tipo de serviço</th>
+                      <th>Data do serviço</th>
+                      <th>Justificativa</th>
+                      <th>E-mail para resposta</th>
+                      <th>Ações</th>
                     </tr>
                     </thead>
+                    <tbody>
+                   <!-- <tr>
+                      <td>Oficial de dia</td>
+                      <td>1º Ten Flávio</td>
+                      <td>2º Ten Lucas</td>
+                      <td>1º Ten Michel</td>
+                      <td>1º Ten Bruno</td>
+                      <td>2º Ten Carlos</td>
+                      <td>1º Ten Wilker</td>
+                      <td>2º Ten Rogério</td>
+                      <td>1º Ten Avelino</td>
+                    </tr> -->
 
-                    <?php 
-
-                  $consulta = "select tipo_servico.desc_tipo_servico, posto_grad.desc_posto_grad, militar.nome_guerra, data_escala from escala, militar, tipo_servico, posto_grad where militar_idmilitar = idmilitar and tipo_servico_idtipo_servico1 = idtipo_servico and idposto_grad = posto_grad_idposto_grad;";
-
-                   $resultado1 = mysqli_query($conexao,$consulta);
-
-                ?>
-                 
-                <?php
-                  
-                 while ($linha = mysqli_fetch_assoc($resultado1)) { ?>
-                  
-                  <tbody>
-                      <tr>
-                     <!-- <td><?php echo $linha['data_escala']; ?></td> -->
-
-                        <td><?php echo $linha['desc_tipo_servico']; ?></td>
-                        <td><?php echo utf8_encode($linha['desc_posto_grad']); ?>  <?php echo $linha['nome_guerra']; ?></td>
-
-
-                         <!--  <td><?php echo $linha['nome_guerra']; ?></td>
-                        <td><?php echo utf8_encode($linha['desc_posto_grad']); ?></td>
-                        <td><?php echo $linha['data_praca']; ?></td>
-                        <td><?php echo utf8_encode($linha['desc_companhia']); ?></td>
-                        <td><?php echo utf8_encode($linha['desc_situacao']); ?></td>
-                        <td>
-                            <a class="btn btn-success pull-right" href="editar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-edit'></span></a>
-                            <a class="btn btn-danger pull-right"  href="deletar-militar.php?id=<?php echo $linha["idmilitar"]; ?>"><span class='fa fa-trash'></span></a>         
--->
-                      </tr>
-                  </tbody>
-
-                    
-
-                <?php } ?>
-
-
-
-  
+                    </tbody>
               </table>
             </div>
           </div>

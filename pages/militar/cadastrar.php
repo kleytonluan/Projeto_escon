@@ -8,7 +8,8 @@ $data_praca =  mysqli_real_escape_string($conexao, $_POST['data_praca']);
 $posto_grad =  mysqli_real_escape_string($conexao, $_POST['posto_grad']);
 $companhia =  mysqli_real_escape_string($conexao, $_POST['companhia']);
 $situacao =  mysqli_real_escape_string($conexao, $_POST['situacao']);
-$folga =  mysqli_real_escape_string($conexao, $_POST['folga']);
+$folga_preta =  mysqli_real_escape_string($conexao, $_POST['folga_preta']);
+$folga_vermelha =  mysqli_real_escape_string($conexao, $_POST['folga_vermelha']);
 $tipo_servico =  mysqli_real_escape_string($conexao, $_POST['tipo_servico']);
 
 
@@ -49,8 +50,9 @@ $insert = "INSERT INTO militar (
                         posto_grad_idposto_grad, 
                         companhia_idcompanhia, 
                         situacao_idsituacao1, 
-                        folga,
-                        tipo_servico_idtipo_servico) 
+                        folga_preta,
+                        folga_vermelha,
+                        tipo_servico_idtipo_servico1) 
                   VALUES (
                         '$nome_completo',
                         '$nome_guerra',
@@ -58,10 +60,11 @@ $insert = "INSERT INTO militar (
                         $posto_grad,
                         $companhia,
                         $situacao,
-                        $folga, 
+                        $folga_preta,
+                        $folga_vermelha, 
                         $tipo_servico)";
 
-//echo ($insert);                     
+#echo ($insert);                     
 
 
 if($conexao->query($insert) === TRUE) {

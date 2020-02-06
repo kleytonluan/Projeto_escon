@@ -30,10 +30,12 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/icons/touch-icon-iphone-retina.png">
   <script src="lib/offline.min.js"></script>
   <script src="js/offline-simulate-ui.min.js"></script>
+ <!-- <script src="notificacao.js"></script> -->
+
   <!--<link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon">
   <link rel="icon" href="../../favicon.ico" type="image/x-icon">-->
   <link rel="manifest" href="manifest.json">
-  <!--<script>
+  <script>
 
       let refreshing;
 
@@ -46,7 +48,7 @@
         window.location.reload();
         refreshing = true;
       });
-  </script>-->
+  </script>
 
 
 </head>
@@ -109,7 +111,7 @@
         </a>
             
                          
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script><!-- Chama a biblioteca JQuery -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script><!-- Chama o arquivo Bootstrap JavaScript -->
         <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -186,7 +188,7 @@
         <div id="tblCustomers" class="card mb-3">
           <div  class="card-header">
            <i class="fas fa-table"></i>
-            PREVISÃO DA ESCALA DE SERVIÇO
+            PREVISÃO DA ESCALA DE SERVIÇO DO DIA 03 A 10/02/2020
            <div class="form-group col-md-2">
                  <!-- <label for="name">Escala do dia:</label>
                   <input type="date" class="form-control " id="date" value="2019-06-08">
@@ -200,20 +202,20 @@
             <div class="table-responsive">
               <div id="dvData">
               
-                <table id="dtHorizontal" class="table table-hover table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
+                <table id="consultar" class="table table-hover table-bordered" width="100%" cellspacing="0" style="border:1px solid black;" >
                 <!-- <embed src="arquivos/atual.png" width="760" height="500"> <embed src="/var/www/html/escalas/testes/editada.png" width="760" height="500">  --> 
                    <thead>  
 
                     <tr>
-                      <th>Escala</th>
-                      <th>Segunda</th>
-                      <th>Terça</th>
-                      <th>Quarta</th>
-                      <th>Quinta</th>
-                      <th>Sexta</th>
-                      <th class="table-danger">Sábado</th>
-                      <th class="table-danger">Domingo</th>
-                      <th>Segunda</th>
+                      <th>Escala<br></th>
+                      <th>Segunda<br>03/02/2020</th>
+                      <th>Terça<br>04/02/2020</th>
+                      <th>Quarta<br>05/02/2020</th>
+                      <th>Quinta<br>06/02/2020</th>
+                      <th>Sexta<br>07/02/2020</th>
+                      <th class="table-danger">Sábado<br>08/02/2020</th>
+                      <th class="table-danger">Domingo<br>09/02/2020</th>
+                      <th>Segunda<br>10/02/2020</th>
                     </tr>
                   </thead>
                  <tbody>
@@ -289,6 +291,7 @@
                     </tr>
                   </tbody>
                 </table>
+             
               </div>
             </div>
  
@@ -303,6 +306,7 @@
                                
 
                 <a href="#" data-toggle="modal" data-target="#Modal02" class="btn btn-info nao-flutuar lado btn-sm">Trocar serviço</a>
+
                 </a>
                     <div id="Modal02" class="modal fade" tabindex="-1" role="dialog"><!-- Início do código da janela modal -->
                         <div class="modal-dialog">
@@ -430,6 +434,7 @@
   <script src="js/offline.js"></script>
   <script src="js/tableHTMLExport.js"></script>
   <script src="plugin/iCheck/icheck.min.js"></script>
+
   
   <script>
       if ("serviceWorker" in navigator) {
@@ -446,109 +451,8 @@
         }
   </script>
 
+  
 
-<!--
-  <script>
-
-      let newWorker;
-
-      document.getElementById('reload').addEventListener('click', function() {
-        newWorker.postMessage({ action: 'skipWaiting'});
-      });
-
-      if('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js')
-          .then(function(registration) {
-          registration.addEventListener('updatefound', () => { // [B]
-            // Uma atualização no Service Worker foi encontrada, instalando...
-            newWorker = registration.installing; // [C]
-
-            newWorker.addEventListener('statechange', () => {
-              // O estado do Service Worker mudou?
-              switch (newWorker.state) {
-                case 'installed': {
-                  // Existe um novo Service Worker disponível, mostra a notificação
-                  if (navigator.serviceWorker.controller) {
-                    let notification = document.getElementById('notification');
-                    notification.className = 'show';
-                    break;
-                  }
-                }
-              }
-            });
-          });
-
-          // SUCESSO - ServiceWorker Registrado
-          console.log('ServiceWorker registrado com sucesso no escopo: ',registration.scope);
-        })
-        .catch(function(err) {
-          // ERRO - Falha ao registrar o ServiceWorker
-          console.log('Falha ao registrar o ServiceWorker:', err);
-        });
-      }
-          
-  </script> -->
-
-        
-  <!-- /**         
-          
-          {
-            console.log('Service Worker Registrado com sucesso!');
-            });
-
-        navigator.serviceWorker.addEventListener('message', function(event) {
-        console.log(event.data.message); // Hello World !
-        });
-      }
-     if (window.webkitNotifications) {
-        console.log('Seu browser suporta Notifications');
-      }
-      else {
-        console.log('Seu browser não suporta Notifications =(');
-      }**/
-
-    <script> 
-      // Inicialize o Firebase 
-      var config = {
-        apiKey: "AIzaSyAZsFxnu1KUfNHvXcxxT4k_HoA2Vf_s4xI",
-        authDomain: "escon-9ba26.firebaseapp.com",
-        databaseURL: "https://escon-9ba26.firebaseio.com",
-        projectId: "escon-9ba26",
-        storageBucket: "escon-9ba26.appspot.com",
-        messagingSenderId: "533904781159" 
-      }; 
-      firebase.initializeApp (config); 
-    </script>
-    
-     <script> 
-        const messaging = firebase.messaging (); 
-        messaging.requestPermission () 
-        .then (function () { 
-            console.log ('Notificação de permissão concedida.'); 
-            return messaging.getToken (); 
-        }) 
-        .then (function (token) { 
-            console.log (token); 
-        }) 
-        .catch (function (err) { 
-            console.log ('Não foi possível obter permissão para notificar.', err); 
-        }) 
-      </script>
-
-
-
-  Demo scripts for this page
-  <script src="js/demo/datatables-demo.js"></script>
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script>
-
-      $(document).ready(function() {
-        $('#dtHorizontal').DataTable( {
-            "scrollY": 200,
-            "scrollX": true
-        } );
-    } );
-  </script>-->
 
 </body>
 

@@ -141,9 +141,10 @@
         <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-fw fa-folder"></i>
           <span>Trocas</span>
+          <span class="badge badge-danger">100+</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="pages/escala/cadastro-escala.php">Solicitações</a>
+          <a class="dropdown-item" href="pages/troca/trocas-servico.php">Solicitações</a>
         </div>
       </li>
     </ul>
@@ -160,6 +161,41 @@
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
         <!-- Area Chart Example-->
+        <div class="row">
+
+        <div class="col-lg-5 ">
+            <div class="card mb-5">
+              <div class="card-header">
+                <i class="fas fa-chart-pie"></i>
+                Gráfico de Quantidade de Oficiais</div>
+              <div class="card-body">
+
+              <div id="oficial" style="width: 470px; height: 350px;"></div>
+
+            </div>
+              <div class="card-footer small text-muted">
+                <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
+            </div>
+          </div>
+        </div> 
+        <div class="col-lg-5">
+            <div class="card mb-5 lado">
+              <div class="card-header">
+                <i class="fas fa-chart-pie"></i>
+                Gráfico de Quantidade de Praças</div>
+              <div class="card-body">
+
+              <div id="praca" style="width: 470px; height: 350px;"></div>
+
+            </div>
+              <div class="card-footer small text-muted">
+                <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
+            </div>
+          </div>
+        </div>
+       
+    </div>
+<!--
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-chart-area"></i>
@@ -170,123 +206,9 @@
           </div>
           <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
         </div>
-<!--
-        <div class="col-lg-5">
-            <div class="card mb-5">
-              <div class="card-header">
-                <i class="fas fa-chart-pie"></i>
-                Gráfico por posto/Graduação</div>
-              <div class="card-body">
-              
-              <div id="piechart" style="width: 470px; height: 350px;"></div>
-              </div>
-              <div class="card-footer small text-muted">
-                <div class="card-footer small text-muted">Atualizado ontem às 11:59 PM</div>
-            </div>
-          </div>
-        </div>    -->
-  
-     
 
-      <!-- DataTables Example -->
-       <!-- <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Previsão da escala</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table id="example" class="table table-bordered" width="100%" cellspacing="0">
-                <thead>
-                  <tr>
-                    <th>Escala</th>
-                    <th>Segunda</th>
-                    <th>Terça</th>
-                    <th>Quarta</th>
-                    <th>Quinta</th>
-                    <th>Sexta</th>
-                    <th>Sábado</th>
-                    <th>Domingo</th>
-                    <th>Segunda</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Oficial de dia</td>
-                    <td>1º Ten Flávio</td>
-                    <td>2º Ten Lucas</td>
-                    <td>1º Ten Michel</td>
-                    <td>1º Ten Bruno</td>
-                    <td>2º Ten Carlos</td>
-                    <td>1º Ten Wilker</td>
-                    <td>2º Ten Rogério</td>
-                    <td>1º Ten Avelino</td>
-                  </tr>
-                  <tr>
-                    <td>Adjunto</td>
-                    <td>1º Sgt Alfonso</td>
-                    <td>2º Sgt Paulo Cesar</td>
-                    <td>1º Sgt Heldon</td>
-                    <td>1º Sgt Heles</td>
-                    <td>2º Sgt Cavalcante</td>
-                    <td>2º Sgt Valmar</td>
-                    <td>2º Sgt Wemberg</td>
-                    <td>1º Sgt Veloso</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Paiol</td>
-                    <td>2º Sgt Clésio</td>
-                    <td>2º Sgt Soaresr</td>
-                    <td>2º Sgt Celestimar</td>
-                    <td>2º Sgt Jackson</td>
-                    <td>2º Sgt Algusto</td>
-                    <td>2º Sgt Willames</td>
-                    <td>2º Sgt R. Sousa</td>
-                    <td>2º Sgt Jordão</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Ceem</td>
-                    <td>3º Sgt Gaspar</td>
-                    <td>3º Sgt Karlos</td>
-                    <td>3º Sgt Luz</td>
-                    <td>3º Sgt Gladerson</td>
-                    <td>3º Sgt Sousa</td>
-                    <td>3º Sgt James</td>
-                    <td>3º Sgt De Andrade</td>
-                    <td>3º Sgt Victor</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Ccap</td>
-                    <td>3º Sgt Kleyton</td>
-                    <td>3º Sgt Misael</td>
-                    <td>3º Sgt Flávio</td>
-                    <td>3º Sgt Franco</td>
-                    <td>3º Sgt Da Silva</td>
-                    <td>3º Sgt Sena</td>
-                    <td>3º Sgt Pacheco</td>
-                    <td>3º Sgt Batista</td>
-                  </tr>
-                  <tr>
-                    <tr>
-                    <td>Sgt Guarda</td>
-                    <td>3º Sgt Bruno</td>
-                    <td>3º Sgt Leiane</td>
-                    <td>3º Sgt Kelicio</td>
-                    <td>3º Sgt Lima</td>
-                    <td>3º Sgt Silva Ramos</td>
-                    <td>3º Sgt Geciana</td>
-                    <td>3º Sgt Fortaleza</td>
-                    <td>3º Sgt Adolfo</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+        
 
-      </div>
        /.container-fluid -->
 
       <!-- Sticky Footer -->
@@ -347,7 +269,7 @@
   <script src="js/demo/datatables-demo.js"></script>
   <script src="js/demo/chart-area-demo.js"></script>
 
- <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ <script type="text/javascript" src="js/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -356,9 +278,9 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Posto/Graduação', 'Quantidade'],
-          ['1º Ten', 11], /*<?php echo $cont_1ten; ?>],*/
-          ['2º Ten', 23], //<?php echo $cont_2ten; ?>],
-         // ['Asp Of', <?php echo $cont_asp;  ?>],
+          ['1º Ten', 4],// <?php echo $cont_1ten; ?>],
+          ['2º Ten', 7],//<?php echo $cont_2ten; ?>],
+          ['Asp Of', 2],//<?php echo $cont_asp;  ?>],
          // ['1º Sgt', <?php echo $cont_1sgt; ?>],
          // ['2º Sgt', <?php echo $cont_2sgt; ?>],
          // ['3º Sgt', <?php echo $cont_3sgt; ?>],
@@ -366,14 +288,39 @@
         ]);
 
         var options = {
-          title: 'Quantidade de militares por posto/Graduação'
+          title: 'Quantidade de Oficiais cadastrados'
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        var chart = new google.visualization.PieChart(document.getElementById('oficial'));
 
         chart.draw(data, options);
       }
-    </script> -->
+    </script>
+
+<script type="text/javascript" src="js/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Posto/Graduação', 'Quantidade'],
+          ['1º Sgt', 6],//, <?php echo $cont_1sgt; ?>],
+          ['2º Sgt', 8],//, <?php echo $cont_2sgt; ?>],
+          ['3º Sgt', 17],//, <?php echo $cont_3sgt; ?>],
+
+        ]);
+
+        var options = {
+          title: 'Quantidade de Praças cadastrados'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('praca'));
+
+        chart.draw(data, options);
+      }
+    </script>
 
 </body>
 

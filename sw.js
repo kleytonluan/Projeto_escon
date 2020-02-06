@@ -35,52 +35,6 @@ self.addEventListener('activate',  event => {
   );
 });
 
-/**
-self.addEventListener('message', function(event) {
-  if (event.data.action === 'skipWaiting') {
-    self.skipWaiting();
-  }
-});
-
-/**  Serve from Cache
-self.addEventListener("fetch", event => {
-  event.respondWith(
-   caches.match(event.request)
-      .then(response => {
-        return response || fetch(event.request);
-      })
-      .catch(() => {
-        alert("Voce esta Offline. Joge esse joguindo até chegar internet. ;D");
-        return caches.match('offline/index.html');
-      })
-  )
-});*/
-
-/**
-self.addEventListener('fetch', event => {
-  // request.mode = navigate isn't supported in all browsers
-  // so include a check for Accept: text/html header.
-  if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
-        event.respondWith(
-          fetch(event.request.url).catch(error => {
-              // Return the offline page
-              //alert("Voce esta Offline. Joge esse joguindo até chegar internet. ;D", error )
-              return caches.match('offline/index.html');
-
-              //return caches.match(offlineUrl);
-          })
-    );
-  }
-  else{
-        // Respond with everything else if we can
-        event.respondWith(caches.match(event.request)
-                        .then(function (response) {
-                        return response || fetch(event.request);
-                    })
-            );
-      }
-});**/
-
 self.addEventListener('fetch', function(event) {
   event.respondWith(
     // Try the cache
@@ -151,16 +105,16 @@ self.addEventListener('fetch', function(event) {
 
 //Push notification 
 
- /**self.addEventListener('push', function (event) {
+ /*self.addEventListener('push', function (event) {
   if (event && event.data) {
     const data = event.data.json();
     event.waitUntil(self.registration.showNotification(data.title, {
       body: data.body,
       icon: data.icon || null
     });
-  }
-});
-
+  };
+}); */
+ /*
 function messageToClient(client, data) {
   return new Promise(function(resolve, reject) {
     const channel = new MessageChannel();
@@ -195,7 +149,7 @@ self.addEventListener('push', function (event) {
       }));
     }
   }
-});**/
+}); */
 
 /**self.addEventListener('fetch', event => {
   event.respondWith(

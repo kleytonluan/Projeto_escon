@@ -106,7 +106,7 @@
           <span>Trocas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="pages/escala/cadastro-escala.php">Solicitações</a>
+          <a class="dropdown-item" href="../troca/trocas-servico.php">Solicitações</a>
         </div>
       </li>
     </ul>
@@ -241,11 +241,16 @@
                                       </select>
                                     </p>
                                 </div>
-                                <div class="form-group col-md-2">
-                                  <label>Folga</label>
-                                  <input name="folga" type="text" required class="form-control campoDefault" value="0">
-                                </div>          
 
+                                    <div class="form-group col-md-2">
+                                      <label>Folga preta</label>
+                                      <input name="folga_preta" type="text" required class="form-control campoDefault" value="0">
+                                    </div>  
+
+                                    <div class="form-group col-md-2">
+                                      <label>Folga vermelha</label>
+                                      <input name="folga_vermelha" type="text" required class="form-control campoDefault" value="0">
+                                    </div> 
                               </div>
                             <!--  <div id="imendaHTMLitem"></div> -->
 

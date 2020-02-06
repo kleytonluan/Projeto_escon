@@ -110,7 +110,7 @@
           <span>Trocas</span>
         </a>
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-          <a class="dropdown-item" href="pages/escala/cadastro-escala.php">Solicitações</a>
+          <a class="dropdown-item" href="../troca/trocas-servico.php">Solicitações</a>
         </div>
       </li>
     </ul>
@@ -144,7 +144,7 @@
                     <th>Data de praça</th>
                     <th>Companhia</th>
                     <th>Status</th>
-                    <th>Ação</th>
+                    <th>Ações</th>
 
                   </tr>
                 </thead>

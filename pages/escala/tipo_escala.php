@@ -8,32 +8,31 @@ include_once("../../conexao.php");
     $pesquisa = "SELECT 
                     militar.idmilitar, 
                     militar.nome_completo, 
-                    militar.folga, 
+                    militar.folga_preta,
+                    militar.folga_vermelha,  
                     militar.nome_guerra, 
                     militar.data_praca, 
                     militar.situacao_idsituacao1, 
                     militar.posto_grad_idposto_grad,
                     posto_grad.desc_posto_grad, 
-                    situacao.desc_situacao, 
-                    companhia.desc_companhia 
+                    situacao.desc_situacao
                 FROM 
                     militar, 
                     situacao, 
-                    companhia, 
                     posto_grad,
                     tipo_servico
                 WHERE 
                     idsituacao = situacao_idsituacao1 
                 AND 
-                    idtipo_servico = tipo_servico_idtipo_servico
+                    idtipo_servico = tipo_servico_idtipo_servico1
                 AND
-                    idcompanhia = companhia_idcompanhia 
-                AND 
                     posto_grad_idposto_grad = idposto_grad 
                 AND 
                     desc_situacao = ('pronto') 
                 AND 
-                    idtipo_servico = $tipo_servico;";
+                    idtipo_servico = $tipo_servico 
+                ORDER BY 
+                    folga_preta desc;";
 
             
     $resultado = mysqli_query($conexao,$pesquisa);
@@ -48,7 +47,9 @@ include_once("../../conexao.php");
             'data_praca' => $linha['data_praca'],
             'desc_companhia' => utf8_encode($linha['desc_companhia']),
             'desc_situacao' => utf8_encode($linha['desc_situacao']),
-            'folga' => $linha['folga'],
+            'folga_preta' => $linha['folga_preta'],
+            'folga_vermelha' => $linha['folga_vermelha'],
+
 
         );
 }

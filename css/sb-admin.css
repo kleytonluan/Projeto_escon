@@ -10951,6 +10951,10 @@ footer.sticky-footer {
   
 }
 
+.mHide {
+  display: none
+}
+
 footer.sticky-footer .copyright {
   line-height: 1;
   font-size: 0.8rem;
