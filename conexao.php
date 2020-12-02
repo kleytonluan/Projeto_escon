@@ -2,8 +2,8 @@
 
 $servidor = "localhost";
 $usuario = "root";
-$senha = "evans";
-$dbname = "escon3";
+$senha = "senha";
+$dbname = "banco";
 
 $conexao = mysqli_connect ($servidor, $usuario, $senha, $dbname) or die ("Não foi possivel conectar!");
 
